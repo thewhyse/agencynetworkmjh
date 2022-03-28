@@ -1,0 +1,101 @@
+@import "../base/colors";
+/*HOME PAGE*/
+/*Hero*/
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  .front-hero-logo .svg-holder {
+    width: 40%;
+  }
+}
+
+/*the Serum page*/
+#ts_in_4_ways {
+  background: $ts_light-gray;
+}
+@media all and (max-width: 767px) {
+  #ts_in_4_ways {
+    .ts_ways_holder {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      .et_pb_column:nth-child(3) {
+        -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+        order: 4;
+      }
+    }
+  }
+}
+
+/*Contact Page*/
+
+#ts_form_wrapper {
+  position: relative;
+  &::before {
+    content: '*Required field';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-weight: 600;
+  }
+}
+
+body #page-container .et_pb_section #ts_contact_form {
+  .et_pb_button {
+    width: 335px;
+    margin: 40px auto 0;
+    padding: 10px 90px;
+  }
+
+  .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
+    width: 33%;
+    float: left;
+    clear: initial;
+  }
+
+  .et_pb_button:hover {
+    padding: 10px 90px !important;
+  }
+
+  .et_contact_bottom_container {
+    float: none;
+    clear: both;
+  }
+}
+
+/*** Responsive Styles Tablet Only ***/
+@media all and (min-width: 768px) and (max-width: 980px) {
+  body #page-container .et_pb_section #ts_contact_form {
+    .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
+      width: 50% !important;
+      float: left;
+      clear: initial;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  body #page-container .et_pb_section #ts_contact_form .et_pb_button {
+    width: 80%;
+    padding: 10px 90px;
+  }
+
+  body #page-container .et_pb_section #ts_contact_form {
+    .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
+      width: 100% !important;
+      float: left;
+      clear: initial;
+    }
+  }
+
+  .join-our-team-section {
+    .mjh-logo {
+      .join-us-logo-container {
+        flex-direction: column;
+      }
+    }
+  }
+
+}
+/* END Contact Page*/
+

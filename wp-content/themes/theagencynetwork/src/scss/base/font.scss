@@ -1,0 +1,61 @@
+
+/*htdocs/wp-content/themes/./../../src/fonts/AvenirNext/AvenirNext-Bold.ttf*/
+
+/*
+@font-face {
+  font-family: 'Avenir Next Bold';
+  src: url('../../src/fonts/AvenirNext/AvenirNext-Bold.ttf') format('truetype'); !* Safari, Android, iOs*!
+}
+
+@font-face {
+  font-family: 'Avenir Next Demi Bold';
+  src: url('../../src/fonts/AvenirNext/AvenirNext-DemiBold.ttf') format('truetype'); !* Safari, Android*!
+}
+
+@font-face {
+  font-family: 'Avenir Next Italic';
+  src: url('../../src/fonts/AvenirNext/AvenirNext-Italic.ttf') format('truetype'); !* Safari, Android, iOS *!
+}
+
+@font-face {
+  font-family: 'Avenir Next Medium';
+  src: url('../../src/fonts/AvenirNext/AvenirNext-Medium.ttf') format('truetype'); !* Safari, Android, iOS *!
+}
+
+@font-face {
+  font-family: 'Avenir Next Medium Italic';
+  src: url('../../src/fonts/AvenirNext/AvenirNext-MediumItalic.ttf') format('truetype'); !* Safari, Android, iOS *!
+}
+
+@font-face {
+  font-family: 'Avenir Next Regular';
+  src: url('../../src/fonts/AvenirNext/AvenirNext-Regular.ttf') format('truetype'); !* Safari, Android, iOS *!
+}
+*/
+@import "colors";
+
+@mixin demi-bold($size) {
+  font-family: "Avenir Next DemiBold", sans-serif;
+  font-size: $size + rem !important;
+  font-weight: 600 !important;
+  color: $ts_font_color;
+}
+
+@mixin bold($size) {
+  font-family: "Avenir Next Bold", sans-serif;
+  font-size: $size + rem !important;
+  font-weight: 900 !important;
+  color: $ts_font_color;
+}
+
+@mixin italic($size) {
+  font-family: "Avenir Next Italic", sans-serif;
+  font-size: $size + rem !important;
+  font-weight: 300 !important;
+}
+
+@mixin regular($size) {
+  font-family: "Avenir Next Regular", sans-serif;
+  font-size: $size + rem !important;
+  font-weight: 400 !important;
+}
