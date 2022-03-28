@@ -346,9 +346,9 @@ function uaf_save_font_assign(){
 
 	if (!empty($finalElements) && !empty($_POST['font_key'])){
 		$fontsImplementData[date('ymdhis')]	= array(
-											'font_key' 		=> $_POST['font_key'],
-											'font_name'		=> $font_name,
-											'font_elements' => $finalElements
+											'font_key' 		=> sanitize_title($_POST['font_key']),
+											'font_name'		=> sanitize_title($font_name),
+											'font_elements' => sanitize_text_field($finalElements)
 										);
 		$updateFontsImplementData		= json_encode($fontsImplementData);
 		update_option('uaf_font_implement',$updateFontsImplementData);
@@ -466,9 +466,11 @@ function uaf_add_pre_defined_font($fontId){
 
 function uaf_group_fontdata_by_fontname($fontDatas){
 	$returnArray = array();
-    foreach($fontDatas as $key => $value){
-       $returnArray[$value['font_name']][$key] = $value;
-    }
+    if (!empty($fontDatas)){
+    	foreach($fontDatas as $key => $value){
+	       $returnArray[$value['font_name']][$key] = $value;
+	    }	
+    }    
     return $returnArray;
 }
 

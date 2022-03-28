@@ -123,6 +123,9 @@ class Connection {
 		$users = get_users( array( 'fields' => array( 'ID' ) ) );
 		foreach ( $users as $user ) {
 			delete_user_meta( $user->ID, 'leadin_email' );
+			delete_user_meta( $user->ID, 'leadin_skip_review' );
+			delete_user_meta( $user->ID, 'leadin_review_banner_last_call' );
+			delete_user_meta( $user->ID, 'leadin_has_min_contacts' );
 		}
 
 		OAuth::deauthorize();

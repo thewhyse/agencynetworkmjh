@@ -187,7 +187,7 @@ function uaf_kirki_custom_fonts($standard_fonts) {
 	$fonts_uaf		= array();
 	if (!empty($fontsData)):
 		foreach ($fontsData as $fontName=>$fontData):
-			$fonts_uaf[$fontData['font_name']] = array(
+			$fonts_uaf[$fontName] = array(
 				'label' 		=> $fontName.' [Use Any Font]',
 				'variants' 		=> array('regular'),
 				'stack'			=> $fontName

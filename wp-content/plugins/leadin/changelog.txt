@@ -1,3 +1,25 @@
+= 8.7.5 (2022-03-14) =
+* Always add utm params to iframe
+
+= 8.7.0 (2022-03-11) =
+* Validations to when show the review banner
+* Add banner to ask the user to leave a review
+
+= 8.6.0 (2022-03-09) =
+* Add banner to ask the user to leave a review
+
+= 8.5.50 (2022-02-22) =
+* Increase WP tested up to version
+
+= 8.5.0 (2022-02-11) =
+* Add api to hide review banner
+
+= 8.4.662 (2022-02-04) =
+* Remove "shortcode" property from form definition as it was not used anywhere
+
+= 8.4.598 (2022-01-25) =
+* Add sandbox attribute to iframe
+
 = 8.4.463 (2021-12-16) =
 * Store activation time in the database. This will be needed to show contextual suggestions at the right time in the future.
 
@@ -343,50 +365,4 @@
 = 7.9.2 (2019-08-19) =
 * Fix infinite loading in pages editor for Gutenberg Forms block
 * Updated translations
-
-= 7.9.1 (2019-08-14) =
-* Fix register_block_type does not exist error.
-
-= 7.9.0 (2019-08-13) =
-* Add HubSpot Form Gutenberg Block
-
-= 7.8.0 (2019-08-07) =
-* Replace activate_plugins with manage_options
-* Upgrade wordpress-scripts
-* Remove tracking code from login page
-* Added Logo svg for banner
-
-= 7.6.0 (2019-07-18) =
-* Remove echo from enqueue_scripts hooks
-* Update url on forms dashboard
-* Add nonce checks on connect/disconnect APIs
-* Sanitize portal id on connect APIs
-* Remove queries to DB
-* Update plugin permissions
-* Update `leadin_route` query parameter
-* Remove HTML from translations
-* Remove notice for outdated plugin
-* Remove unused options
-* Escape variables
-* Avoid phpcs errors on file_get_contents
-* Fix mispelled WordPress
-
-= 7.5.5 (2019-07-15) =
-* Fix comment escaping
-* Remove unused cookie (fix error message on activation)
-* Lock iframe to plugin version
-* Add unit tests for JS
-* Update readme.txt
-* Sanitize inputs
-* Sync route with plugin
-
-= 7.5.3 (2019-06-25) =
-* Rename "chatflow" to "live chat"
-* Update readme.txt
-* Update banners
-* Fix themes colors
-* Refactor code style
-
-= 7.5.4 (2019-06-25) =
-* Hotfix
 

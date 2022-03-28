@@ -42,3 +42,7 @@ export function leadinDisconnectPortal() {
 export function skipSignup(defaultApp) {
   return postAjax('leadin_skip_signup', { defaultApp });
 }
+
+export function skipReview() {
+  return postAjax('leadin_skip_review');
+}

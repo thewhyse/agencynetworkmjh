@@ -4,9 +4,9 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: CRM, Email Marketing, Live Chat, Forms, Analytics, Popups, Newsletter
 Requires at least: 4.0
-Tested up to: 5.8
+Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 8.4.465
+Stable tag: 8.7.7
 
 Capture, organize and engage web visitors with free forms, live chat, CRM (contact management), email marketing, and analytics. Easy to use, no coding.
 
@@ -228,12 +228,13 @@ Please visit the <a href="https://community.hubspot.com/?utm_source=wordpress-pl
 == Changelog ==
 
 <a href="http://plugins.svn.wordpress.org/leadin/trunk/changelog.txt" target="_blank">Full changelog here</a>
-- Current version: 8.4.465
-- Version release date: 2021-12-17
+- Current version: 8.7.7
+- Version release date: 2022-03-14
 
-= 8.4.463 (2021-12-16) =
-* Store activation time in the database. This will be needed to show contextual suggestions at the right time in the future.
+= 8.7.5 (2022-03-14) =
+* Always add utm params to iframe
 
-= 8.4.353 (2021-11-29) =
-* Add rel='noopener' to target _blank link
+= 8.7.0 (2022-03-11) =
+* Validations to when show the review banner
+* Add banner to ask the user to leave a review
 

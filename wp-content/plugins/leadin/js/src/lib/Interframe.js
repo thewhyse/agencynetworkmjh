@@ -11,6 +11,7 @@ import { leadinGetPortalInfo } from '../utils/portalInfo';
 import {
   leadinConnectPortal,
   leadinDisconnectPortal,
+  skipReview,
   skipSignup,
 } from '../api/wordpressAjaxClient';
 
@@ -32,6 +33,7 @@ const methods = {
   setLeadinUnAuthedNavigation,
   makeInterframeProxyRequest,
   fetchOAuthToken,
+  skipReview,
 };
 
 const UNAUTHORIZED = 'unauthorized';

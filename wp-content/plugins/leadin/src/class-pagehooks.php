@@ -147,7 +147,6 @@ class PageHooks {
 							portalId: ' . $portal_id . ',
 							formId: "' . $id . '",
 							target: "#hbspt-form-' . $form_div_uuid . '",
-							shortcode: "wp",
 							region: "' . $hublet . '",
 							' . LeadinFilters::get_leadin_forms_payload() . '
 						});

@@ -13,6 +13,7 @@ use Leadin\options\AccountOptions;
 use Leadin\options\HubspotOptions;
 use Leadin\admin\Connection;
 use Leadin\admin\Impact;
+use Leadin\admin\AdminUserMetaData;
 
 /**
  * Class containing all the constants used for admin script localization.
@@ -85,8 +86,7 @@ class AdminConstants {
 		$signup_params['leadinPluginVersion']  = constant( 'LEADIN_PLUGIN_VERSION' );
 		$user_prefill_params                   = self::get_signup_prefill_params_array();
 		$signup_params                         = array_merge( $signup_params, $user_prefill_params );
-		$utm_params                            = self::get_utm_query_params_array();
-		return array_merge( $signup_params, $utm_params );
+		return $signup_params;
 	}
 
 	/**
@@ -110,6 +110,9 @@ class AdminConstants {
 			'portalDomain' => AccountOptions::get_portal_domain(),
 			'hsdio'        => DeviceId::get(),
 		);
+
+		$utm_params     = self::get_utm_query_params_array();
+		$hubspot_config = array_merge( $hubspot_config, $utm_params );
 
 		if ( User::is_admin() ) {
 			$hubspot_config['admin'] = '1';
@@ -174,6 +177,7 @@ class AdminConstants {
 			'accountName'           => AccountOptions::get_account_name(),
 			'portalDomain'          => AccountOptions::get_portal_domain(),
 			'portalEmail'           => get_user_meta( $wp_user_id, 'leadin_email', true ),
+			'reviewSkippedDate'     => AdminUserMetaData::get_skip_review(),
 			'loginUrl'              => Links::get_login_url(),
 			'routes'                => Links::get_routes_mapping(),
 			'theme'                 => get_option( 'stylesheet' ),
