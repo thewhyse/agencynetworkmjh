@@ -2107,6 +2107,29 @@ class ET_Dynamic_Assets {
 	}
 
 	/**
+	 * Get the post IDs of active WP Editor templates and template parts.
+	 *
+	 * @since 4.14.8
+	 *
+	 * @return array
+	 */
+	public function get_wp_editor_template_ids() {
+		$templates    = et_builder_get_wp_editor_templates();
+		$template_ids = array();
+
+		// Bail early if current page doesn't have templates.
+		if ( empty( $templates ) ) {
+			return $template_ids;
+		}
+
+		foreach ( $templates as $template ) {
+			$template_ids[] = isset( $template->wp_id ) ? (int) $template->wp_id : 0;
+		}
+
+		return $template_ids;
+	}
+
+	/**
 	 * Merge multiple arrays and returns an array with unique values.
 	 *
 	 * @since 4.10.0
@@ -2693,6 +2716,61 @@ class ET_Dynamic_Assets {
 		$all         = $this->get_global_assets_list();
 		$assets      = $all;
 		$has_btf     = ! empty( $content->btf );
+
+		global $post;
+
+		$post_id = ! empty( $post ) ? intval( $post->ID ) : 0;
+
+		if ( $post_id > 0 ) {
+			/**
+			 * Filters omit image attributes.
+			 *
+			 * @param array $img_attrs Image attributes.
+			 *
+			 * @since 4.14.7
+			 */
+			$additional_img_attrs = apply_filters( 'et_dynamic_assets_atf_omit_image_attributes', [] );
+			$default_img_attrs    = array(
+				'src',
+				'image_url',
+				'image',
+				'logo_image_url',
+				'header_image_url',
+				'logo',
+				'portrait_url',
+				'image_src',
+			);
+
+			if ( ! is_array( $additional_img_attrs ) ) {
+				$additional_img_attrs = [];
+			}
+
+			$sanitized_additional_img_attrs = [];
+			foreach ( $additional_img_attrs as $attr ) {
+				$sanitized_additional_img_attrs[] = sanitize_text_field( $attr );
+			}
+
+			$img_attrs   = array_merge( $default_img_attrs, $sanitized_additional_img_attrs );
+			$img_pattern = '';
+
+			foreach ( $img_attrs as $img_attr ) {
+				$or_conj      = ! empty( $img_pattern ) ? '|' : '';
+				$img_pattern .= "{$or_conj}({$img_attr}=)";
+			}
+
+			$result = preg_match_all( '/' . $img_pattern . '/', $content_atf, $matches );
+
+			$matched_attrs = $result ? count( $matches[0] ) : 0;
+			$skip_images   = max( $matched_attrs, 0 );
+
+			if ( $skip_images > 1 ) {
+				update_post_meta(
+					$post_id,
+					'_et_builder_dynamic_assets_loading_attr_threshold',
+					$skip_images
+				);
+			}
+		}
 
 		$atf = array_keys( $atf );
 		$all = array_keys( $all );

@@ -606,8 +606,8 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 		$fields['dropdown_menu_text_color']        = array( 'color' => "%%order_class%%.{$menu_slug} .nav li ul a" );
 		$fields['dropdown_menu_active_link_color'] = array( 'color' => "%%order_class%%.{$menu_slug} .nav li ul li.current-menu-item a" );
 
-		$fields['logo_width']      = array( 'width' => '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap .et_pb_menu__logo, %%order_class%% .et_pb_menu__logo-slot' );
-		$fields['logo_max_width']  = array( 'max-width' => '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap .et_pb_menu__logo, %%order_class%% .et_pb_menu__logo-slot' );
+		$fields['logo_width']      = array( 'width' => '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap, %%order_class%% .et_pb_menu__logo-slot' );
+		$fields['logo_max_width']  = array( 'max-width' => '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap, %%order_class%% .et_pb_menu__logo-slot' );
 		$fields['logo_height']     = array( 'height' => '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap .et_pb_menu__logo img, %%order_class%% .et_pb_menu__logo-slot .et_pb_menu__logo-wrap img' );
 		$fields['logo_max_height'] = array( 'max-height' => '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap .et_pb_menu__logo img, %%order_class%% .et_pb_menu__logo-slot .et_pb_menu__logo-wrap img' );
 
@@ -797,7 +797,7 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 			ET_Builder_Element::set_style( $render_slug, $el_style );
 		}
 
-		$logo_width_selector  = '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap .et_pb_menu__logo, %%order_class%% .et_pb_menu__logo-slot';
+		$logo_width_selector  = '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap, %%order_class%% .et_pb_menu__logo-slot';
 		$logo_height_selector = '%%order_class%% .et_pb_row > .et_pb_menu__logo-wrap .et_pb_menu__logo img, %%order_class%% .et_pb_menu__logo-slot .et_pb_menu__logo-wrap img';
 
 		// Width.
@@ -1326,6 +1326,8 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 				'<div%4$s class="%3$s"%2$s%7$s>
 					%6$s
 					%5$s
+					%13$s
+					%14$s
 					<div class="et_pb_row clearfix">
 						%8$s
 						<div class="et_pb_menu__wrap">
@@ -1350,13 +1352,17 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 				et_core_esc_previously( $this->render_cart() ),
 				et_core_esc_previously( $this->render_search() ),
 				et_core_esc_previously( $mobile_menu ),
-				et_core_esc_previously( $this->render_search_form() )
+				et_core_esc_previously( $this->render_search_form() ),
+				et_core_esc_previously( $this->background_pattern() ), // #13
+				et_core_esc_previously( $this->background_mask() ) // #14
 			);
 		} else {
 			$output = sprintf(
 				'<div%4$s class="%3$s"%2$s%7$s>
 					%6$s
 					%5$s
+					%13$s
+					%14$s
 					<div class="et_pb_row clearfix">
 						%8$s
 						<div class="et_pb_menu__wrap">
@@ -1381,7 +1387,9 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 				et_core_esc_previously( $this->render_cart() ),
 				et_core_esc_previously( $this->render_search() ),
 				et_core_esc_previously( $mobile_menu ),
-				et_core_esc_previously( $this->render_search_form() )
+				et_core_esc_previously( $this->render_search_form() ),
+				et_core_esc_previously( $this->background_pattern() ), // #13
+				et_core_esc_previously( $this->background_mask() ) // #14
 			);
 		}
 
