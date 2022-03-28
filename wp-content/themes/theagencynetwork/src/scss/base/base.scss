@@ -123,33 +123,3 @@ p {
 @media all and (max-width: 479px) {
 
 }
-
-/*
-:root {
-  --magic-number: 0.09719; !* tan(11°)/2 *!
-  --content-width: 100vw;
-  --skew-padding: calc(var(--content-width) * var(--magic-number));
-}
-
-@media screen and (min-width: 42em) {
-  :root {
-    --content-width: 42em;
-  }
-}*/
-
-/*
-:root {
-  --card-height: 70vh;
-}
-
-article.category-publication {
-  min-height: var(--card-height);
-}
-
-@media screen and (max-width: 42em) {
-
-  article.category-publication {
-    height: auto;
-  }
-}
-*/
