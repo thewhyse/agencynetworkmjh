@@ -1,0 +1,51 @@
+/* Redirect Buttons */
+.ts-btn {
+  width: 335px;
+}
+
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  /* Redirect Buttons */
+  .ts-btn {
+    width: 305px;
+  }
+
+/*  Immuno-Marketing page what's next Section   */
+  /*
+  .ts_what-if-whats-next_section {
+    .wi-wn_row-holder {
+      div:first-child {
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+  */
+
+  #ʕ•ᴥ•ʔ .wi-wn_row-holder div {
+    &:first-child {
+      div > div > p {
+        text-align: center;
+      }
+
+      > div {
+        margin-bottom: 0;
+      }
+    }
+
+    &:nth-child(2) div > div > p {
+      text-align: center;
+      position: relative;
+      padding: 40px 0 0;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 24px);
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+}
