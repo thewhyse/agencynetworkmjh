@@ -8,7 +8,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 <div id="main-content">
 
-  <div id="slider-holder">&nbsp;</div>
+  <div id="slider-holder">&nbsp;TEST&nbsp;</div>
 
 <?php if ( ! $is_page_builder_used ) : ?>
 
