@@ -67,11 +67,8 @@ class LimitModifiedDate {
 		}
 
 		// Only enqueue this script if the post-settings-metabox is already enqueued.
-		if ( wp_script_is( 'aioseo-post-settings-metabox', 'enqueued' ) ) {
-			aioseo()->helpers->enqueueScript(
-				'aioseo-limit-modified-date',
-				'js/limit-modified-date.js'
-			);
+		if ( wp_script_is( 'aioseo/js/src/vue/standalone/post-settings/main.js', 'enqueued' ) ) {
+			aioseo()->core->assets->load( 'src/vue/standalone/limit-modified-date/main.js' );
 		}
 	}
 
