@@ -62,4 +62,5 @@ Thumbs.db
 # node_modules #
 wp-content/themes/**/node_modules
 
-
+# Divi cache #
+wp-content/et-cache
