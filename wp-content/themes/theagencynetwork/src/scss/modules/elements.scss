@@ -1,7 +1,9 @@
 /* Redirect Buttons */
+/*
 .ts-btn {
   width: 335px;
 }
+*/
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
@@ -9,19 +11,6 @@
   .ts-btn {
     width: 305px;
   }
-
-/*  Immuno-Marketing page what's next Section   */
-  /*
-  .ts_what-if-whats-next_section {
-    .wi-wn_row-holder {
-      div:first-child {
-        p {
-          text-align: center;
-        }
-      }
-    }
-  }
-  */
 
   #ʕ•ᴥ•ʔ .wi-wn_row-holder div {
     &:first-child {

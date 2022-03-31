@@ -1,18 +1,34 @@
 @import "../base/colors";
-/*HOME PAGE*/
-/*Hero*/
+
+/*  HOME PAGE   */
+
+/*out-links section*/
+#hp-out_links-section {
+  background: rgb(33,63,81);
+  background: linear-gradient(180deg, rgba(33,63,81,1) 0%, rgba(7,13,16,1) 100%);
+
+  
+}
+
+/* END HOME PAGE   */
+
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
+  /*
   .front-hero-logo .svg-holder {
     width: 40%;
   }
+  */
 }
 
 /*the Serum page*/
+/*
 #ts_in_4_ways {
   background: $ts_light-gray;
 }
+*/
 @media all and (max-width: 767px) {
+  /*
   #ts_in_4_ways {
     .ts_ways_holder {
       display: -webkit-box;
@@ -25,6 +41,7 @@
       }
     }
   }
+  */
 }
 
 /*Contact Page*/
