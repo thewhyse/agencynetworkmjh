@@ -4,10 +4,21 @@
 
 /*out-links section*/
 #hp-out_links-section {
-  background: rgb(33,63,81);
-  background: linear-gradient(180deg, rgba(33,63,81,1) 0%, rgba(7,13,16,1) 100%);
+  background: rgb(33, 63, 81);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
+  background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+  background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
 
-  
+  .hp-txt-btn {
+    h3 {
+      color: $ts_lavender;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+
 }
 
 /* END HOME PAGE   */
@@ -108,6 +119,9 @@ body #page-container .et_pb_section #ts_contact_form {
   .join-our-team-section {
     .mjh-logo {
       .join-us-logo-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
       }
     }
