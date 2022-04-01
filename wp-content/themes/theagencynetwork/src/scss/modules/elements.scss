@@ -7,6 +7,15 @@
     h4 {
       font-weight: 400 !important;
     }
+    &::before {
+      content: '˙ ͜ʟ˙';
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 74px;
+      left: -46px;
+      top: 0;
+    }
   }
 }
 
