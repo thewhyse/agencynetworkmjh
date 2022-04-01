@@ -1,7 +1,4 @@
 /* HERO TITLE BLOCK */
-
-
-
 .hero-section {
   #hero-title {
     h4 {
@@ -19,6 +16,23 @@
     }
   }
 }
+
+/*Home page hero*/
+#hp-hero-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/* END HERO TITLE BLOCK */
+
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
