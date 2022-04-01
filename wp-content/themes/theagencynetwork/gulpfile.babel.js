@@ -2,22 +2,21 @@
 import gulp from 'gulp';
 
 import webpack from 'webpack-stream';
-
 import { src, dest, watch, series, parallel } from 'gulp';
 import yargs from 'yargs';
+const PRODUCTION = yargs.argv.prod;
 
 /*import sass from 'gulp-sass';*/ /* <<-- this did not work, had to do [npm install node-sass]*/
 const sass = require('gulp-sass')(require('sass'));
 
 import cleanCss from 'gulp-clean-css';
 import gulpif from 'gulp-if';
-const PRODUCTION = yargs.argv.prod;
-
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
 import del from 'del';
 import named from 'vinyl-named';
+import imagemin from 'gulp-imagemin';
 
 export const styles = () => {
   return src('src/scss/bundle.scss')
@@ -36,10 +35,17 @@ export const copy = () => {
 
 export const clean = () => del(['dist']);
 
+export const images = () => {
+  return src('src/images/**/*.{jpg,jpeg,png,svg,gif}')
+    .pipe(gulpif(PRODUCTION, imagemin()))
+    .pipe(dest('dist/images'));
+}
+
 export const watchForChanges = () => {
   watch('src/scss/**/*.scss', styles);
   watch(['src/**/*','!src/{js,scss}','!src/{js,scss}/**/*'], copy);
   watch('src/js/**/*.js', scripts);
+  watch('src/images/**/*.{jpg,jpeg,png,svg,gif}', images);
 }
 
 export const scripts = () => {
@@ -71,13 +77,5 @@ export const scripts = () => {
 export const dev = series(clean, parallel(styles, copy, scripts), watchForChanges);
 export const build = series(clean, parallel(styles, copy, scripts));
 export default dev;
-
-/*
-export const images = () => {
-  return src('src/images/!**!/!*.{jpg,jpeg,png,svg,gif}')
-    .pipe(gulpif(PRODUCTION, imagemin()))
-    .pipe(dest('dist/images'));
-}
-*/
 
 
