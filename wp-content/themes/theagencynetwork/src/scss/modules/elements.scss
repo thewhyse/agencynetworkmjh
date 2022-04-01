@@ -29,6 +29,11 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  #hero-title {
+    h2 {
+      letter-spacing: -1px;
+    }
+  }
 }
 
 /* END HERO TITLE BLOCK */
