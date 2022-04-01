@@ -1,17 +1,24 @@
-/* Redirect Buttons */
-/*
-.ts-btn {
-  width: 335px;
+/* HERO TITLE BLOCK */
+
+
+
+.hero-section {
+  #hero-title {
+    h4 {
+      font-weight: 400 !important;
+    }
+  }
 }
-*/
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   /* Redirect Buttons */
+  /*
   .ts-btn {
     width: 305px;
   }
-
+  */
+  /*
   #ʕ•ᴥ•ʔ .wi-wn_row-holder div {
     &:first-child {
       div > div > p {
@@ -36,5 +43,5 @@
       }
     }
   }
-
+  */
 }
