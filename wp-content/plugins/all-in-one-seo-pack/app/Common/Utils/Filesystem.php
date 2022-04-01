@@ -243,7 +243,13 @@ class Filesystem {
 	 * @return bool True if valid, false if not.
 	 */
 	public function isWpfsValid() {
-		if ( ! is_a( $this->fs, 'WP_Filesystem_Base' ) ) {
+		if (
+			! is_a( $this->fs, 'WP_Filesystem_Base' ) ||
+			(
+				! empty( $this->fs->errors ) &&
+				$this->fs->errors->has_errors()
+			)
+		) {
 			return false;
 		}
 
