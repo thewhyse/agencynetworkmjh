@@ -1,3 +1,5 @@
+@import "../base/colors";
+
 #TruthSerumFooter {
   background: #505868;
   padding: 20px 0;
@@ -14,7 +16,7 @@
     }
   }
   h2 {
-    color: #fff;
+    color: $tan_yellow;
     font-weight: bold;
   }
   .hra-social {
