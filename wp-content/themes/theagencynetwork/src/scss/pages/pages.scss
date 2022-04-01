@@ -45,7 +45,16 @@
 
     &:hover {
       background: $tan_yellow;
-      border: none;
+      border: 4px solid $tan_yellow;
+
+      h3 {
+        color: transparent;
+      }
+
+      p {
+        color: transparent;
+      }
+
     }
 
   }
