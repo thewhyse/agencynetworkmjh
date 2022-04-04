@@ -1,21 +1,4 @@
 /* HERO TITLE BLOCK */
-.hero-section {
-  #hero-title {
-    h4 {
-      font-weight: 400 !important;
-    }
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 45px;
-      height: 74px;
-      left: -65px;
-      top: -1px;
-      background: url("../images/E_Hallmark.svg") no-repeat center center;
-    }
-  }
-}
 
 /*Home page hero*/
 #hp-hero-section {
@@ -29,9 +12,27 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  #hero-title {
-    h2 {
-      letter-spacing: -1px;
+
+  .hero-section {
+    #hero-title {
+      h4 {
+        font-weight: 400 !important;
+      }
+
+      h2 {
+        letter-spacing: -1px;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 45px;
+        height: 74px;
+        left: -65px;
+        top: -1px;
+        background: url("../images/E_Hallmark.svg") no-repeat center center;
+      }
     }
   }
 }
