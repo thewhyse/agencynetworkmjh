@@ -35,7 +35,6 @@
 
       h2 {
         letter-spacing: -1px;
-        font-size: 60px !important;
       }
     }
 }
@@ -52,6 +51,10 @@
       left: -65px;
       top: -10px;
       background: url("../images/E_Hallmark.svg") no-repeat center center;
+    }
+
+    h2 {
+      font-size: 60px !important;
     }
   }
 }
