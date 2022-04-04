@@ -2,6 +2,21 @@
 
 /*Home page hero*/
 #hp-hero-section {
+  #hero-title {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 74px;
+      left: -65px;
+      top: -1px;
+      background: url("../images/E_Hallmark.svg") no-repeat center center;
+    }
+  }
+}
+
+.hero-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,17 +35,6 @@
 
       h2 {
         letter-spacing: -1px;
-      }
-
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 45px;
-        height: 74px;
-        left: -65px;
-        top: -1px;
-        background: url("../images/E_Hallmark.svg") no-repeat center center;
       }
     }
 }
