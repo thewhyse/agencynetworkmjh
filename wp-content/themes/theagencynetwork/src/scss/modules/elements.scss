@@ -35,8 +35,25 @@
 
       h2 {
         letter-spacing: -1px;
+        font-size: 60px !important;
       }
     }
+}
+
+/*About Us page*/
+#about_us-hero-section {
+  #hero-title {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 74px;
+      left: -65px;
+      top: -10px;
+      background: url("../images/E_Hallmark.svg") no-repeat center center;
+    }
+  }
 }
 
 /* END HERO TITLE BLOCK */
