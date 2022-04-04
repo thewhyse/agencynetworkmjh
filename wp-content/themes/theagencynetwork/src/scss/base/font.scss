@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&family=Open+Sans:wght@300;400;600&display=swap');
 @import "colors";
 
-
+$monts: 'Montserrat', sans-serif;
+$opens: 'Open Sans', sans-serif;
 
 @mixin demi-bold($fontf, $size) {
   font-family: $fontf;
