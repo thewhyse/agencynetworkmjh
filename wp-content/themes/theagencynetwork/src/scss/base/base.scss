@@ -44,16 +44,16 @@ h1 {
 }
 
 h2 {
-  @include demi-bold($monts, 1.75);
+  @include demi-bold($opens, 1.75);
 }
 h3 {
-  @include demi-bold($monts, 1.5);
+  @include demi-bold($opens, 1.5);
 }
 h4 {
-  @include demi-bold($monts, 1.3125);
+  @include demi-bold($opens, 1.3125);
 }
 h5 {
-  @include demi-bold($monts, 1.125);
+  @include demi-bold($opens, 1.125);
 }
 
 p {
@@ -87,17 +87,17 @@ p {
     @include demi-bold($monts, 2.5);
   }
   h2 {
-    @include demi-bold($monts, 2);
+    @include demi-bold($opens, 2);
     line-height: 2.4rem !important;
   }
   h3 {
-    @include demi-bold($monts, 1.875);
+    @include demi-bold($opens, 1.875);
   }
   h4 {
-    @include demi-bold($monts, 1.75);
+    @include demi-bold($opens, 1.75);
   }
   h5 {
-    @include demi-bold($monts, 1.312);
+    @include demi-bold($opens, 1.312);
   }
   p {
     @include regular($opens, 1.125);

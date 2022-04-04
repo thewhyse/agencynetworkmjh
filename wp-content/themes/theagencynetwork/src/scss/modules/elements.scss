@@ -34,9 +34,11 @@
     #hero-title {
       h4 {
         font-weight: 400 !important;
+        @include demi-bold($monts, 1.75);
       }
 
       h2 {
+        @include demi-bold($monts, 2.5);
         letter-spacing: -1px;
       }
     }
