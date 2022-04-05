@@ -96,6 +96,19 @@
 
 /* END SUB-TITLE SECTION'S TITLE*/
 
+/*SECTION'S TITLE BLOCK*/
+.section-title-block {
+  padding: 100px 0 0;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 24px);
+    background: url("../images/Agency_E_Hallmark.svg") no-repeat center center;
+  }
+}
+
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
