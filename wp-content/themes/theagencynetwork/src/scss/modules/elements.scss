@@ -102,6 +102,8 @@
   &::before {
     content: '';
     display: block;
+    width: 47px;
+    height: 82px;
     position: absolute;
     top: -50px;
     left: calc(50% - 24px);
