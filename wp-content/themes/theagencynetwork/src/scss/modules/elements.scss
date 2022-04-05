@@ -97,18 +97,26 @@
 /* END SUB-TITLE SECTION'S TITLE*/
 
 /*SECTION'S TITLE BLOCK*/
-.section-title-block {
-  padding: 100px 0 0;
-  &::before {
-    content: '';
-    display: block;
-    width: 47px;
-    height: 82px;
-    position: absolute;
-    top: -20px;
-    left: calc(50% - 24px);
-    background: url("../images/Agency_E_Hallmark.svg") no-repeat center center;
+.section-title-row {
+  .section-title-block {
+    padding: 100px 0 0;
+    &::before {
+      content: '';
+      display: block;
+      width: 47px;
+      height: 82px;
+      position: absolute;
+      top: -20px;
+      left: calc(50% - 24px);
+      background: url("../images/Agency_E_Hallmark.svg") no-repeat center center;
+    }
   }
+}
+.tan-logo-row {
+  margin: 0 auto -80px;
+}
+.agency-description-row {
+
 }
 
 
