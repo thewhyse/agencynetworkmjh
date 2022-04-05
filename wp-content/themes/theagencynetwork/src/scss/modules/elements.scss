@@ -44,7 +44,7 @@
     }
 }
 
-/*About Us page*/
+/*     About Us page    */
 #about_us-hero-section {
   #hero-title {
     &::before {
@@ -72,25 +72,25 @@
   background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
   background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
-
-  .sub-title-block {
-    h2 {
-      @include demi-bold($opens, 3);
-      color: #fff;
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 108px;
-        height: 108px;
-        left: -55px;
-        top: -48px;
-        background: url("../images/corner.svg") no-repeat top left;
-      }
-    }
-  }
   p {
     color: #fff;
+  }
+}
+
+.sub-title-block {
+  h2 {
+    @include demi-bold($opens, 3);
+    color: #fff;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 108px;
+      height: 108px;
+      left: -55px;
+      top: -48px;
+      background: url("../images/corner.svg") no-repeat top left;
+    }
   }
 }
 
@@ -135,6 +135,15 @@
     }
   }
 }
+
+#beyond-basics-section {
+  background: rgb(33, 63, 81);
+  background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
+  background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+}
+
+/*  END   About Us page    */
 
 /*** Responsive Styles Standard Desktop Only ***/
 @media all and (min-width: 1100px) {
