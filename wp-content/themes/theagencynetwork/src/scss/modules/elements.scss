@@ -70,14 +70,15 @@
   #about_us-hero-section {
     display: block;
     #hero-title {
+      margin: -30px 0 0;
       &::before {
         content: '';
         display: block;
         position: absolute;
         width: 30px;
         height: 49px;
-        left: 0;
-        top: -17px;
+        left: 20px;
+        top: -5px;
         background-image: url("../images/E_Hallmark.svg");
         background-repeat: no-repeat;
         background-position: center center;
