@@ -64,6 +64,14 @@
   }
 }
 
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  /*     About Us page    */
+  #about_us-hero-section {
+    display: block;
+  }
+}
+
 /* END HERO TITLE BLOCK */
 
 /*SUB-TITLE SECTION'S TITLE*/
