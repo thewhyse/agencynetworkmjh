@@ -129,6 +129,7 @@
     h2 {
       @include demi-bold($opens, 2.5);
       color: #fff;
+      text-align: center;
       &::before {
         content: '';
         display: block;
@@ -137,9 +138,13 @@
         height: 78px;
         left: 0;
         top: -48px;
+        /*
         background-image: url("../images/corner.svg");
         background-repeat: no-repeat;
         background-position: center center;
+        background-size: cover;
+        */
+        background: url("../images/corner.svg") no-repeat center center;
         background-size: cover;
       }
     }
