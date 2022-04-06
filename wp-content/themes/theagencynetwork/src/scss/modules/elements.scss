@@ -69,25 +69,25 @@
   /*     About Us page    */
   #about_us-hero-section {
     display: block;
-  }
-  #hero-title {
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 30px;
-      height: 49px;
-      left: 0;
-      top: -17px;
-      background-image: url("../images/E_Hallmark.svg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-    }
+    #hero-title {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 49px;
+        left: 0;
+        top: -17px;
+        background-image: url("../images/E_Hallmark.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
 
-    h2 {
-      font-size: 40px !important;
-      text-align: center;
+      h2 {
+        font-size: 40px !important;
+        text-align: center;
+      }
     }
   }
 }
