@@ -158,13 +158,13 @@ class Image {
 			$images = array_merge( $images, $this->getProductImages( $post ) );
 		}
 
+		$images = apply_filters( 'aioseo_sitemap_images', $images, $post );
+
 		if ( ! $images ) {
 			$this->updatePost( $post->ID );
 
 			return;
 		}
-
-		$images = apply_filters( 'aioseo_sitemap_images', $images, $post );
 
 		// Limit to a 1,000 URLs, in accordance to Google's specifications.
 		$images = array_slice( $images, 0, 1000 );

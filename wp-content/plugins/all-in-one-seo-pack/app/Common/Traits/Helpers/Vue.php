@@ -50,7 +50,7 @@ trait Vue {
 				'mainSiteUrl'       => $this->getSiteUrl(),
 				'home'              => home_url(),
 				'restUrl'           => rest_url(),
-				'publicPath'        => plugin_dir_url( AIOSEO_FILE ),
+				'publicPath'        => aioseo()->core->assets->normalizeAssetsHost( plugin_dir_url( AIOSEO_FILE ) ),
 				'assetsPath'        => aioseo()->core->assets->getAssetsPath(),
 				'rssFeedUrl'        => get_bloginfo( 'rss2_url' ),
 				'generalSitemapUrl' => aioseo()->sitemap->helpers->getUrl( 'general' ),
