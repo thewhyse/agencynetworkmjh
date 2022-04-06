@@ -1,3 +1,26 @@
+version 4.16.1 ( updated 04-04-2022 )
+- Fixed a problem with frontend rendering of CSS for columns in specialty sections that used background gradients.
+- Replaced jQuery hashchange library with Javascript hashchange event.
+- Fixed search module background not being set on the entire module.
+- Enhanced our options migration system to include third-party Divi Builder modules in its option updates.
+- Fixed Global Colors usage in Presets.
+- Fixed page settings bar collapsing unintentionally when clicking anywhere in the page.
+- Fixed Checkout Details module not changing price when shipping option is changed.
+- Fixed a data formatting conflict between Dynamic Content and Gradient Builder that blocked saving in some cases.
+- Hardened escaping for plugin changelog entry URL being saved to transient data.
+	* CREDITS.md
+	* core/components/Updates.php
+	* includes/builder/feature/dynamic-assets/assets/js/hash.js
+	* includes/builder/feature/dynamic-assets/assets/js/hashchange.js
+	* includes/builder/feature/dynamic-assets/class-dynamic-assets.php
+	* includes/builder/frontend-builder/bundle.js
+	* includes/builder/main-structure-elements.php
+	* includes/builder/module/Search.php
+	* includes/builder/module/settings/Migration.php
+	* includes/builder/module/settings/migration/BackgroundGradientStops.php
+	* includes/builder/scripts/frontend/scripts.js
+	* includes/builder/scripts/frontend/woocommerce-modules.js
+
 version 4.16 ( updated 03-30-2022 )
 - Added new advanced gradient builder control to the background option group.
 - Improved VB performance by refactoring event listener in utils/mouse.js to be more efficient.
