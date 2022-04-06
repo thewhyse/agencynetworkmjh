@@ -136,6 +136,14 @@ class LimitModifiedDate {
 			}
 		}
 
+		// Handle post revision.
+		if ( ! empty( $GLOBALS['action'] ) && 'restore' === $GLOBALS['action'] ) {
+			$aioseoPost = Models\Post::getPost( $unsanitizedData['ID'] );
+			if ( $aioseoPost->exists() && $aioseoPost->limit_modified_date ) {
+				$shouldReset = true;
+			}
+		}
+
 		if ( $shouldReset ) {
 			$sanitizedData['post_modified']     = $unsanitizedData['post_modified'];
 			$sanitizedData['post_modified_gmt'] = $unsanitizedData['post_modified_gmt'];
