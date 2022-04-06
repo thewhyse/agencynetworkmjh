@@ -79,9 +79,7 @@
         height: 49px;
         left: 20px;
         top: -5px;
-        background-image: url("../images/E_Hallmark.svg");
-        background-repeat: no-repeat;
-        background-position: center center;
+        background: url("../images/E_Hallmark.svg") no-repeat center center;
         background-size: cover;
       }
 
@@ -138,12 +136,6 @@
         height: 78px;
         left: 0;
         top: -48px;
-        /*
-        background-image: url("../images/corner.svg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        */
         background: url("../images/corner.svg") no-repeat center center;
         background-size: cover;
       }
