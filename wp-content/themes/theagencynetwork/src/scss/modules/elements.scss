@@ -204,10 +204,11 @@
   }
 }
 
-/*** Responsive Styles Standard Desktop Only ***/
-@media all and (min-width: 1100px) {
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
   .tan-logo-row {
     height: 250px;
+
     .et_pb_image {
       position: absolute;
     }
