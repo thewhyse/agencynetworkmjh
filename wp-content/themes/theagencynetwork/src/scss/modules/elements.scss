@@ -94,6 +94,9 @@
       h2 {
         font-size: 40px !important;
         text-align: center;
+        padding: 0 0 0 40px;
+        background: url("../images/E_Hallmark.svg") no-repeat left center;
+        /*
         &::before {
           content: '';
           display: block;
@@ -105,6 +108,7 @@
           background: url("../images/E_Hallmark.svg") no-repeat center center;
           background-size: cover;
         }
+        */
       }
     }
   }
