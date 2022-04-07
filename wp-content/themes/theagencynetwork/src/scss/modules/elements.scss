@@ -116,17 +116,21 @@
       h2 {
         font-size: 40px !important;
         text-align: center;
+        padding: 0 0 0 40px;
+        background: url("../images/E_Hallmark.svg") no-repeat left center;
+        /*
         &::before {
           content: '';
           display: block;
           position: absolute;
           width: 30px;
           height: 49px;
-          left: 20px;
+          left: -30px;
           top: -5px;
           background: url("../images/E_Hallmark.svg") no-repeat center center;
           background-size: cover;
         }
+        */
       }
     }
   }
