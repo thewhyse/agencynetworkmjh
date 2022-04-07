@@ -58,8 +58,25 @@
       background: url("../images/E_Hallmark.svg") no-repeat center center;
     }
 
+    /*
     h2 {
       font-size: 60px !important;
+    }
+    */
+  }
+}
+/*Our Companies hero section*/
+#our_companies-hero-section {
+  #hero-title {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 74px;
+      left: -65px;
+      top: -19px;
+      background: url("../images/E_Hallmark.svg") no-repeat center center;
     }
   }
 }
