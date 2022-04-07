@@ -207,7 +207,7 @@
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   .tan-logo-row {
-    height: 250px;
+    height: 230px;
 
     .et_pb_image {
       position: absolute;
@@ -221,7 +221,32 @@
   background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
   background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+  .bb-first-row,
+  .bb-third-row {
+    .txt-block {
+      height: 230px;
+      h5 {
+        padding: 0 0 20px;
+      }
+    }
+  }
 }
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  #beyond-basics-section {
+    .bb-first-row,
+    .bb-third-row {
+      .txt-block {
+        height: auto;
+        h5 {
+          padding: 0 0 20px;
+        }
+      }
+    }
+  }
+
+}
+
 
 /*  END   About Us page    */
 
