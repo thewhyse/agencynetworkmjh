@@ -125,26 +125,13 @@
     display: block;
 
     #hero-title {
-      margin: -30px 0 0;
+      margin: -70px 0 0;
       h2 {
         font-size: 40px !important;
         padding: 0 0 0 60px;
         width: 110%;
         height: 100px;
         background: url("../images/E_Hallmark.svg") no-repeat left center;
-        /*
-        &::before {
-          content: '';
-          display: block;
-          position: absolute;
-          width: 30px;
-          height: 49px;
-          left: -30px;
-          top: -5px;
-          background: url("../images/E_Hallmark.svg") no-repeat center center;
-          background-size: cover;
-        }
-        */
       }
     }
   }
