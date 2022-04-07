@@ -45,7 +45,6 @@
 }
 
 /*     About Us page    */
-/*
 #about_us-hero-section,
 #our_companies-hero-section {
   #hero-title {
@@ -77,10 +76,8 @@
     }
   }
 }
-*/
 
 /*Our Companies hero section*/
-/*
 #our_companies-hero-section {
   #hero-title {
     &::before {
@@ -95,12 +92,10 @@
     }
   }
 }
-*/
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   /*     About Us page    */
-  /*
   #about_us-hero-section,
   #our_companies-hero-section {
     display: block;
@@ -132,7 +127,6 @@
       }
     }
   }
-  */
 }
 
 /* END HERO TITLE BLOCK */
