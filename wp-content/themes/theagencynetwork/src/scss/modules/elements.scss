@@ -45,7 +45,26 @@
 }
 
 /*     About Us page    */
-#about_us-hero-section,
+#about_us-hero-section {
+  #hero-title {
+    h2 {
+      font-size: 60px !important;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 45px;
+        height: 74px;
+        left: -65px;
+        top: -17px;
+        background: url("../images/E_Hallmark.svg") no-repeat center center;
+      }
+    }
+  }
+}
+
+
+/*Our Companies hero section*/
 #our_companies-hero-section {
   #hero-title {
     h2 {
@@ -64,43 +83,31 @@
   }
 }
 
-/*
-#our_companies-hero-section {
-  #hero-title {
-    &::before {
-      left: -65px;
-      top: -17px;
-    }
-
-    h2 {
-      text-align: right;
-    }
-  }
-}
-*/
-
-/*Our Companies hero section*/
-/*
-#our_companies-hero-section {
-  #hero-title {
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 45px;
-      height: 74px;
-      left: -65px;
-      top: -19px;
-      background: url("../images/E_Hallmark.svg") no-repeat center center;
-    }
-  }
-}
-*/
-
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   /*     About Us page    */
-  #about_us-hero-section,
+  #about_us-hero-section {
+    display: block;
+
+    #hero-title {
+      margin: -30px 0 0;
+      h2 {
+        font-size: 40px !important;
+        text-align: center;
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 30px;
+          height: 49px;
+          left: 85px;
+          top: -5px;
+          background: url("../images/E_Hallmark.svg") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
   #our_companies-hero-section {
     display: block;
 
@@ -123,16 +130,6 @@
       }
     }
   }
-  /*
-  #our_companies-hero-section {
-    #hero-title {
-
-      h2 {
-        padding: 0 0 0 40px;
-      }
-    }
-  }
-  */
 }
 
 /* END HERO TITLE BLOCK */
