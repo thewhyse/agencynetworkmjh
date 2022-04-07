@@ -64,6 +64,20 @@
     }
   }
 }
+
+#our_companies-hero-section {
+  #hero-title {
+    &::before {
+      left: -65px;
+      top: -17px;
+    }
+
+    h2 {
+      text-align: right;
+    }
+  }
+}
+
 /*Our Companies hero section*/
 /*
 #our_companies-hero-section {
