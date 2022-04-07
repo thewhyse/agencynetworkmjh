@@ -69,6 +69,9 @@
   #hero-title {
     h2 {
       font-size: 60px !important;
+      padding: 0 0 0 40px;
+      background: url("../images/E_Hallmark.svg") no-repeat left center;
+      /*
       &::before {
         content: '';
         display: block;
@@ -79,6 +82,7 @@
         top: -17px;
         background: url("../images/E_Hallmark.svg") no-repeat center center;
       }
+      */
     }
   }
 }
