@@ -78,6 +78,15 @@ class AccountOptions extends LeadinOptions {
 	}
 
 	/**
+	 * Update the hublet
+	 *
+	 * @param String $hublet hublet.
+	 */
+	public static function update_hublet( $hublet ) {
+		return self::update( self::HUBLET, $hublet );
+	}
+
+	/**
 	 * Delete portal id.
 	 */
 	public static function delete_portal_id() {

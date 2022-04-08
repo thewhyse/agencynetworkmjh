@@ -46,3 +46,11 @@ export function skipSignup(defaultApp) {
 export function skipReview() {
   return postAjax('leadin_skip_review');
 }
+
+export function updateHublet(hublet) {
+  return postAjax('leadin_update_hublet', { hublet });
+}
+
+export function trackConsent(canTrack) {
+  return postAjax('leadin_track_consent', { canTrack });
+}

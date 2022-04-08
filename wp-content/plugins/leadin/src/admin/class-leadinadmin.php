@@ -16,6 +16,8 @@ use Leadin\auth\OAuth;
 use Leadin\admin\api\RegistrationApi;
 use Leadin\admin\api\DisconnectApi;
 use Leadin\admin\api\SkipReviewApi;
+use Leadin\admin\api\UpdateHubletApi;
+use Leadin\admin\api\TrackConsentApi;
 use Leadin\admin\api\SearchHubSpotFormsApi;
 use Leadin\admin\utils\Background;
 use Leadin\utils\QueryParameters;
@@ -50,6 +52,8 @@ class LeadinAdmin {
 		new RegistrationApi();
 		new DisconnectApi();
 		new SkipReviewApi();
+		new UpdateHubletApi();
+		new TrackConsentApi();
 		new PluginActionsManager();
 		new DeactivationForm();
 		new NoticeManager();

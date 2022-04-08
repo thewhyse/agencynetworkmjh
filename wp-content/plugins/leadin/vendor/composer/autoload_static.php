@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5ce4f9e167c298fff885b3dae4399cf2
+class ComposerStaticInit2968537130d29948a4946c0afb722490
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -33,6 +33,8 @@ class ComposerStaticInit5ce4f9e167c298fff885b3dae4399cf2
         'Leadin\\admin\\api\\DisconnectApi' => __DIR__ . '/../..' . '/src/admin/api/class-disconnectapi.php',
         'Leadin\\admin\\api\\RegistrationApi' => __DIR__ . '/../..' . '/src/admin/api/class-registrationapi.php',
         'Leadin\\admin\\api\\SkipReviewApi' => __DIR__ . '/../..' . '/src/admin/api/class-skipreviewapi.php',
+        'Leadin\\admin\\api\\TrackConsentApi' => __DIR__ . '/../..' . '/src/admin/api/class-trackconsentapi.php',
+        'Leadin\\admin\\api\\UpdateHubletApi' => __DIR__ . '/../..' . '/src/admin/api/class-updatehubletapi.php',
         'Leadin\\admin\\utils\\DeviceId' => __DIR__ . '/../..' . '/src/admin/utils/class-deviceid.php',
         'Leadin\\auth\\OAuth' => __DIR__ . '/../..' . '/src/auth/class-oauth.php',
         'Leadin\\auth\\OAuthCrypto' => __DIR__ . '/../..' . '/src/auth/class-oauthcrypto.php',
@@ -54,7 +56,7 @@ class ComposerStaticInit5ce4f9e167c298fff885b3dae4399cf2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit5ce4f9e167c298fff885b3dae4399cf2::$classMap;
+            $loader->classMap = ComposerStaticInit2968537130d29948a4946c0afb722490::$classMap;
 
         }, null, ClassLoader::class);
     }
