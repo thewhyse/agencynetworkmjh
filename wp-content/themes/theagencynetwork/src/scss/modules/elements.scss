@@ -334,6 +334,22 @@
 
       }
     }
+    &.oc-hra {
+      padding: 120px 40px 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 332px;
+        height: 140px;
+        background: url(../images/oc_hra_logo.jpg) no-repeat center center;
+        top: -70px;
+        left: calc(50% - 166px);
+
+      }
+    }
+
   }
 }
 
