@@ -316,6 +316,19 @@
         left: calc(50% - 182px);
       }
     }
+    &.oc-thewhyse {
+      padding: 120px 40px 40px;
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 264px;
+        height: 174px;
+        background: url(../images/oc_thewhyse_logo.jpg) no-repeat center center;
+        top: -87px;
+        left: calc(50% - 132px);
+
+      }
   }
 }
 
