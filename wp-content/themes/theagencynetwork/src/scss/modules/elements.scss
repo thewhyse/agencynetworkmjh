@@ -385,6 +385,79 @@
 
   }
 }
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  #our-companies-section {
+    .company-holder-row {
+      margin: 0 auto 120px;
+
+      &.oc-proximyl {
+        padding: 120px 40px 40px;
+
+        &::before {
+          width: 220px;
+          height: 64px;
+          background-size: cover;
+          top: -32px;
+          left: calc(50% - 110px);
+        }
+      }
+
+      &.oc-thewhyse {
+        padding: 120px 40px 40px;
+
+        &::before {
+          width: 150px;
+          height: 116px;
+          background-size: cover;
+          top: -58px;
+          left: calc(50% - 75px);
+
+        }
+      }
+
+      &.oc-hra {
+        padding: 120px 40px 40px;
+
+        &::before {
+          width: 198px;
+          height: 94px;
+          background-size: cover;
+          top: -47px;
+          left: calc(50% - 99px);
+
+        }
+      }
+
+      &.oc-medstro {
+        padding: 120px 40px 40px;
+
+        &::before {
+          width: 198px;
+          height: 90px;
+          background-size: cover;
+          top: -45px;
+          left: calc(50% - 99px);
+
+        }
+      }
+
+      &.oc-mkt {
+        padding: 120px 40px 40px;
+
+        &::before {
+          width: 198px;
+          height: 74px;
+          background-size: cover;
+          top: -37px;
+          left: calc(50% - 99px);
+
+        }
+      }
+
+    }
+  }
+}
 
 /*  END  OUR COMPANIES PAGE    */
 
