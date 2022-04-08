@@ -105,19 +105,6 @@
         text-align: center;
         padding: 0 0 0 40px;
         background: url("../images/E_Hallmark.svg") no-repeat left center;
-        /*
-        &::before {
-          content: '';
-          display: block;
-          position: absolute;
-          width: 30px;
-          height: 49px;
-          left: 85px;
-          top: -5px;
-          background: url("../images/E_Hallmark.svg") no-repeat center center;
-          background-size: cover;
-        }
-        */
       }
     }
   }
@@ -455,6 +442,17 @@
         }
       }
 
+    }
+  }
+}
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  #our_companies-hero-section {
+    .sub-title-block h2::before {
+      width: 48px;
+      height: 48px;
+      left: -12px;
+      top: -20px;
     }
   }
 }
