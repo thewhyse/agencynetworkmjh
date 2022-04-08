@@ -126,6 +126,7 @@ class Connection {
 			delete_user_meta( $user->ID, 'leadin_skip_review' );
 			delete_user_meta( $user->ID, 'leadin_review_banner_last_call' );
 			delete_user_meta( $user->ID, 'leadin_has_min_contacts' );
+			delete_user_meta( $user->ID, 'leadin_track_consent' );
 		}
 
 		OAuth::deauthorize();

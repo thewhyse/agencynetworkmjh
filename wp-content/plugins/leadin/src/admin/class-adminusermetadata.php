@@ -12,6 +12,7 @@ class AdminUserMetaData {
 	const SKIP_REVIEW             = 'leadin_skip_review';
 	const REVIEW_BANNER_LAST_CALL = 'leadin_review_banner_last_call';
 	const HAS_MIN_CONTACTS        = 'leadin_has_min_contacts';
+	const TRACK_CONSENT           = 'leadin_track_consent';
 
 	/**
 	 * Set SKIP_REVIEW meta data for a user.
@@ -59,6 +60,22 @@ class AdminUserMetaData {
 	 */
 	public static function get_has_min_contacts() {
 		return User::get_metadata( self::HAS_MIN_CONTACTS );
+	}
+
+	/**
+	 * Set TRACK_CONSENT meta data for a user.
+	 *
+	 * @param bool $consent User consent to anonymous tracking.
+	 */
+	public static function set_track_consent( $consent ) {
+		return User::set_metadata( self::TRACK_CONSENT, $consent );
+	}
+
+	/**
+	 * Get TRACK_CONSENT meta data for a user.
+	 */
+	public static function get_track_consent() {
+		return User::get_metadata( self::TRACK_CONSENT );
 	}
 
 }

@@ -30,6 +30,7 @@ const {
   portalDomain,
   leadinQueryParamsKeys,
   oauth,
+  trackConsent,
 } = window.leadinConfig;
 
 const i18n = window.leadinI18n;
@@ -67,4 +68,5 @@ export {
   portalDomain,
   leadinQueryParamsKeys,
   oauth,
+  trackConsent,
 };

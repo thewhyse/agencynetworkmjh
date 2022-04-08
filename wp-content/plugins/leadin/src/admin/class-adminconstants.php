@@ -84,6 +84,7 @@ class AdminConstants {
 		$signup_params                         = array();
 		$signup_params['enableCollectedForms'] = 'true';
 		$signup_params['leadinPluginVersion']  = constant( 'LEADIN_PLUGIN_VERSION' );
+		$signup_params['trackConsent']         = AdminUserMetaData::get_track_consent();
 		$user_prefill_params                   = self::get_signup_prefill_params_array();
 		$signup_params                         = array_merge( $signup_params, $user_prefill_params );
 		return $signup_params;
@@ -107,8 +108,8 @@ class AdminConstants {
 			'ajaxUrl'      => Website::get_ajax_url(),
 			'nonce'        => self::get_connection_nonce(),
 			'accountName'  => AccountOptions::get_account_name(),
-			'portalDomain' => AccountOptions::get_portal_domain(),
 			'hsdio'        => DeviceId::get(),
+			'portalDomain' => AccountOptions::get_portal_domain(),
 		);
 
 		$utm_params     = self::get_utm_query_params_array();
