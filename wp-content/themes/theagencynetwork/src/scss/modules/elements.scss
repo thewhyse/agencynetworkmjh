@@ -458,7 +458,7 @@
 #leadership-subtitle-section {
   .sub-title-block {
     h2 {
-      @include demi-bold($opens, 2.4);
+      @include bold($opens, 2.4);
       /*
       &::before {
         content: '';
