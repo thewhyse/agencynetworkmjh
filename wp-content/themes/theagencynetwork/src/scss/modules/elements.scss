@@ -454,29 +454,10 @@
   background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
   background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
-
-  h2 {
-    font-size: 60px !important;
-    color: #fff;
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 45px;
-      height: 74px;
-      left: -65px;
-      top: -17px;
-      background: url("../images/E_Hallmark.svg") no-repeat center center;
-    }
-  }
 }
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
-  #leadership-title-section {
-    h2 {
-      font-size: 40px !important;
-    }
-  }
+
 }
 
 
