@@ -455,6 +455,27 @@
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
   background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
 }
+#leadership-subtitle-section {
+  .sub-title-block {
+    h2 {
+      @include demi-bold($opens, 2.4);
+      /*
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 108px;
+        height: 108px;
+        left: -55px;
+        top: -48px;
+        background: url("../images/corner.svg") no-repeat top left;
+      }
+      */
+    }
+  }
+}
+
+
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
 
