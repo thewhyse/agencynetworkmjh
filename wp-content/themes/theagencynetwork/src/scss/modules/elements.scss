@@ -468,10 +468,10 @@
   .leader-info-column {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    .et_pb_module {
+    justify-content: center;
+    .et_pb_module:not(:last-child) {
       padding: 0;
-      margin: 0;
+      margin: 0 0 40px;
     }
   }
 }
