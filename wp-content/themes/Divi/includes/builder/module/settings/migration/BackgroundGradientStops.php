@@ -46,7 +46,7 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 	 *
 	 * @var bool
 	 *
-	 * @since ??
+	 * @since 4.16.1
 	 */
 	public $add_missing_fields = true;
 
