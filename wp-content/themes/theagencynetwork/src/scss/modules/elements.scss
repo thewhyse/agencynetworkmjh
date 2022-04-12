@@ -549,9 +549,11 @@
       .et_pb_ajax_pagination_container {
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
         padding: 0 0 60px;
         article {
-          width: 90%;
+          width: 100%;
+          margin: 0 0 20px;
           -webkit-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
           -moz-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
           box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
