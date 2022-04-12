@@ -31,17 +31,17 @@
   -ms-flex-pack: center;
   justify-content: center;
 
-    #hero-title {
-      h4 {
-        font-weight: 400 !important;
-        @include demi-bold($monts, 1.75);
-      }
-
-      h2 {
-        @include demi-bold($monts, 2.5);
-        letter-spacing: -1px;
-      }
+  #hero-title {
+    h4 {
+      font-weight: 400 !important;
+      @include demi-bold($monts, 1.75);
     }
+
+    h2 {
+      @include demi-bold($monts, 2.5);
+      letter-spacing: -1px;
+    }
+  }
 }
 
 /*     About Us page    */
@@ -72,8 +72,15 @@
       padding: 0 0 0 60px;
       width: 110%;
       height: 100px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
       background: url("../images/E_Hallmark.svg") no-repeat left center;
     }
@@ -466,8 +473,15 @@
 /*LEADERSHIP INFO SECTION*/
 .leader-section {
   .leader-info-column {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     .et_pb_module:not(:last-child) {
       padding: 0;
@@ -520,13 +534,16 @@
   #thought-leadership-section {
     .leadership-videos-row {
       .et_pb_ajax_pagination_container {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         padding: 0 0 60px;
         article {
           width: 22%;
           -webkit-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
-          -moz-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
           box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
           .entry-title,
           .post-content {
@@ -547,15 +564,21 @@
   #thought-leadership-section {
     .leadership-videos-row {
       .et_pb_ajax_pagination_container {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         padding: 0 0 60px;
         article {
           width: 100%;
-          margin: 0 0 20px;
+          margin: 30px 0 0;
           -webkit-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
-          -moz-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
           box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
           .entry-title,
           .post-content {
