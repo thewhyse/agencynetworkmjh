@@ -598,10 +598,13 @@
 .wp-pagenavi {
   position: absolute;
   bottom: 0;
-  left: 42%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
   span,
   .larger,
   .smaller,
