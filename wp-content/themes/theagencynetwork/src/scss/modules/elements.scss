@@ -599,16 +599,20 @@
   position: absolute;
   bottom: 0;
   left: 45%;
+  display: flex;
   span,
   .larger,
   .smaller,
   .nextpostslink,
   .previouspostslink {
     display: block;
-    width: 48px;
-    height: 48px;
+    width: 28px;
+    height: 28px;
     border: 1px solid $tan_green-blue;
     color: $tan_green-blue;
+    margin: 0 8px 0 0;
+    text-align: center;
+    font-weight: 600;
   }
   span,
   .larger,
