@@ -543,8 +543,8 @@
         padding: 0 0 60px;
         article {
           width: 22%;
-          -webkit-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
-          box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
+          -webkit-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
+          box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
           .entry-title,
           .post-content {
             padding: 10px 20px;
@@ -599,6 +599,27 @@
   position: absolute;
   bottom: 0;
   left: 45%;
+  span,
+  .larger,
+  .smaller,
+  .nextpostslink,
+  .previouspostslink {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $tan_green-blue;
+    color: $tan_green-blue;
+  }
+  span,
+  .larger,
+  .smaller,
+  .nextpostslink,
+  .previouspostslink {
+    &.current {
+      border: 2px solid $ts_lavender;
+      color: $ts_lavender;
+    }
+  }
 }
 
 /*   END   WP CUSTOM PAGINATION      */
