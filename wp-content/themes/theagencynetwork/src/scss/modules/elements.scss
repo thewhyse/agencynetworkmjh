@@ -505,8 +505,8 @@
 }
 
 
-/*** Responsive Styles Standard BELOW Desktop Only ***/
-@media all and (max-width: 1100px) {
+/*** Responsive Styles Standard Desktop Only ***/
+@media all and (min-width: 1100px) {
   /*LEADERSHIP INFO SECTION*/
   .leader-section {
     .leader-info-column {
@@ -517,6 +517,12 @@
     }
   }
 }
+
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+
+}
+
 
 /* END LEADERSHIP INFO SECTION*/
 
