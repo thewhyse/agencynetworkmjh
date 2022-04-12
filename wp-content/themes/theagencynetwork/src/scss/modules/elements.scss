@@ -528,6 +528,10 @@
           -webkit-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
           -moz-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
           box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
+          .entry-title,
+          .post-content {
+            padding: 10px 20px;
+          }
         }
       }
     }
@@ -539,6 +543,27 @@
   .leader-section {
     padding: 40px 0 0 !important;
   }
+
+  #thought-leadership-section {
+    .leadership-videos-row {
+      .et_pb_ajax_pagination_container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0 60px;
+        article {
+          width: 90%;
+          -webkit-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
+          -moz-box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
+          box-shadow: 4px 7px 16px 0 rgba(204,204,204,1);
+          .entry-title,
+          .post-content {
+            padding: 10px 20px;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 
