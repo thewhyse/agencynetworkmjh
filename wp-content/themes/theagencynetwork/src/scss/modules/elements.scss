@@ -516,6 +516,21 @@
       }
     }
   }
+
+  #thought-leadership-section {
+    .leadership-videos-row {
+      .et_pb_ajax_pagination_container {
+        display: flex;
+        article {
+          width: 22%;
+          justify-content: space-between;
+          -webkit-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
+          -moz-box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
+          box-shadow: 4px 7px 16px 0px rgba(204,204,204,1);
+        }
+      }
+    }
+  }
 }
 
 /*** Responsive Styles Tablet And Below ***/
