@@ -1,8 +1,6 @@
 @import "../base/colors";
 @import "../base/font";
 
-
-
 /*Home page hero*/
 #hp-hero-section {
   #hero-title {
@@ -47,12 +45,12 @@
 
 /*NEW VERSION APR-13*/
 .hero-section-single-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   .hero-title-row {
     .hero-title-block {
-      h2 {
-        @include demi-bold($monts, 2.5);
-        letter-spacing: -1px;
-      }
+
     }
   }
 }
