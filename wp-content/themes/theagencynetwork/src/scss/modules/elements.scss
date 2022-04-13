@@ -42,6 +42,7 @@
     }
   }
 }
+/* END HERO TITLE BLOCK */
 
 /*NEW VERSION APR-13*/
 .hero-section-single-line {
@@ -55,7 +56,19 @@
   }
 }
 
-/* END HERO TITLE BLOCK */
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  .hero-section-single-line {
+    display: block;
+    .hero-title-row {
+      .hero-title-block {
+
+      }
+    }
+  }
+}
+/*  END  NEW VERSION APR-13   */
+
 
 /*     About Us page    */
 #about_us-hero-section {
