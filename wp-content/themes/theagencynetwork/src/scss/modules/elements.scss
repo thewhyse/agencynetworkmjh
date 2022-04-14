@@ -622,8 +622,15 @@
 /* END LEADERSHIP INFO SECTION*/
 
 /*      OUR WORK PAGE       */
-#our-work-hero-section {
-
+#our-work-videos-section {
+    .our-work-videos-holder-row {
+      .et_pb_ajax_pagination_container {
+        .et_pb_ajax_pagination_container {
+          display: flex;
+          
+        }
+      }
+    }
 }
 
 /*   END   OUR WORK PAGE       */
