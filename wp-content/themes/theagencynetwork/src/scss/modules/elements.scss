@@ -627,7 +627,9 @@
       .et_pb_ajax_pagination_container {
         .et_pb_ajax_pagination_container {
           display: flex;
-          
+          article {
+            width: 32%;
+          }
         }
       }
     }
