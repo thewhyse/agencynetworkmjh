@@ -19,11 +19,13 @@
     h4 {
       font-weight: 400 !important;
       @include demi-bold($monts, .8);
+      margin: 0 0 0 40px;
     }
 
     h2 {
       @include demi-bold($monts, 1);
       letter-spacing: -1px;
+      margin: 0 0 0 40px;
     }
 
     &::before {
