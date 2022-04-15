@@ -65,7 +65,21 @@
       display: block;
         p {
           color: #fff;
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 45px;
+            height: 74px;
+            left: -65px;
+            top: -17px;
+            background: url("../images/E_Hallmark.svg") no-repeat center center;
+          }
+
         }
+      #hero-title {
+
+      }
     }
   }
 }
