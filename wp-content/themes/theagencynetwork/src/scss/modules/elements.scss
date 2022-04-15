@@ -8,43 +8,9 @@
 @import "../base/colors";
 @import "../base/font";
 
-/*Home page hero*/
+
+/* HomePage HERO  */
 #hp-hero-section {
-
-  #hp-title-row {
-    margin: 25% 0 0 14%;
-  }
-
-  /*
-  #hero-title {
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 45px;
-      height: 74px;
-      left: -65px;
-      top: -1px;
-      background: url("../images/E_Hallmark.svg") no-repeat center center;
-    }
-  }
-  */
-}
-
-/* HomePage HERO TITLE BLOCK */
-#hp-hero-section {
-  /*
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  */
   #hp-title-row {
     margin: -50px auto 0;
   }
@@ -64,15 +30,20 @@
       content: '';
       display: block;
       position: absolute;
+      /*
       width: 45px;
       height: 74px;
+      */
+      width: 30px;
+      height: 49px;
       left: -65px;
       top: -1px;
       background: url("../images/E_Hallmark.svg") no-repeat center center;
+      background-size: cover;
     }
   }
 }
-/* END HomePage HERO TITLE BLOCK */
+/* END HomePage HERO  */
 
 /*NEW VERSION SINGLE LINE TILE APR-13*/
 .hero-section-single-line {
