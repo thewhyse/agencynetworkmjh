@@ -10,6 +10,12 @@
 
 /*Home page hero*/
 #hp-hero-section {
+
+  #hp-title-row {
+    margin: 25% 0 0 14%;
+  }
+
+  /*
   #hero-title {
     &::before {
       content: '';
@@ -22,6 +28,7 @@
       background: url("../images/E_Hallmark.svg") no-repeat center center;
     }
   }
+  */
 }
 
 /* HERO TITLE BLOCK */
@@ -626,7 +633,7 @@
 }
 
 
-/* END LEADERSHIP INFO SECTION*/
+/*   END   LEADERSHIP PAGE     */
 
 /*      OUR WORK PAGE       */
 #our-work-videos-section {
@@ -707,7 +714,6 @@
   }
 }
 
-
 /*   END   OUR WORK PAGE       */
 
 
@@ -763,7 +769,6 @@
 }
 
 
-/*   END   LEADERSHIP PAGE     */
 
 
 /*** Responsive Styles Standard Desktop Only ***/
