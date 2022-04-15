@@ -45,9 +45,10 @@
   -ms-flex-pack: center;
   justify-content: center;
   */
-#hp-title-row {
-  margin: -110px auto 0;
-}
+  #hp-title-row {
+    margin: -50px auto 0;
+  }
+
   #hero-title {
     h4 {
       font-weight: 400 !important;
@@ -57,6 +58,17 @@
     h2 {
       @include demi-bold($monts, 1.5);
       letter-spacing: -1px;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 74px;
+      left: -65px;
+      top: -1px;
+      background: url("../images/E_Hallmark.svg") no-repeat center center;
     }
   }
 }
