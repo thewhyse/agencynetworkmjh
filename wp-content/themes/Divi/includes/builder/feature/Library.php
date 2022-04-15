@@ -673,7 +673,7 @@ class ET_Builder_Library {
 	/**
 	 * Gets the terms list and processes it into desired format.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @param string $term_name Term Name.
 	 *
@@ -1218,7 +1218,7 @@ class ET_Builder_Library {
 	/**
 	 * AJAX Callback: Add/Remove Library terms for layout_tag and layout_category taxonomies.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @global $_POST['payload'] Array with the terms list and update type (add/remove) for each.
 	 *
@@ -1290,7 +1290,7 @@ class ET_Builder_Library {
 	/**
 	 * AJAX Callback: Remove the Library layout after it was moved to the Cloud.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @global $_POST['payload'] Array with the layout data to remove.
 	 *
@@ -1314,7 +1314,7 @@ class ET_Builder_Library {
 	 * AJAX Callback: Save the temp layout into database with the 'draft' status
 	 * Uses {@see et_pb_create_layout} to submit the library post
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @global $_POST['payload'] Array with the layout data to create.
 	 *
@@ -1358,7 +1358,7 @@ class ET_Builder_Library {
 	/**
 	 * AJAX Callback: Removes temp layout from the website
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @global $_POST['payload'] Array with the layout id to remove.
 	 *
@@ -1395,7 +1395,7 @@ class ET_Builder_Library {
 	/**
 	 * AJAX Callback: Removes temp presets from the website
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @return void
 	 */
@@ -1409,7 +1409,7 @@ class ET_Builder_Library {
 	/**
 	 * Returns 'publish' string to set the post correct status for restored library items.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @return string new post status.
 	 */
@@ -1420,7 +1420,7 @@ class ET_Builder_Library {
 	/**
 	 * AJAX Callback: Upload thumbnail and assign it to specified post.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @global $_FILES['imageFile'] File to upload.
 	 * @global $_POST['postId'] Post id to set thumbnail for.
@@ -1457,7 +1457,7 @@ class ET_Builder_Library {
 	 * - Toggle Favorite status
 	 * - Delete
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @global $_POST['payload'] Array with the update details.
 	 *
@@ -1692,7 +1692,7 @@ class ET_Builder_Library {
 	/**
 	 * AJAX Callback: Gets Cloud access token from DB and send it to client.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @return void
 	 */
@@ -1764,7 +1764,7 @@ class ET_Builder_Library {
 	 * @param bool   $initial_value original value.
 	 * @param object $taxonomy taxonomy to check.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @return bool
 	 */
@@ -1779,7 +1779,7 @@ class ET_Builder_Library {
 	/**
 	 * Enqueue styles.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 */
 	public function enqueue_scripts() {
 		// Enqueue resource for edit session expire page.
@@ -1794,7 +1794,7 @@ class ET_Builder_Library {
 	/**
 	 * Render modal to display a message when editing session expire.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 */
 	public function render_session_expired_modal() {
 		if ( ! $this->vb_is_editing_session_expired() ) {
@@ -1829,7 +1829,7 @@ class ET_Builder_Library {
 	/**
 	 * Determine whether editing session is expired.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 */
 	public function vb_is_editing_session_expired() {
 		global $wp_query;

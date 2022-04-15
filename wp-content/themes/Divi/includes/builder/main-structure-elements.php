@@ -3791,12 +3791,12 @@ class ET_Builder_Column extends ET_Builder_Structure_Element {
 
 			$output = sprintf(
 				'<div class="%1$s%6$s"%4$s>
+				%3$s
 				%5$s
 				%7$s
 				%8$s
-				%3$s
 				%2$s
-			</div> <!-- .et_pb_column -->',
+			</div>',
 				$module_classname,
 				$inner_content,
 				$parallax_image,
@@ -3809,10 +3809,10 @@ class ET_Builder_Column extends ET_Builder_Structure_Element {
 		} else {
 			$output = sprintf(
 				'<div class="%1$s%6$s"%4$s>
+				%3$s
 				%5$s
 				%7$s
 				%8$s
-				%3$s
 				%2$s
 			</div>',
 				$module_classname,
