@@ -31,8 +31,9 @@
   */
 }
 
-/* HERO TITLE BLOCK */
-.hero-section {
+/* HomePage HERO TITLE BLOCK */
+#hp-hero-section {
+  /*
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,20 +44,23 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-
+  */
+#hp-title-row {
+  margin: -110px auto 0;
+}
   #hero-title {
     h4 {
       font-weight: 400 !important;
-      @include demi-bold($monts, 1.75);
+      @include demi-bold($monts, 1);
     }
 
     h2 {
-      @include demi-bold($monts, 2.5);
+      @include demi-bold($monts, 1.5);
       letter-spacing: -1px;
     }
   }
 }
-/* END HERO TITLE BLOCK */
+/* END HomePage HERO TITLE BLOCK */
 
 /*NEW VERSION SINGLE LINE TILE APR-13*/
 .hero-section-single-line {
