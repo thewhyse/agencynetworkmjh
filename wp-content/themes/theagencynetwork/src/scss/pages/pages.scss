@@ -65,7 +65,7 @@
       display: block;
         p {
           color: #fff;
-          padding: 100px 0 0;
+          padding: 40px 0 0;
           &::before {
             content: '';
             display: block;
@@ -73,14 +73,11 @@
             width: 30px;
             height: 49px;
             left: calc(50% - 15px);
-            top: -75px;
+            top: -45px;
             background: url("../images/E_Hallmark.svg") no-repeat center center;
             background-size: cover;
           }
         }
-      #hero-title {
-
-      }
     }
   }
 }
