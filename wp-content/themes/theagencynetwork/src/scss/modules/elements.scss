@@ -42,18 +42,22 @@
   }
 }
 
+/*** Responsive Styles In-Between Desktop ***/
+@media all and (min-width: 980px) and (max-width: 1245px) {
+  #hp-hero-section {
+    #hp-title-row {
+      margin: 30% auto 0 7vh;
+    }
+  }
+}
+
 /*** Responsive Styles Standard Desktop Only ***/
-@media all and (min-width: 980px) {
+@media all and (min-width: 1100px) {
   #hp-hero-section {
     #hp-title-row {
       margin: 24% auto 0 14%;
     }
-
-    #hero-title {
-
-    }
   }
-
 }
 
 /* END HomePage HERO  */
@@ -761,14 +765,6 @@
 }
 
 /*   END   WP CUSTOM PAGINATION      */
-
-
-/*** Responsive Styles Smartphone Only ***/
-@media all and (max-width: 767px) {
-
-}
-
-
 
 
 /*** Responsive Styles Standard Desktop Only ***/
