@@ -51,6 +51,13 @@
   }
 }
 
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+  .et_pb_column {
+    margin: 40px 0 0;
+  }
+}
+
 /* END HOME PAGE   */
 
 /*    ABOUT US PAGE   */
