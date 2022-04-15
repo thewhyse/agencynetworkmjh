@@ -18,11 +18,11 @@
   #hero-title {
     h4 {
       font-weight: 400 !important;
-      @include demi-bold($monts, 1);
+      @include demi-bold($monts, .8);
     }
 
     h2 {
-      @include demi-bold($monts, 1.5);
+      @include demi-bold($monts, 1);
       letter-spacing: -1px;
     }
 
@@ -36,8 +36,8 @@
       */
       width: 30px;
       height: 49px;
-      left: -65px;
-      top: -1px;
+      left: -15px;
+      top: 2px;
       background: url("../images/E_Hallmark.svg") no-repeat center center;
       background-size: cover;
     }
