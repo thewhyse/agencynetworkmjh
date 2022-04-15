@@ -565,7 +565,8 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 	 *
 	 * @return string Value to assign to the migrated field.
 	 *
-	 * @since 4.16.0
+	 * @since 4.16.0 Added.
+	 * @since ?? Check inheritance. If all values are inherited, unset the attribute.
 	 */
 	public function migrateGradientStops( $field_name, $current_value, $attrs ) {
 
@@ -585,15 +586,18 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 			'end_position'   => '',
 		);
 
+		// This is used to avoid polluting with unnecessary settings.
+		$is_inherited = array(
+			'start_color'    => false,
+			'start_position' => false,
+			'end_color'      => false,
+			'end_position'   => false,
+		);
+
 		// Collect the old gradient settings.
 		switch ( $field_name ) {
 			// Core fields.
 			case 'background_color_gradient_stops':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'background_color_gradient_start', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start', $attrs ) ) {
 					$old_values['start_color'] = $attrs['background_color_gradient_start'];
 				}
@@ -608,11 +612,6 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 				}
 				break;
 			case 'button_bg_color_gradient_stops':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_bg_color_gradient_start', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_bg_color_gradient_start'];
 				}
@@ -627,11 +626,6 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 				}
 				break;
 			case 'button_one_bg_color_gradient_stops':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_one_bg_color_gradient_start'];
 				}
@@ -646,11 +640,6 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 				}
 				break;
 			case 'button_two_bg_color_gradient_stops':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_two_bg_color_gradient_start'];
 				}
@@ -666,320 +655,495 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 				break;
 
 			// Tablet View.
+			// If tablet view settings are not found, check for desktop view settings and inherit (if found).
 			case 'background_color_gradient_stops_tablet':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'background_color_gradient_start_tablet', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start_tablet', $attrs ) ) {
 					$old_values['start_color'] = $attrs['background_color_gradient_start_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['background_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position_tablet', $attrs ) ) {
 					$old_values['start_position'] = $attrs['background_color_gradient_start_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['background_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end_tablet', $attrs ) ) {
 					$old_values['end_color'] = $attrs['background_color_gradient_end_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['background_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position_tablet', $attrs ) ) {
 					$old_values['end_position'] = $attrs['background_color_gradient_end_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['background_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_bg_color_gradient_stops_tablet':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_tablet', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_tablet', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_bg_color_gradient_start_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position_tablet', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_bg_color_gradient_start_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_tablet', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_bg_color_gradient_end_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position_tablet', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_bg_color_gradient_end_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_one_bg_color_gradient_stops_tablet':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_tablet', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_tablet', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_one_bg_color_gradient_start_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_one_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position_tablet', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_one_bg_color_gradient_start_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_one_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_tablet', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_one_bg_color_gradient_end_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_one_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position_tablet', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_one_bg_color_gradient_end_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_one_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_two_bg_color_gradient_stops_tablet':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_tablet', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_tablet', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_two_bg_color_gradient_start_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_two_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position_tablet', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_two_bg_color_gradient_start_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_two_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_tablet', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_two_bg_color_gradient_end_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_two_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position_tablet', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_two_bg_color_gradient_end_position_tablet'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_two_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 
 			// Phone View.
+			// If phone view settings are not found, check for table view settings and inherit (if found).
+			// If tablet view settings are not found, check for desktop view settings and inherit (if found).
 			case 'background_color_gradient_stops_phone':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'background_color_gradient_start_phone', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start_phone', $attrs ) ) {
 					$old_values['start_color'] = $attrs['background_color_gradient_start_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start_tablet', $attrs ) ) {
+					$old_values['start_color']   = $attrs['background_color_gradient_start_tablet'];
+					$is_inherited['start_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['background_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position_phone', $attrs ) ) {
 					$old_values['start_position'] = $attrs['background_color_gradient_start_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position_tablet', $attrs ) ) {
+					$old_values['start_position']   = $attrs['background_color_gradient_start_position_tablet'];
+					$is_inherited['start_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['background_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end_phone', $attrs ) ) {
 					$old_values['end_color'] = $attrs['background_color_gradient_end_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end_tablet', $attrs ) ) {
+					$old_values['end_color']   = $attrs['background_color_gradient_end_tablet'];
+					$is_inherited['end_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['background_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position_phone', $attrs ) ) {
 					$old_values['end_position'] = $attrs['background_color_gradient_end_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position_tablet', $attrs ) ) {
+					$old_values['end_position']   = $attrs['background_color_gradient_end_position_tablet'];
+					$is_inherited['end_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['background_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_bg_color_gradient_stops_phone':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_phone', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_phone', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_bg_color_gradient_start_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_tablet', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_bg_color_gradient_start_tablet'];
+					$is_inherited['start_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position_phone', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_bg_color_gradient_start_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position_tablet', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_bg_color_gradient_start_position_tablet'];
+					$is_inherited['start_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_phone', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_bg_color_gradient_end_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_tablet', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_bg_color_gradient_end_tablet'];
+					$is_inherited['end_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position_phone', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_bg_color_gradient_end_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position_tablet', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_bg_color_gradient_end_position_tablet'];
+					$is_inherited['end_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_one_bg_color_gradient_stops_phone':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_phone', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_phone', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_one_bg_color_gradient_start_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_tablet', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_one_bg_color_gradient_start_tablet'];
+					$is_inherited['start_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_one_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position_phone', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_one_bg_color_gradient_start_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position_tablet', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_one_bg_color_gradient_start_position_tablet'];
+					$is_inherited['start_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_one_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_phone', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_one_bg_color_gradient_end_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_tablet', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_one_bg_color_gradient_end_tablet'];
+					$is_inherited['end_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_one_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position_phone', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_one_bg_color_gradient_end_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position_tablet', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_one_bg_color_gradient_end_position_tablet'];
+					$is_inherited['end_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_one_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_two_bg_color_gradient_stops_phone':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_phone', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_phone', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_two_bg_color_gradient_start_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_tablet', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_two_bg_color_gradient_start_tablet'];
+					$is_inherited['start_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_two_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position_phone', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_two_bg_color_gradient_start_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position_tablet', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_two_bg_color_gradient_start_position_tablet'];
+					$is_inherited['start_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_two_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_phone', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_two_bg_color_gradient_end_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_tablet', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_two_bg_color_gradient_end_tablet'];
+					$is_inherited['end_color'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_two_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position_phone', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_two_bg_color_gradient_end_position_phone'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position_tablet', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_two_bg_color_gradient_end_position_tablet'];
+					$is_inherited['end_position'] = true;
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_two_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 
 			// Hover Mode.
+			// If hover view settings are not found, check for desktop view settings and inherit (if found).
 			case 'background_color_gradient_stops__hover':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'background_color_gradient_start__hover', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start__hover', $attrs ) ) {
 					$old_values['start_color'] = $attrs['background_color_gradient_start__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['background_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position__hover', $attrs ) ) {
 					$old_values['start_position'] = $attrs['background_color_gradient_start_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['background_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end__hover', $attrs ) ) {
 					$old_values['end_color'] = $attrs['background_color_gradient_end__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['background_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position__hover', $attrs ) ) {
 					$old_values['end_position'] = $attrs['background_color_gradient_end_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['background_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_bg_color_gradient_stops__hover':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_bg_color_gradient_start__hover', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start__hover', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_bg_color_gradient_start__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position__hover', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_bg_color_gradient_start_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end__hover', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_bg_color_gradient_end__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position__hover', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_bg_color_gradient_end_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_one_bg_color_gradient_stops__hover':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start__hover', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start__hover', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_one_bg_color_gradient_start__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_one_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position__hover', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_one_bg_color_gradient_start_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_one_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end__hover', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_one_bg_color_gradient_end__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_one_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position__hover', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_one_bg_color_gradient_end_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_one_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_two_bg_color_gradient_stops__hover':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start__hover', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start__hover', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_two_bg_color_gradient_start__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_two_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position__hover', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_two_bg_color_gradient_start_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_two_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end__hover', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_two_bg_color_gradient_end__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_two_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position__hover', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_two_bg_color_gradient_end_position__hover'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_two_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 
 			// Sticky Mode.
+			// If sticky view settings are not found, check for desktop view settings and inherit (if found).
 			case 'background_color_gradient_stops__sticky':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'background_color_gradient_start__sticky', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start__sticky', $attrs ) ) {
 					$old_values['start_color'] = $attrs['background_color_gradient_start__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['background_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position__sticky', $attrs ) ) {
 					$old_values['start_position'] = $attrs['background_color_gradient_start_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['background_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end__sticky', $attrs ) ) {
 					$old_values['end_color'] = $attrs['background_color_gradient_end__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['background_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position__sticky', $attrs ) ) {
 					$old_values['end_position'] = $attrs['background_color_gradient_end_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'background_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['background_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_bg_color_gradient_stops__sticky':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_bg_color_gradient_start__sticky', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start__sticky', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_bg_color_gradient_start__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position__sticky', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_bg_color_gradient_start_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end__sticky', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_bg_color_gradient_end__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position__sticky', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_bg_color_gradient_end_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_one_bg_color_gradient_stops__sticky':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start__sticky', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start__sticky', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_one_bg_color_gradient_start__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_one_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position__sticky', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_one_bg_color_gradient_start_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_one_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end__sticky', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_one_bg_color_gradient_end__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_one_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position__sticky', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_one_bg_color_gradient_end_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_one_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_one_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 			case 'button_two_bg_color_gradient_stops__sticky':
-				// Bail, nothing to process.
-				if ( ! self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start__sticky', $attrs ) ) {
-					return $current_value;
-				}
-
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start__sticky', $attrs ) ) {
 					$old_values['start_color'] = $attrs['button_two_bg_color_gradient_start__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start', $attrs ) ) {
+					$old_values['start_color']   = $attrs['button_two_bg_color_gradient_start'];
+					$is_inherited['start_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position__sticky', $attrs ) ) {
 					$old_values['start_position'] = $attrs['button_two_bg_color_gradient_start_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_start_position', $attrs ) ) {
+					$old_values['start_position']   = $attrs['button_two_bg_color_gradient_start_position'];
+					$is_inherited['start_position'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end__sticky', $attrs ) ) {
 					$old_values['end_color'] = $attrs['button_two_bg_color_gradient_end__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end', $attrs ) ) {
+					$old_values['end_color']   = $attrs['button_two_bg_color_gradient_end'];
+					$is_inherited['end_color'] = true;
 				}
 				if ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position__sticky', $attrs ) ) {
 					$old_values['end_position'] = $attrs['button_two_bg_color_gradient_end_position__sticky'];
+				} elseif ( self::existsAndIsNotEmpty( 'button_two_bg_color_gradient_end_position', $attrs ) ) {
+					$old_values['end_position']   = $attrs['button_two_bg_color_gradient_end_position'];
+					$is_inherited['end_position'] = true;
 				}
 				break;
 
 			default:
 				// Bail, nothing to process.
 				return $current_value;
+		}
+
+		// If we didn't find *any* old values, then bail--there's nothing to process here.
+		if ( empty( implode( '', $old_values ) ) ) {
+			return $current_value;
+		}
+
+		// If *all* settings have been inherited, then return `null` to unset this attribute (don't pollute).
+		if ( $is_inherited['start_color'] && $is_inherited['start_position'] && $is_inherited['end_color'] && $is_inherited['end_position'] ) {
+			return null;
 		}
 
 		// If colors or positions aren't defined, use the system default settings.

@@ -143,7 +143,7 @@ class ET_Builder_Global_Presets_Settings {
 	/**
 	 * Returns builder Temp Presets settings.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @return object
 	 */
@@ -156,7 +156,7 @@ class ET_Builder_Global_Presets_Settings {
 	/**
 	 * Remove Temp Presets settings from the database.
 	 *
-	 * @since ??
+	 * @since 4.17.0
 	 *
 	 * @return object
 	 */

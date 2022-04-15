@@ -17464,7 +17464,7 @@ class ET_Builder_Element {
 				'phone'   => $is_field_focus_bg_color_responsive ? esc_attr( et_pb_responsive_options()->get_any_value( $this->props, "{$option_name}_focus_background_color_phone" ) ) : '',
 			);
 
-			$field_focus_bg_color_important = $force_global_important || in_array( 'focus_background_color', $important_list, true ) ? ' !important' : '';
+			$field_focus_bg_color_important = $force_global_important || in_array( 'focus_background_color', $important_list, true ) ? ' !important;' : '';
 
 			et_pb_responsive_options()->generate_responsive_css( $field_focus_bg_color_values, $bg_color_focus_selector, 'background-color', $function_name, $field_focus_bg_color_important, 'color' );
 
@@ -17504,7 +17504,7 @@ class ET_Builder_Element {
 				'phone'   => $is_field_text_color_responsive ? esc_attr( et_pb_responsive_options()->get_any_value( $this->props, "{$option_name}_text_color_phone" ) ) : '',
 			);
 
-			$field_text_color_important = in_array( 'form_text_color', $important_list, true ) ? ' !important' : '';
+			$field_text_color_important = in_array( 'form_text_color', $important_list, true ) ? ' !important;' : '';
 			$text_color_selector        = $placeholder_option ? "{$text_color_selector}, {$placeholder_selector}" : $text_color_selector;
 
 			et_pb_responsive_options()->generate_responsive_css( $field_text_color_values, $text_color_selector, 'color', $function_name, $field_text_color_important, 'color' );
@@ -17548,7 +17548,7 @@ class ET_Builder_Element {
 			);
 
 			$text_color_focus_selector        = $placeholder_option ? "{$text_color_focus_selector}, {$placeholder_focus_selector}" : $text_color_focus_selector;
-			$field_focus_text_color_important = in_array( 'form_text_color', $important_list, true ) ? ' !important' : '';
+			$field_focus_text_color_important = in_array( 'form_text_color', $important_list, true ) ? ' !important;' : '';
 
 			et_pb_responsive_options()->generate_responsive_css( $field_focus_text_color_values, $text_color_focus_selector, 'color', $function_name, $field_focus_text_color_important, 'color' );
 
@@ -23451,7 +23451,7 @@ class ET_Builder_Structure_Element extends ET_Builder_Element {
 					<label for="et_pb_background_color_gradient_unit_<%%= counter %%>">%1$s: </label>
 					<div class="et-pb-option-container et-pb-option-container--select">
 						<select name="et_pb_background_color_gradient_unit_<%%= counter %%>" id="et_pb_background_color_gradient_unit_<%%= counter %%>" class="et-pb-main-setting" data-default="linear">
-							<option value="%" <%%= current_background_color_gradient_unit %%>>%2$s</option>
+							<option value="%%" <%%= current_background_color_gradient_unit %%>>%2$s</option>
 							<option value="px">%3$s</option>
 							<option value="em">%4$s</option>
 							<option value="rem">%5$s</option>
