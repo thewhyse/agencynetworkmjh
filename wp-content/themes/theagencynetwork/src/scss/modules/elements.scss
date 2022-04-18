@@ -773,6 +773,22 @@
 
 /*   END   WP CUSTOM PAGINATION      */
 
+/*      OUR CULTURE PAGE      */
+#our-culture-ways-section {
+  .our-culture-way-block {
+    h4 {
+      color: $tan_yellow;
+      @include bold($opens, 2);
+    }
+    p {
+      color: #fff;
+      @include regular($opens, 1.2);
+    }
+  }
+}
+
+/*   END   OUR CULTURE PAGE      */
+
 
 /*** Responsive Styles Standard Desktop Only ***/
 @media all and (min-width: 1100px) {
