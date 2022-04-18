@@ -799,9 +799,11 @@
       height: 125px;
       top: -63px;
       left: calc(50% - 62px);
+      background-size: cover;
     }
   }
 }
+
 #our-culture-ways-section {
   .culture-way-row-1 {
     margin: 60px auto 0;
@@ -871,6 +873,21 @@
     }
   }
 }
+
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  #our-culture-ways-section {
+    .our-culture-way-block {
+      &:before {
+        width: 82px;
+        height: 82px;
+        top: -41px;
+        left: calc(50% - 41px);
+      }
+    }
+  }
+}
+
 
 /*   END   OUR CULTURE PAGE      */
 
