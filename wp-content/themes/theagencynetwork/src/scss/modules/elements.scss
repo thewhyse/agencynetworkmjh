@@ -777,7 +777,7 @@
 #our-culture-ways-section {
   .our-culture-way-block {
     position: relative;
-    padding: 20px;
+    padding: 70px 20px 20px;
     background: rgb(33, 63, 81);
     background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
@@ -790,6 +790,15 @@
     p {
       color: #fff;
       @include regular($opens, 1);
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 125px;
+      height: 125px;
+      top: -63px;
+      left: calc(50% - 62px);
     }
   }
 }
