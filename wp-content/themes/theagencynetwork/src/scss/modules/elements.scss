@@ -860,6 +860,19 @@
   }
 }
 
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+  #our-culture-ways-section {
+    .culture-way-row-1,
+    .culture-way-row-2,
+    .culture-way-row-3 {
+      .et_pb_column:nth-child(2) {
+        margin: 60px auto 0;
+      }
+    }
+  }
+}
+
 /*   END   OUR CULTURE PAGE      */
 
 
