@@ -777,7 +777,7 @@
 #our-culture-ways-section {
   .our-culture-way-block {
     position: relative;
-    padding: 70px 20px 20px;
+    padding: 90px 20px 20px;
     background: rgb(33, 63, 81);
     background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
@@ -800,6 +800,60 @@
       top: -63px;
       left: calc(50% - 62px);
     }
+  }
+}
+#our-culture-ways-section {
+  .culture-way-row-1 {
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-rocket.png") no-repeat center center;
+        }
+      }
+    }
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-lightning-bolt.png") no-repeat center center;
+        }
+      }
+    }
+  }
+
+  .culture-way-row-2 {
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-start.png") no-repeat center center;
+        }
+      }
+    }
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-mentors.png") no-repeat center center;
+        }
+      }
+    }
+
+  }
+
+  .culture-way-row-3 {
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-megaphone.png") no-repeat center center;
+        }
+      }
+    }
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-icecream.png") no-repeat center center;
+        }
+      }
+    }
+
   }
 }
 
