@@ -901,6 +901,9 @@
     @include demi-bold($opens, 2.5);
     color: $tan_yellow;
   }
+  p {
+    color: #fff;
+  }
 }
 
 /*   END   CONTACT US PAGE       */
