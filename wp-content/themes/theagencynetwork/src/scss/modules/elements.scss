@@ -904,6 +904,15 @@
   p {
     color: #fff;
   }
+  .davids-links-row {
+    .davids-link {
+      display: flex;
+      justify-items: center;
+      span {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
 }
 
 /*   END   CONTACT US PAGE       */
