@@ -98,8 +98,9 @@
 
 }
 
-/*Contact Page*/
+/* OLD Contact Page*/
 
+/*
 #ts_form_wrapper {
   position: relative;
   &::before {
@@ -134,7 +135,7 @@ body #page-container .et_pb_section #ts_contact_form {
   }
 }
 
-/*** Responsive Styles Tablet Only ***/
+!*** Responsive Styles Tablet Only ***!
 @media all and (min-width: 768px) and (max-width: 980px) {
   body #page-container .et_pb_section #ts_contact_form {
     .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
@@ -171,5 +172,7 @@ body #page-container .et_pb_section #ts_contact_form {
   }
 
 }
-/* END Contact Page*/
+*/
+
+/* END OLD Contact Page*/
 

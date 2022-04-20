@@ -284,8 +284,8 @@
   }
 }
 
-/*** Responsive Styles Smartphone Only ***/
-@media all and (max-width: 767px) {
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
   .tan-logo-row {
     height: 230px;
 
@@ -888,9 +888,17 @@
     }
   }
 }
-
-
 /*   END   OUR CULTURE PAGE      */
+
+/*      CONTACT US PAGE       */
+#contact-us-subtitle-section {
+  h1 {
+    @include semi-bold($opens, 2.5);
+    color: $tan_yellow;
+  }
+}
+
+/*   END   CONTACT US PAGE       */
 
 
 /*** Responsive Styles Standard Desktop Only ***/
