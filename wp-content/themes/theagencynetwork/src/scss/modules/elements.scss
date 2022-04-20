@@ -906,9 +906,12 @@
   }
   .davids-links-row {
     .davids-link {
+      color: #fff;
       display: flex;
       justify-items: center;
       span {
+        display: flex;
+        align-items: center;
         margin: 0 0 0 10px;
       }
     }
