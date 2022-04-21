@@ -736,6 +736,19 @@
 
 /*   END   OUR WORK PAGE       */
 
+/*    OUR WORK SINGLE VIDEO PAGE    */
+#our-work-view-block {
+  article {
+    padding: 0 0 0 !important;
+    margin-bottom: 20px;
+    .entry-title {
+      @include regular($opens, 1.2);
+    }
+  }
+}
+
+/*  END  OUR WORK SINGLE VIDEO PAGE    */
+
 
 
 /*      WP CUSTOM PAGINATION      */
