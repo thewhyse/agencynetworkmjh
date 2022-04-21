@@ -671,8 +671,17 @@
       article:nth-of-type(3n) {
         margin: 20px 0 0;
       }
+      .entry-featured-image-url {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
     }
   }
+
 }
 
 /*** Responsive Styles Tablet Only ***/
