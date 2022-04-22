@@ -187,6 +187,7 @@
 .sub-title-block {
   h2 {
     @include demi-bold($opens, 3);
+    line-height: 3rem !important;
     color: #fff;
     &::before {
       content: '';
