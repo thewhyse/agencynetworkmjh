@@ -7,6 +7,7 @@
 #hp-hero-section {
   .hp_title_row {
     height: 100%;
+
     #hp_title_container {
       .top_part {
         display: -webkit-box;
@@ -15,22 +16,19 @@
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+
         .e_sign {
           margin: 0 15px 0 0;
         }
 
-        h1 {
-          font-size: 22px;
-        }
       }
 
       .btm_part {
         width: 360px;
-        padding: 20px 0 20px 65px;
+        /*padding: 20px 0 20px 65px;*/
       }
     }
   }
-
 }
 
 /*** Responsive Styles Standard Desktop Only ***/
@@ -40,7 +38,11 @@
     .hp_title_row {
       #hp_title_container {
         .top_part {
-          padding: 0 0 0 65px;
+          /*padding: 0 0 0 65px;*/
+          h1 {
+            font-size: 22px;
+          }
+
         }
       }
     }
