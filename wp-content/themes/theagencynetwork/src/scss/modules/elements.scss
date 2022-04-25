@@ -44,21 +44,23 @@
     #hp_title_container {
       .top_part {
         h1 {
-          font-size: 30px !important;
+          font-size: 13px !important;
         }
       }
     }
   }
 }
 
-
-
-
 /*** Responsive Styles Tablet And Below ***/
 @media all and (max-width: 980px) {
   #hp-hero-section {
     .hp_title_row {
       #hp_title_container {
+        .top_part {
+          h1 {
+            font-size: 20px !important;
+          }
+        }
         .btm_part {
          display: none;
         }
