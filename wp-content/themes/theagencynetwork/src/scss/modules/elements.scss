@@ -12,7 +12,16 @@
 /* HomePage HERO  */
 
 #hp-hero-section {
-  
+  .top_part {
+    display: flex;
+    .e_sign {
+      margin: 0 15px 0 0;
+    }
+  }
+
+  .btm_part {
+    padding: 20px 20px 20px 100px;
+  }
 }
 
 
