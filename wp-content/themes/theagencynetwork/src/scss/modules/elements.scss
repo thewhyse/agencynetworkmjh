@@ -40,10 +40,6 @@
       #hp_title_container {
         .top_part {
           padding: 0 0 0 65px;
-
-          h1 {
-            font-size: 18px !important;
-          }
         }
       }
     }
@@ -51,7 +47,7 @@
 }
 
 
-/*** Responsive Styles Standard Desktop Only ***/
+/*** Responsive Styles Wide Desktop Only ***/
 @media all and (min-width: 1600px) {
   #hp-hero-section {
     height: 880px !important;
@@ -63,6 +59,18 @@
 
   #hp-hero-section {
     height: 800px !important;
+    .hp_title_row {
+      #hp_title_container {
+        .top_part {
+          justify-content: center;
+
+          h1 {
+            font-size: 18px !important;
+          }
+        }
+      }
+    }
+
   }
 }
 
@@ -87,9 +95,11 @@
     .hp_title_row {
       #hp_title_container {
         .top_part {
+          /*
           h1 {
             font-size: 20px !important;
           }
+          */
         }
         .btm_part {
           display: none;
