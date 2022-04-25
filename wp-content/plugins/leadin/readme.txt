@@ -6,7 +6,7 @@ Tags: CRM, Email Marketing, Live Chat, Forms, Analytics, Popups, Newsletter
 Requires at least: 4.0
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 8.9.22
+Stable tag: 8.10.25
 
 Capture, organize and engage web visitors with free forms, live chat, CRM (contact management), email marketing, and analytics. Easy to use, no coding.
 
@@ -228,12 +228,12 @@ Please visit the <a href="https://community.hubspot.com/?utm_source=wordpress-pl
 == Changelog ==
 
 <a href="http://plugins.svn.wordpress.org/leadin/trunk/changelog.txt" target="_blank">Full changelog here</a>
-- Current version: 8.9.22
-- Version release date: 2022-04-13
+- Current version: 8.10.25
+- Version release date: 2022-04-25
 
-= 8.9.22 (2022-04-13) =
-* Prevent script to be loaded while Elementor Edit mode is on/or admin
+= 8.10.25 (2022-04-25) =
+* Fix Gutenberg block breaking after user disconnects plugin
 
-= 8.9.20 (2022-04-13) =
-* Fix security issue related to sanitizing inputs
+= 8.10.0 (2022-04-21) =
+* Add templates options to gutenberg form
 

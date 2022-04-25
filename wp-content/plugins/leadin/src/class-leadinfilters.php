@@ -101,4 +101,19 @@ class LeadinFilters {
 	public static function get_leadin_forms_payload() {
 		return apply_filters( 'leadin_forms_payload', '' );
 	}
+
+	/**
+	 * Apply leadin_forms_payload_url filter.
+	 */
+	public static function get_page_content_type() {
+		if ( is_single() ) {
+			$content_type = 'blog-post';
+		} elseif ( is_archive() || is_search() ) {
+			$content_type = 'listing-page';
+		} else {
+			$content_type = 'standard-page';
+		}
+
+		return apply_filters( 'leadin_page_content_type', $content_type );
+	}
 }

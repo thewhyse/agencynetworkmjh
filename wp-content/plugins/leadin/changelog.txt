@@ -1,3 +1,9 @@
+= 8.10.25 (2022-04-25) =
+* Fix Gutenberg block breaking after user disconnects plugin
+
+= 8.10.0 (2022-04-21) =
+* Add templates options to gutenberg form
+
 = 8.9.22 (2022-04-13) =
 * Prevent script to be loaded while Elementor Edit mode is on/or admin
 
@@ -343,10 +349,4 @@
 * Setup Autoloader on the PHP code
 * Refactor the PHP section of the plugin and use of namespaces
 * Refactor and update the inteframe communication library
-
-= 7.16.1 (2019-11-13) =
-* Update version of loaded iframe
-
-= 7.17.2 (2019-11-13) =
-* Fix missing disconnect button
 

@@ -60,9 +60,7 @@ class LeadinAdmin {
 		new DeactivationForm();
 		new NoticeManager();
 		new AdminFilters();
-		if ( Connection::is_connected() ) {
-			new Gutenberg();
-		}
+		new Gutenberg();
 	}
 
 	/**

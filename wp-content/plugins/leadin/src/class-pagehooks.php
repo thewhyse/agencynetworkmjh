@@ -106,16 +106,7 @@ class PageHooks {
 			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v<?php echo esc_html( LEADIN_PLUGIN_VERSION ); ?>-->
 			<script type="text/javascript">
 				var _hsq = _hsq || [];
-				<?php
-				// Pass along the correct content-type.
-				if ( is_single() ) {
-					echo '_hsq.push(["setContentType", "blog-post"]);' . "\n";
-				} elseif ( is_archive() || is_search() ) {
-					echo '_hsq.push(["setContentType", "listing-page"]);' . "\n";
-				} else {
-					echo '_hsq.push(["setContentType", "standard-page"]);' . "\n";
-				}
-				?>
+				_hsq.push(["setContentId", "<?php echo esc_html( LeadinFilters::get_page_content_type() ); ?>"]);
 			</script>
 			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
 			<?php
@@ -150,16 +141,17 @@ class PageHooks {
 			$attributes
 		);
 
+		$type      = $parsed_attributes['type'];
+		$portal_id = $parsed_attributes['portal'];
+		$id        = $parsed_attributes['id'];
+
 		if (
-			! isset( $parsed_attributes['type'] ) ||
-			! isset( $parsed_attributes['portal'] ) ||
-			! isset( $parsed_attributes['id'] )
+			! isset( $type ) ||
+			! isset( $portal_id ) ||
+			! isset( $id )
 		) {
 			return;
 		}
-
-		$portal_id = $parsed_attributes['portal'];
-		$id        = $parsed_attributes['id'];
 
 		$is_valid_id = self::is_valid_uuid( $id ) || is_numeric( $id );
 
@@ -170,7 +162,7 @@ class PageHooks {
 				return;
 		}
 
-		switch ( $parsed_attributes['type'] ) {
+		switch ( $type ) {
 			case 'form':
 				$form_div_uuid = $this->generate_div_uuid();
 				$hublet        = LeadinFilters::get_leadin_hublet();

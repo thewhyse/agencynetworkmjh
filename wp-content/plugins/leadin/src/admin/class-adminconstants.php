@@ -185,6 +185,7 @@ class AdminConstants {
 			'theme'                 => get_option( 'stylesheet' ),
 			'wpVersion'             => Versions::get_wp_version(),
 			'leadinQueryParamsKeys' => array_keys( self::get_hubspot_query_params_array() ),
+			'connectionStatus'      => Connection::is_connected() ? 'Connected' : 'NotConnected',
 		);
 
 		if ( OAuth::is_enabled() ) {
@@ -224,7 +225,7 @@ class AdminConstants {
 	public static function get_leadin_i18n() {
 		return array(
 			'chatflows'            => __( 'Live Chat', 'leadin' ),
-			'selectExistingForm'   => __( 'Select an existing form', 'leadin' ),
+			'selectExistingForm'   => __( 'Select an existing form or create a new one from a template', 'leadin' ),
 			'goToPlugin'           => __( 'Go to plugin', 'leadin' ),
 			'refreshForms'         => __( 'Refresh forms', 'leadin' ),
 			'unauthorizedHeader'   => __( 'Your plugin isn\'t authorized', 'leadin' ),
@@ -234,6 +235,12 @@ class AdminConstants {
 			'selectForm'           => __( 'Select a form', 'leadin' ),
 			'formBlockTitle'       => __( 'HubSpot Form', 'leadin' ),
 			'formBlockDescription' => __( 'Select and embed a HubSpot form', 'leadin' ),
+			'registrationForm'     => __( 'Registration Form', 'leadin' ),
+			'contactUsForm'        => __( 'Contact us Form', 'leadin' ),
+			'newsletterForm'       => __( 'Newsletter sign-up Form', 'leadin' ),
+			'supportForm'          => __( 'Support Form', 'leadin' ),
+			'eventForm'            => __( 'Event Registration Form', 'leadin' ),
+			'templateForms'        => __( 'Templates', 'leadin' ),
 		);
 	}
 }

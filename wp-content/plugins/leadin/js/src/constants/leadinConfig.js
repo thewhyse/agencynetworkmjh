@@ -32,6 +32,7 @@ const {
   leadinQueryParamsKeys,
   oauth,
   trackConsent,
+  connectionStatus,
 } = window.leadinConfig;
 
 const i18n = window.leadinI18n;
@@ -71,4 +72,5 @@ export {
   leadinQueryParamsKeys,
   oauth,
   trackConsent,
+  connectionStatus,
 };
