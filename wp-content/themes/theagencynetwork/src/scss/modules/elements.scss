@@ -36,6 +36,24 @@
 
 }
 
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  #hp-hero-section {
+    height: 100%;
+
+    #hp_title_container {
+      .top_part {
+        h1 {
+          font-size: 30px !important;
+        }
+      }
+    }
+  }
+}
+
+
+
+
 /*** Responsive Styles Tablet And Below ***/
 @media all and (max-width: 980px) {
   #hp-hero-section {
