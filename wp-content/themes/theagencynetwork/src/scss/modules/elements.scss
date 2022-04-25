@@ -356,18 +356,18 @@
 }
 
 /*** Responsive Styles Tablet And Below ***/
-/*
 @media all and (max-width: 980px) {
   .tan-logo-row {
-    height: 230px;
+    height: 125px;
 
     .et_pb_image {
       position: absolute;
-      left: calc(50% - 174px);
+      left: calc(50% - 90px);
+      top: 4px;
+      width: 180px;
     }
   }
 }
-*/
 
 
 #beyond-basics {
