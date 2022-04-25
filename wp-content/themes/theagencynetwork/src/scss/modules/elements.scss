@@ -10,6 +10,13 @@
 
 
 /* HomePage HERO  */
+
+#hp-hero-section {
+  
+}
+
+
+/*
 #hp-hero-section {
   #hp-title-row {
     margin: -50px auto 0;
@@ -41,8 +48,10 @@
     }
   }
 }
+*/
 
-/*** Responsive Styles In-Between Desktop ***/
+/*
+!*** Responsive Styles In-Between Desktop ***!
 @media all and (min-width: 980px) and (max-width: 1245px) {
   #hp-hero-section {
     #hp-title-row {
@@ -58,8 +67,10 @@
     }
   }
 }
+*/
 
 /*** Responsive Styles Standard Desktop Only ***/
+/*
 @media all and (min-width: 1100px) {
   #hp-hero-section {
     #hp-title-row {
@@ -67,6 +78,7 @@
     }
   }
 }
+*/
 
 /* END HomePage HERO  */
 
