@@ -97,6 +97,8 @@
     height: 480px !important;
     #hp_title_container {
       .top_part {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         h1 {
           font-size: 13px !important;
@@ -135,7 +137,11 @@
   }
 
   #title_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: absolute;
 
@@ -157,10 +163,19 @@
 
 }
 
-
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   .page-title-row {
+    #title_container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      position: absolute;
+      top: -40px;
+      left: 20%;
 
       .e_sign {
         width: 26px;
@@ -173,49 +188,23 @@
       }
     }
   }
-
+}
 
 /*     About Us page    */
 .page-title-row {
   #title_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: absolute;
     top: 50%;
     left: 20%;
-
-    .e_sign {
-
-    }
-    .header-txt {
-      h1 {
-
-      }
-    }
   }
 }
 
-/*** Responsive Styles Smartphone Only ***/
-@media all and (max-width: 767px) {
-  .page-title-row {
-    #title_container {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: -40px;
-      left: 20%;
-
-      .e_sign {
-
-      }
-      .header-txt {
-        h1 {
-
-        }
-      }
-    }
-  }
-}
 
 
 /*  END  NEW VERSION SINGLE LINE TILE APR-26   */
@@ -390,7 +379,7 @@
   border: 20px solid #D9DBE4;
 }
 
-  /*  END   About Us page    */
+/*  END   About Us page    */
 
 
 /*    OUR COMPANIES PAGE    */
