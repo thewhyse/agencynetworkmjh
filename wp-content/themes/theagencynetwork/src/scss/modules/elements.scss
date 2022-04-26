@@ -174,8 +174,8 @@
       -ms-flex-align: center;
       align-items: center;
       position: absolute;
-      top: -40px;
-      left: 20%;
+      top: -40px !important;
+      left: 20% !important;
 
       .e_sign {
         width: 26px;
