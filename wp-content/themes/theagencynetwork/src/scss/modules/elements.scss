@@ -358,6 +358,16 @@
     color: $tan_green-blue;
   }
 }
+
+.beyond-basics {
+  .quote-block {
+    padding: 0 20px;
+    p {
+      color: $tan_green-blue;
+    }
+  }
+}
+
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   #beyond-basics {
