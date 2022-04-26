@@ -354,6 +354,9 @@
       }
     }
   }
+  .sub-title-block h2 {
+    color: $tan_green-blue;
+  }
 }
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
