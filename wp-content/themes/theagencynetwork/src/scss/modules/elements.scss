@@ -176,14 +176,49 @@
 
 
 /*     About Us page    */
+.page-title-row {
+  #title_container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+
+    .e_sign {
+
+    }
+    .header-txt {
+      h1 {
+
+      }
+    }
+  }
+}
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  .page-title-row {
+    #title_container {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 25%;
+
+      .e_sign {
+
+      }
+      .header-txt {
+        h1 {
+
+        }
+      }
+    }
+  }
+}
+
 
 /*  END  NEW VERSION SINGLE LINE TILE APR-26   */
 
-
-
-
-
-/*Our Companies hero section*/
 
 
 /* END HERO TITLE BLOCK */
