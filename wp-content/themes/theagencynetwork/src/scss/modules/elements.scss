@@ -191,20 +191,23 @@
 }
 
 /*     About Us page    */
-.page-title-row {
-  #title_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 20%;
+#about_us-hero-section {
+  .page-title-row {
+    #title_container {
+      top: 45%;
+      left: 20%;
+    }
   }
 }
-
+/*    Our Companies page    */
+#our_companies-hero-section {
+  .page-title-row {
+    #title_container {
+      top: 45%;
+      right: 20%;
+    }
+  }
+}
 
 
 /*  END  NEW VERSION SINGLE LINE TILE APR-26   */
@@ -362,6 +365,7 @@
 .beyond-basics {
   h5 {
     color: $ts_lavender;
+    padding: 0 0 20px;
   }
   .quote-block {
     padding: 0 20px;
