@@ -127,9 +127,17 @@
 /*NEW VERSION SINGLE LINE TILE APR-26*/
 .page-title-row {
   height: 100%;
+  .et_pb_column,
+  .t_pb_module,
+  .et_pb_code_inner {
+    height: 100%;
+  }
+
   #title_container {
     display: flex;
     align-items: center;
+    position: absolute;
+
     .e_sign {
 
     }
