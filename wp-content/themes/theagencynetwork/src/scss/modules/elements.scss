@@ -344,15 +344,12 @@
 
 
 #beyond-basics {
-  background: rgb(33, 63, 81);
-  background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
-  background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
   .bb-first-row,
   .bb-third-row {
     .txt-block {
       height: 230px;
       h5 {
+        color: $ts_lavender;
         padding: 0 0 20px;
       }
     }
