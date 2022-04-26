@@ -128,7 +128,7 @@
 .page-title-row {
   height: 100%;
   .et_pb_column,
-  .t_pb_module,
+  .et_pb_module,
   .et_pb_code_inner {
     height: 100%;
   }
@@ -151,15 +151,30 @@
   }
 }
 
+
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
+  .page-title-row {
 
-}
-/*  END  NEW VERSION SINGLE LINE TILE APR-26   */
+      .e_sign {
+
+      }
+      .header-txt {
+        h1 {
+          font-size: 35px !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+  }
+
 
 /*     About Us page    */
 
-/*  END   About Us page    */
+/*  END  NEW VERSION SINGLE LINE TILE APR-26   */
+
+
+
 
 
 /*Our Companies hero section*/
