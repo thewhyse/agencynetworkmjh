@@ -20,12 +20,9 @@
         .e_sign {
           margin: 0 15px 0 0;
         }
-
       }
-
       .btm_part {
         width: 360px;
-        /*padding: 20px 0 20px 65px;*/
       }
     }
   }
@@ -84,7 +81,7 @@
       #hp_title_container {
         .top_part {
           h1 {
-            /*font-size: 18px !important;*/
+
           }
         }
       }
@@ -127,105 +124,42 @@
 
 /* END HomePage HERO  */
 
-/*NEW VERSION SINGLE LINE TILE APR-13*/
-.hero-section-single-line {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  .hero-title-row {
-    .hero-title-block {
+/*NEW VERSION SINGLE LINE TILE APR-26*/
+.page-title-row {
+  height: 100%;
+  #title_container {
+    display: flex;
+    align-items: center;
+    .e_sign {
 
+    }
+    .header-txt {
+      margin: 0 0 0 20px;
+      h1 {
+        font-size: 60px !important;
+        font-weight: 600 !important;
+      }
     }
   }
 }
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
-  .hero-section-single-line {
-    display: block;
-    .hero-title-row {
-      padding-top: 5vh !important;
-      .hero-title-block {
 
-      }
-    }
-  }
 }
-/*  END  NEW VERSION SINGLE LINE TILE APR-13   */
+/*  END  NEW VERSION SINGLE LINE TILE APR-26   */
 
 /*     About Us page    */
-#about_us-hero-section {
-  #hero-title {
-    h2 {
-      font-size: 60px !important;
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 45px;
-        height: 74px;
-        left: -65px;
-        top: -17px;
-        background: url("../images/E_Hallmark.svg") no-repeat center center;
-      }
-    }
-  }
-}
+
+/*  END   About Us page    */
 
 
 /*Our Companies hero section*/
-#our_companies-hero-section {
-  #hero-title {
-    h2 {
-      font-size: 60px !important;
-      padding: 0 0 0 60px;
-      width: 110%;
-      height: 100px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      background: url("../images/E_Hallmark.svg") no-repeat left center;
-    }
-  }
-}
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
-  /*     About Us page    */
-  #about_us-hero-section {
-    display: block;
 
-    #hero-title {
-      margin: -30px 0 0;
-      h2 {
-        font-size: 40px !important;
-        text-align: center;
-        padding: 0 0 0 40px;
-        background: url("../images/E_Hallmark.svg") no-repeat left center;
-      }
-    }
-  }
-  #our_companies-hero-section {
-    display: block;
 
-    #hero-title {
-      margin: -70px 0 0;
-      h2 {
-        font-size: 40px !important;
-        padding: 0 0 0 60px;
-        width: 110%;
-        height: 100px;
-        background: url("../images/E_Hallmark.svg") no-repeat left center;
-      }
-    }
-  }
 }
 
 /* END HERO TITLE BLOCK */
@@ -330,16 +264,6 @@
 
 /*** Responsive Styles Standard Desktop Only ***/
 @media all and (min-width: 1100px) {
-  /*
-  .tan-logo-row {
-    height: 250px;
-    .et_pb_image {
-      position: absolute;
-      left: calc(50% - 174px);
-      top: 43px;
-    }
-  }
-  */
   .agency-description-row {
     .et_pb_column:not(:last-child) {
       &::after {
