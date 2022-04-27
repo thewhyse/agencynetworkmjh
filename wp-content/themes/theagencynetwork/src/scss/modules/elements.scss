@@ -172,7 +172,7 @@
 #our-culture-hero-section {
   .page-title-row {
     #title_container {
-      top: inherit;
+      top: inherit !important;
       bottom: 0 !important;
       left: 35% !important;
     }
@@ -246,6 +246,12 @@
   #our-culture-hero-section {
     .page-title-row {
       #title_container {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 100%;
+        left: 0 !important;
+
         .header-txt {
           h1 {
             font-size: 30px !important;
