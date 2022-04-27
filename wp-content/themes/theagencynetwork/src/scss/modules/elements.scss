@@ -168,6 +168,17 @@
   }
 }
 
+/*    Our Culture Page hero    */
+#our-culture-hero-section {
+  .page-title-row {
+    #title_container {
+      bottom: 0 !important;
+      left: 35% !important;
+    }
+  }
+}
+
+
 /*** Responsive Styles Wide Desktop  ***/
 @media all and (min-width: 1600px) {
   /*    Our Companies page    */
@@ -190,6 +201,19 @@
         left: 10% !important;
       }
     }
+  }
+
+  /*    Our Culture Page hero    */
+  #our-culture-hero-section {
+    height: 950px;
+    /*
+    .page-title-row {
+      #title_container {
+        bottom: 0 !important;
+        left: 35% !important;
+      }
+    }
+    */
   }
 
 }
