@@ -194,6 +194,29 @@
 
 }
 
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+
+  /*    Our Work Page hero    */
+  #our-work-hero-section {
+    .page-title-row {
+      #title_container {
+        justify-content: center;
+        width: 100%;
+        right: 0;
+        left: 0 !important;
+        .header-txt {
+          h1 {
+            font-size: 30px !important;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
 /*** Responsive Styles Tablet Only ***/
 @media all and (min-width: 768px) and (max-width: 980px) {
 
