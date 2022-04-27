@@ -201,10 +201,13 @@
   #our-work-hero-section {
     .page-title-row {
       #title_container {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         width: 100%;
         right: 0;
         left: 0 !important;
+        top: 0 !important;
         .header-txt {
           h1 {
             font-size: 30px !important;
@@ -267,6 +270,8 @@
   #our_companies-hero-section {
     .page-title-row {
       #title_container {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         width: 100%;
         right: 0;
