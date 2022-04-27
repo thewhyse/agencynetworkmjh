@@ -172,6 +172,7 @@
 #our-culture-hero-section {
   .page-title-row {
     #title_container {
+      top: inherit;
       bottom: 0 !important;
       left: 35% !important;
     }
@@ -240,6 +241,20 @@
       }
     }
   }
+
+  /*    Our Cultue Page hero    */
+  #our-culture-hero-section {
+    .page-title-row {
+      #title_container {
+        .header-txt {
+          h1 {
+            font-size: 30px !important;
+          }
+        }
+      }
+    }
+  }
+
 
 }
 
