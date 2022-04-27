@@ -158,6 +158,16 @@
   }
 }
 
+/*    Our Work Page hero    */
+#our-work-hero-section {
+  .page-title-row {
+    #title_container {
+      top: 54% !important;
+      left: 10% !important;
+    }
+  }
+}
+
 /*** Responsive Styles Wide Desktop  ***/
 @media all and (min-width: 1600px) {
   /*    Our Companies page    */
@@ -170,6 +180,18 @@
       }
     }
   }
+
+  /*    Our Work Page hero    */
+  #our-work-hero-section {
+    height: 950px;
+    .page-title-row {
+      #title_container {
+        top: 54% !important;
+        left: 10% !important;
+      }
+    }
+  }
+
 }
 
 /*** Responsive Styles Tablet Only ***/
