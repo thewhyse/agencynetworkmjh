@@ -725,8 +725,10 @@
   background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
   .page-title-row {
      #title_container {
-       position: relative;
+       position: relative !important;
        justify-content: center;
+       top: inherit !important;
+       left: inherit !important;
        .header-txt {
          h1 {
            color: #fff;
