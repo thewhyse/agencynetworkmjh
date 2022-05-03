@@ -20,6 +20,7 @@ use Leadin\admin\api\UpdateHubletApi;
 use Leadin\admin\api\GetPortalHubletApi;
 use Leadin\admin\api\TrackConsentApi;
 use Leadin\admin\api\SearchHubSpotFormsApi;
+use Leadin\admin\api\DisableInternalTrackingApi;
 use Leadin\admin\utils\Background;
 use Leadin\utils\QueryParameters;
 use Leadin\utils\Versions;
@@ -56,6 +57,7 @@ class LeadinAdmin {
 		new UpdateHubletApi();
 		new GetPortalHubletApi();
 		new TrackConsentApi();
+		new DisableInternalTrackingApi();
 		new PluginActionsManager();
 		new DeactivationForm();
 		new NoticeManager();

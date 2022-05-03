@@ -1,3 +1,6 @@
+= 8.11.0 (2022-04-27) =
+* Add option to disable HS analytics tracking for internal WP users
+
 = 8.10.25 (2022-04-25) =
 * Fix Gutenberg block breaking after user disconnects plugin
 
@@ -343,10 +346,4 @@
 * Create new settings page
 * Improve connection flow and fix known bugs
 * Refactor code into classes
-
-= 7.18.81 (2020-01-15) =
-* Make the usage of the plugin API consistent from the UI and setup CORS
-* Setup Autoloader on the PHP code
-* Refactor the PHP section of the plugin and use of namespaces
-* Refactor and update the inteframe communication library
 

@@ -145,6 +145,7 @@ class Connection {
 		AccountOptions::add_account_name( $portal_name );
 		AccountOptions::add_portal_domain( $portal_domain );
 		AccountOptions::add_hublet( $hublet );
+		AccountOptions::add_disable_internal_tracking();
 	}
 
 	/**
@@ -155,5 +156,6 @@ class Connection {
 		AccountOptions::delete_account_name();
 		AccountOptions::delete_portal_domain();
 		AccountOptions::delete_hublet();
+		AccountOptions::delete_disable_internal_tracking();
 	}
 }
