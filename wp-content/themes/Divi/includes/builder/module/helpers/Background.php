@@ -1256,8 +1256,9 @@ class ET_Builder_Module_Helper_Background {
 							$base_prop_name,
 							$gradient_properties_desktop
 						);
-						$gradient_mode        = $this->get_gradient_style( $gradient_values_mode );
-						$images_mode[]        = $gradient_mode;
+
+						$gradient_mode = $this->get_gradient_style( $gradient_values_mode );
+						$images_mode[] = $gradient_mode;
 
 						$gradient_overlays_image_desktop = $responsive->get_any_value(
 							$props,
@@ -1870,11 +1871,11 @@ class ET_Builder_Module_Helper_Background {
 		foreach ( $global_colors as $gcid => $details ) {
 			if ( false !== strpos( $color, $gcid ) ) {
 				// Match substring (needed for attrs like gradient stops).
-				return esc_attr( str_replace( $gcid, $details['color'], $color ) );
+				$color = str_replace( $gcid, $details['color'], $color );
 			}
 		}
 
-		return null;
+		return $color;
 	}
 
 	/**

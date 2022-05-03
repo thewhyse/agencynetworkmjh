@@ -287,7 +287,7 @@ abstract class ET_Builder_Module_Settings_Migration {
 	 * @param string $content Text/HTML content within the current module.
 	 * @param bool   $maybe_global_presets_migration Whether to include global presets.
 	 *
-	 * @since ?? If a `null` value is returned from `migrate()`, unset the attribute.
+	 * @since 4.17.1 If a `null` value is returned from `migrate()`, unset the attribute.
 	 *
 	 * @return array
 	 */

@@ -49,7 +49,7 @@ final class ET_Core_Updates {
 
 		add_filter( 'wp_prepare_themes_for_js', array( $this, 'replace_theme_update_notification' ) );
 		add_filter( 'upgrader_package_options', array( $this, 'check_upgrading_product' ) );
-		add_filter( 'upgrader_pre_download', array( $this, 'update_error_message' ), 20, 2 );
+		add_filter( 'upgrader_pre_download', array( $this, 'update_error_message' ), 20, 4 );
 
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_plugins_updates' ) );
 		add_filter( 'plugins_api', array( $this, 'maybe_modify_plugins_changelog' ), 20, 3 );
@@ -103,7 +103,9 @@ final class ET_Core_Updates {
 			return;
 		}
 
-		$message = et_get_safe_localization( __( 'For all Elegant Themes products, please <a href="http://www.elegantthemes.com/gallery/divi/documentation/update/" target="_blank">authenticate your subscription</a> via the Updates tab in your theme & plugin settings to enable product updates. Make sure that your Username and API Key have been entered correctly.', 'et-core' ) );
+		$message = empty( $custom_message = $this->get_custom_update_notification_message( $plugin_data['url'] ) )
+			? et_get_safe_localization( __( 'For all Elegant Themes products, please <a href="http://www.elegantthemes.com/gallery/divi/documentation/update/" target="_blank">authenticate your subscription</a> via the Updates tab in your theme & plugin settings to enable product updates. Make sure that your Username and API Key have been entered correctly.', 'et-core' ) )
+			: $custom_message;
 		echo "</p><p>{$message}";
 	}
 
@@ -128,6 +130,22 @@ final class ET_Core_Updates {
 		$this->force_update_requests();
 	}
 
+	function get_custom_update_notification_message( $update_message ) {
+		$is_valid_api_key_status = empty( $account_api_key_status = get_site_option( 'et_account_api_key_status' ) ) || 'invalid' !== $account_api_key_status;
+
+		if ( $is_valid_api_key_status && false !== strpos( $update_message, '/wp-json/api/v1/changelog/product_id/' ) ) {
+			return et_get_safe_localization( __( '<em>The license for this Divi Marketplace product has expired. Please <a target="_blank" href="https://www.elegantthemes.com/members-area/marketplace/">renew the license</a> to continue receiving product updates and support.</em>', 'et-core' ) );
+		}
+
+		if ( false !== strpos( $update_message, 'Automatic update is unavailable for this theme' ) ) {
+			return 'expired' === $this->account_status
+				? et_get_safe_localization( __( '<em>Your Elegant Themes subscription has expired. You must <a href="https://www.elegantthemes.com/members-area/renew/" target="_blank">renew your account</a> to regain access to product updates and support.</em>', 'et-core' ) )
+				: et_get_safe_localization( __( '<em>Before you can receive product updates, you must first authenticate your Elegant Themes subscription. To do this, you need to enter both your Elegant Themes Username and your Elegant Themes API Key into the Updates Tab in your theme and plugin settings. To locate your API Key, <a href="https://www.elegantthemes.com/members-area/api/" target="_blank">log in</a> to your Elegant Themes account and navigate to the <strong>Account > API Key</strong> page. <a href="http://www.elegantthemes.com/gallery/divi/documentation/update/" target="_blank">Learn more here</a></em>. If you still get this message, please make sure that your Username and API Key have been entered correctly', 'et-core' ) );
+		}
+
+		return '';
+	}
+
 	function replace_theme_update_notification( $themes_array ) {
 		if ( empty( $themes_array ) ) {
 			return $themes_array;
@@ -139,14 +157,16 @@ final class ET_Core_Updates {
 
 		foreach ( $themes_array as $id => $theme_data ) {
 			// replace default error message with custom message for ET themes.
-			if (
-				in_array( $id, $this->all_et_products_domains['theme'] )
-				&& false !== strpos( $theme_data['update'], 'Automatic update is unavailable for this theme' )
-			) {
+			if ( ! in_array( $id, $this->all_et_products_domains['theme'] )
+				|| false === strpos( $theme_data['update'], 'Automatic update is unavailable for this theme' ) ) {
+				continue;
+			}
+
+			if ( ! empty( $custom_message = $this->get_custom_update_notification_message( $theme_data['update'] ) ) ) {
 				$themes_array[ $id ]['update'] = sprintf(
 					'<p>%1$s<br/> %2$s</p>',
 					$theme_data['update'],
-					et_get_safe_localization( __( '<em>Before you can receive product updates, you must first authenticate your Elegant Themes subscription. To do this, you need to enter both your Elegant Themes Username and your Elegant Themes API Key into the Updates Tab in your theme and plugin settings. To locate your API Key, <a href="https://www.elegantthemes.com/members-area/api/" target="_blank">log in</a> to your Elegant Themes account and navigate to the <strong>Account > API Key</strong> page. <a href="http://www.elegantthemes.com/gallery/divi/documentation/update/" target="_blank">Learn more here</a></em>. If you still get this message, please make sure that your Username and API Key have been entered correctly', 'et-core' ) )
+					$custom_message
 				);
 			}
 		}
@@ -154,7 +174,7 @@ final class ET_Core_Updates {
 		return $themes_array;
 	}
 
-	function update_error_message( $reply, $package ) {
+	function update_error_message( $reply, $package, $upgrader, $hook_extra ) {
 		if ( ! $this->upgrading_et_product ) {
 			return $reply;
 		}
@@ -166,8 +186,25 @@ final class ET_Core_Updates {
 			return $reply;
 		}
 
+		$hook_name = ! empty( $hook_extra['theme'] ) ? 'theme' : 'plugin';
+		$site_transient = 'theme' === $hook_name ? get_site_transient( 'et_update_themes' ) : get_site_transient( 'et_update_all_plugins' );
+
+		$changelog_url = '';
+		if ( isset( $site_transient->response ) && ! empty( $site_transient->response[ $hook_extra[ $hook_name ] ] ) ) {
+			$changelog_url = 'theme' === $hook_name
+				? $site_transient->response[ $hook_extra[ $hook_name ] ]['url']
+				: $site_transient->response[ $hook_extra[ $hook_name ] ]->url;
+		}
+
+		if ( false !== strpos( $changelog_url, '/wp-json/api/v1/changelog/product_id/' ) ) {
+			$error_message = $this->get_custom_update_notification_message( $changelog_url );
+		} else {
+			$error_message = 'expired' === $this->account_status
+				? et_get_safe_localization( __( '<em>Your Elegant Themes subscription has expired. You must <a href="https://www.elegantthemes.com/members-area/renew/" target="_blank">renew your account</a> to regain access to product updates and support.</em>', 'et-core' ) )
+				: et_get_safe_localization( __( '<em>Before you can receive product updates, you must first authenticate your Elegant Themes subscription. To do this, you need to enter both your Elegant Themes Username and your Elegant Themes API Key into the Updates Tab in your theme and plugin settings. To locate your API Key, <a href="https://www.elegantthemes.com/members-area/api/" target="_blank">log in</a> to your Elegant Themes account and navigate to the <strong>Account > API Key</strong> page. <a href="http://www.elegantthemes.com/gallery/divi/documentation/update/" target="_blank">Learn more here</a></em>. If you still get this message, please make sure that your Username and API Key have been entered correctly', 'et-core' ) );
+		}
+
 		// output custom error message for ET Products if package is empty
-		$error_message = et_get_safe_localization( __( '<em>Before you can receive product updates, you must first authenticate your Elegant Themes subscription. To do this, you need to enter both your Elegant Themes Username and your Elegant Themes API Key into the Updates Tab in your theme and plugin settings. To locate your API Key, <a href="https://www.elegantthemes.com/members-area/api/" target="_blank">log in</a> to your Elegant Themes account and navigate to the <strong>Account > API Key</strong> page. <a href="http://www.elegantthemes.com/gallery/divi/documentation/update/" target="_blank">Learn more here</a></em>. If you still get this message, please make sure that your Username and API Key have been entered correctly', 'et-core' ) );
 
 		return new WP_Error( 'no_package', $error_message );
 	}

@@ -566,7 +566,7 @@ class ET_Builder_Module_Settings_Migration_BackgroundGradientStops extends ET_Bu
 	 * @return string Value to assign to the migrated field.
 	 *
 	 * @since 4.16.0 Added.
-	 * @since ?? Check inheritance. If all values are inherited, unset the attribute.
+	 * @since 4.17.1 Check inheritance. If all values are inherited, unset the attribute.
 	 */
 	public function migrateGradientStops( $field_name, $current_value, $attrs ) {
 

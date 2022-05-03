@@ -20657,11 +20657,11 @@ class ET_Builder_Element {
 					$base_name,
 					$gradient_properties_desktop
 				);
-				$background_gradient_style   = $background_options->get_gradient_style( $gradient_properties );
 			} else {
-				$gradient_properties       = $background_options->get_gradient_properties( $props, $base_name, $suffix );
-				$background_gradient_style = $background_options->get_gradient_style( $gradient_properties );
+				$gradient_properties = $background_options->get_gradient_properties( $props, $base_name, $suffix );
 			}
+
+			$background_gradient_style = $background_options->get_gradient_style( $gradient_properties );
 
 			if ( 'on' === $use_gradient_options && 'on' === $gradient_overlays_image && 'on' === $parallax ) {
 				$is_gradient_on = '' !== $background_gradient_style;

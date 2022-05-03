@@ -296,15 +296,20 @@ function et_fb_enqueue_assets() {
 		$additional_bundles[] = "{$app}/build/" . basename( $chunk );
 	}
 
-	$cloud_build_dir = get_template_directory() . '/cloud/build';
-	$cloud_uri       = get_template_directory_uri();
+	if ( defined( 'ET_CLOUD_PLUGIN_DIR' ) ) {
+		$cloud_build_dir = ET_CLOUD_PLUGIN_DIR . 'build';
+		$cloud_uri       = ET_CLOUD_PLUGIN_URI;
+	} else {
+		$cloud_build_dir = get_template_directory() . '/cloud/build';
+		$cloud_uri       = get_template_directory_uri() . '/cloud';
+	}
 
 	// Divi Cloud bundles.
 	foreach ( array_merge(
 		glob( $cloud_build_dir . '/*.css' ),
 		glob( $cloud_build_dir . '/*.js' )
 	) as $chunk ) {
-		$additional_bundles[] = "{$cloud_uri}/cloud/build/" . basename( $chunk );
+		$additional_bundles[] = "{$cloud_uri}/build/" . basename( $chunk );
 	}
 
 	wp_localize_script(

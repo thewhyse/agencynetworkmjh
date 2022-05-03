@@ -8,7 +8,7 @@
 
 if ( ! defined( 'ET_BUILDER_PRODUCT_VERSION' ) ) {
 	// Note, this will be updated automatically during grunt release task.
-	define( 'ET_BUILDER_PRODUCT_VERSION', '4.17.1' );
+	define( 'ET_BUILDER_PRODUCT_VERSION', '4.17.3' );
 }
 
 if ( ! defined( 'ET_BUILDER_VERSION' ) ) {
@@ -1990,6 +1990,11 @@ function et_fb_process_to_shortcode( $object, $options = array(), $library_item_
 		foreach ( $item['attrs'] as $attribute => $value ) {
 			// ignore computed fields.
 			if ( '__' === substr( $attribute, 0, 2 ) ) {
+				continue;
+			}
+
+			// Ignore post_content_module_attrs. They are needed only during editing.
+			if ( 'post_content_module_attrs' === $attribute ) {
 				continue;
 			}
 
@@ -4774,7 +4779,7 @@ function et_pb_remove_emoji_detection_script() {
 		$post_id = (int) $_GET['post'];
 		$post    = get_post( $post_id );
 
-		if ( et_builder_enabled_for_post( $post->ID ) ) {
+		if ( is_a( $post, 'WP_POST' ) && et_builder_enabled_for_post( $post->ID ) ) {
 			$disable_emoji_detection = true;
 		}
 	}
@@ -13201,6 +13206,11 @@ if ( ! function_exists( 'et_builder_global_colors_ajax_save_handler' ) ) :
 
 		if ( is_array( $post_colors ) ) {
 			foreach ( $post_colors as $data_id => $data ) {
+				// Drop bad data.
+				if ( 'undefined' === $data_id || empty( $data ) ) {
+					continue;
+				}
+
 				// Sanitize data_id (e.g: gcid-3330f0vf7 ).
 				$global_id = sanitize_text_field( $data_id );
 
