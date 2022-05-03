@@ -29,6 +29,7 @@ return array(
     'Leadin\\admin\\Routing' => $baseDir . '/src/admin/class-routing.php',
     'Leadin\\admin\\api\\ApiGenerator' => $baseDir . '/src/admin/api/class-apigenerator.php',
     'Leadin\\admin\\api\\ApiMiddlewares' => $baseDir . '/src/admin/api/class-apimiddlewares.php',
+    'Leadin\\admin\\api\\DisableInternalTrackingApi' => $baseDir . '/src/admin/api/class-disableinternaltrackingapi.php',
     'Leadin\\admin\\api\\DisconnectApi' => $baseDir . '/src/admin/api/class-disconnectapi.php',
     'Leadin\\admin\\api\\GetPortalHubletApi' => $baseDir . '/src/admin/api/class-getportalhubletapi.php',
     'Leadin\\admin\\api\\RegistrationApi' => $baseDir . '/src/admin/api/class-registrationapi.php',

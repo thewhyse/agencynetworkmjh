@@ -8,6 +8,7 @@ use Leadin\wp\User;
 use Leadin\auth\OAuth;
 use Leadin\admin\Connection;
 use Leadin\options\AccountOptions;
+use Leadin\options\LeadinOptions;
 
 /**
  * Class responsible of adding the script loader to the website, as well as rendering forms, live chat, etc.
@@ -62,7 +63,7 @@ class PageHooks {
 	 * Adds the script loader to the page.
 	 */
 	public function add_frontend_scripts() {
-		if ( $this->is_elementor_preview_mode() || current_user_can( 'edit_posts' ) ) {
+		if ( LeadinOptions::get( 'disable_internal_tracking' ) && ( is_user_logged_in() || current_user_can( 'install_plugins' ) ) ) {
 			return;
 		}
 
@@ -85,13 +86,6 @@ class PageHooks {
 		);
 
 		AssetsManager::enqueue_script_loader( $leadin_wordpress_info );
-	}
-
-	/**
-	 * Check to see if Elementor is not on edit/preview mode to avoid script loader
-	 */
-	public function is_elementor_preview_mode() {
-		return is_plugin_active( 'elementor/elementor.php' ) && ( \Elementor\Plugin::$instance->preview->is_preview_mode() || \Elementor\Plugin::$instance->editor->is_edit_mode() );
 	}
 
 	/**

@@ -16,6 +16,8 @@ import {
   updateHublet,
   getPortalHublet,
   trackConsent,
+  disableInternalTracking,
+  fetchDisableInternalTracking,
 } from '../api/wordpressAjaxClient';
 
 import {
@@ -40,6 +42,8 @@ const methods = {
   updateHublet,
   getPortalHublet,
   trackConsent,
+  disableInternalTracking,
+  fetchDisableInternalTracking,
 };
 
 const UNAUTHORIZED = 'unauthorized';

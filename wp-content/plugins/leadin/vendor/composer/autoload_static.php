@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4fcf6ab4e5b78e43bd238ca1dcc52e60
+class ComposerStaticInitc002e16cadfcb3a4633d3d4e3a3538a2
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -30,6 +30,7 @@ class ComposerStaticInit4fcf6ab4e5b78e43bd238ca1dcc52e60
         'Leadin\\admin\\Routing' => __DIR__ . '/../..' . '/src/admin/class-routing.php',
         'Leadin\\admin\\api\\ApiGenerator' => __DIR__ . '/../..' . '/src/admin/api/class-apigenerator.php',
         'Leadin\\admin\\api\\ApiMiddlewares' => __DIR__ . '/../..' . '/src/admin/api/class-apimiddlewares.php',
+        'Leadin\\admin\\api\\DisableInternalTrackingApi' => __DIR__ . '/../..' . '/src/admin/api/class-disableinternaltrackingapi.php',
         'Leadin\\admin\\api\\DisconnectApi' => __DIR__ . '/../..' . '/src/admin/api/class-disconnectapi.php',
         'Leadin\\admin\\api\\GetPortalHubletApi' => __DIR__ . '/../..' . '/src/admin/api/class-getportalhubletapi.php',
         'Leadin\\admin\\api\\RegistrationApi' => __DIR__ . '/../..' . '/src/admin/api/class-registrationapi.php',
@@ -57,7 +58,7 @@ class ComposerStaticInit4fcf6ab4e5b78e43bd238ca1dcc52e60
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit4fcf6ab4e5b78e43bd238ca1dcc52e60::$classMap;
+            $loader->classMap = ComposerStaticInitc002e16cadfcb3a4633d3d4e3a3538a2::$classMap;
 
         }, null, ClassLoader::class);
     }
