@@ -40,11 +40,12 @@
     height: 780px !important;
     .hp_title_row {
       #hp_title_container {
+        position: absolute;
+        bottom: 0;
         .top_part {
           h1 {
             font-size: 22px !important;
           }
-
         }
       }
     }
