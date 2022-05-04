@@ -5,9 +5,13 @@
 /* HomePage HERO  */
 
 #hp-hero-section {
-  .hp_title_row {
+  .hp_title_row,
+   .et_pb_column,
+  .et_pb_module,
+  .et_pb_code_inner {
     height: 100%;
-
+  }
+  .hp_title_row {
     #hp_title_container {
       .top_part {
         display: -webkit-box;
