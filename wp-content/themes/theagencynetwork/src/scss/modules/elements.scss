@@ -107,19 +107,10 @@
 
 /*** Responsive Styles Tablet Only ***/
 @media all and (min-width: 748px) and (max-width: 875px) {
-
   #hp-hero-section {
     height: 430px !important;
-    /*
     .hp_title_row {
       #hp_title_container {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
         .top_part {
           h1 {
 
@@ -127,8 +118,6 @@
         }
       }
     }
-    */
-
   }
 }
 
