@@ -60,8 +60,8 @@
   }
 }
 
-/*** Responsive Styles Tablet Only ***/
-@media all and (min-width: 768px) and (max-width: 1100px) {
+/*** Responsive Styles  BEFORE Tablet Only ***/
+@media all and (min-width: 890px) and (max-width: 1100px) {
 
   #hp-hero-section {
     height: 800px !important;
@@ -216,19 +216,6 @@
         left: 10% !important;
       }
     }
-  }
-
-  /*    Our Culture Page hero    */
-  #our-culture-hero-section {
-    height: 950px;
-    /*
-    .page-title-row {
-      #title_container {
-        bottom: 0 !important;
-        left: 35% !important;
-      }
-    }
-    */
   }
 
 }
