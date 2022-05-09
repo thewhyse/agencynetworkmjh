@@ -44,7 +44,7 @@
     .hp_title_row {
       #hp_title_container {
         position: absolute;
-        bottom: 0;
+        top: calc(50% - 150px);
 
         .top_part {
           h1 {
@@ -72,7 +72,7 @@
     .hp_title_row {
       #hp_title_container {
         position: absolute !important;
-        bottom: 0;
+        top: calc(50% - 150px);
 
         .top_part {
           h1 {
@@ -513,6 +513,15 @@
   }
 }
 
+/*    ABOUT US PAGE     */
+
+#co-creation {
+  .et_pb_text_inner {
+    h2 {
+      font-weight: 900 !important;
+    }
+  }
+}
 
 #beyond-basics {
   .bb-first-row,
