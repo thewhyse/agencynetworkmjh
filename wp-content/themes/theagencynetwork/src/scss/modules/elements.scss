@@ -72,11 +72,12 @@
     .hp_title_row {
       #hp_title_container {
         position: absolute !important;
-        top: calc(50% - 150px);
+        /*top: calc(50% - 150px);*/
+        top: 0;
 
         .top_part {
           h1 {
-            font-size: 18px !important;
+            /*font-size: 18px !important;*/
           }
         }
       }
