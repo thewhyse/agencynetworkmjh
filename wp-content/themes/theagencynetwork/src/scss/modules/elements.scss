@@ -65,7 +65,7 @@
 }
 
 /*** Responsive Styles  BEFORE Tablet Only ***/
-@media all and (min-width: 890px) and (max-width: 1100px) {
+@media all and (min-width: 980px) and (max-width: 1100px) {
   #hp-hero-section {
     height: 800px !important;
 
@@ -73,7 +73,7 @@
       #hp_title_container {
         position: absolute !important;
         /*top: calc(50% - 150px);*/
-        top: 0;
+        /*top: 0;*/
 
         .top_part {
           h1 {
