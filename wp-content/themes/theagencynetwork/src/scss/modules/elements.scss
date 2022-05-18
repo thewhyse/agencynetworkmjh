@@ -85,7 +85,11 @@
       }
       .et_pb_code_inner {
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
       }
     }
@@ -797,6 +801,15 @@
 
 /*LEADERSHIP INFO SECTION*/
 .leader-section {
+
+  .et_pb_row {
+    .et_pb_column {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+
   .leader-info-column {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -808,6 +821,7 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+
     .et_pb_module:not(:last-child) {
       padding: 0;
       margin: 0 0 25px;
@@ -824,10 +838,12 @@
       h3 {
         color: $tan_yellow;
       }
+
       p {
         color: #fff;
       }
     }
+
     .leader-quote p {
       color: #fff;
     }
@@ -841,10 +857,11 @@
     }
 
   }
+
   .leader-linked {
-      img {
-        width: 17%;
-      }
+    img {
+      width: 17%;
+    }
   }
 }
 
@@ -852,8 +869,6 @@
 @media all and (min-width: 1100px) {
   /*LEADERSHIP INFO SECTION*/
   .leader-section {
-
-    height: 264px !important;
     .leader-info-column {
       .et_pb_module {
         padding: 0;
