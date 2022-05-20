@@ -540,6 +540,13 @@
       font-weight: 700 !important;
     }
   }
+  .et_pb_column:last-child {
+    .et_pb_module:first-of-type {
+      h5 {
+        font-weight: 400;
+      }
+    }
+  }
 }
 
 #beyond-basics {
