@@ -1,3 +1,12 @@
+= 8.12.33 (2022-05-27) =
+* Replaced some whitelisted URLs with regex
+
+= 8.12.0 (2022-05-24) =
+* Added Gutenberg block preview image
+
+= 8.11.221 (2022-05-24) =
+* Update dependencies
+
 = 8.11.150 (2022-05-13) =
 * Update build steps
 
@@ -328,17 +337,4 @@
 
 = 7.22.6 (2020-03-02) =
 * Update iframe static version
-
-= 7.23.0 (2020-03-02) =
-* Update acceptance tests
-* Update translations files
-
-= 7.21.22 (2020-02-28) =
-* Fix broken CTAs
-* Load iframe after the page is loaded
-
-= 7.20.13 (2020-02-24) =
-* Add missing translations
-* Update author's URL
-* Fix getting started page not loading
 

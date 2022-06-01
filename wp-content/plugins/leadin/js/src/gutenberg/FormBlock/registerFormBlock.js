@@ -34,6 +34,15 @@ export default function registerFormBlock() {
       formName: {
         type: 'string',
       },
+      preview: {
+        type: 'boolean',
+        default: false,
+      },
+    },
+    example: {
+      attributes: {
+        preview: true,
+      },
     },
     edit: editComponent,
     save: props => <FormBlockSave {...props} />,
