@@ -89,13 +89,15 @@
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   .category-2minutes-videos {
-    .minutes2-top {
+    #minutes2-top {
       height: 100px;
-    }
-    #min2-top-section {
       margin-bottom: 0;
       padding-bottom: 0;
+    }
+    #min2-top-section {
       .et_pb_code {
+        margin-bottom: 0;
+        padding-bottom: 0;
         svg {
           width: 100%;
         }
