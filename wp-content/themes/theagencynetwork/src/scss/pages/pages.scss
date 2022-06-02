@@ -84,95 +84,53 @@
 
 /* END HOME PAGE   */
 
-/*    ABOUT US PAGE   */
+
+/*  2 MINUTES OF TRUTH VIDEOS POST  */
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+  .category-2minutes-videos {
+    .minutes2-top {
+      height: 100px;
+    }
+    #min2-top-section {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      .et_pb_code {
+        svg {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}
+/*  END 2 MINUTES OF TRUTH VIDEOS POST  */
 
 
-/*  END  ABOUT US PAGE   */
+/*** Responsive Styles Standard Desktop Only ***/
+@media all and (min-width: 1100px) {
+
+}
+
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+
+}
+
+/*** Responsive Styles Tablet Only ***/
+@media all and (min-width: 768px) and (max-width: 980px) {
+
+}
 
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
 
 }
 
-@media all and (max-width: 767px) {
+/*** Responsive Styles Smartphone Portrait ***/
+@media all and (max-width: 479px) {
 
 }
 
-/* OLD Contact Page*/
 
-/*
-#ts_form_wrapper {
-  position: relative;
-  &::before {
-    content: '*Required field';
-    position: absolute;
-    left: 0;
-    top: -10px;
-    font-weight: 600;
-  }
-}
-
-body #page-container .et_pb_section #ts_contact_form {
-  .et_pb_button {
-    width: 335px;
-    margin: 40px auto 0;
-    padding: 10px 90px;
-  }
-
-  .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
-    width: 33%;
-    float: left;
-    clear: initial;
-  }
-
-  .et_pb_button:hover {
-    padding: 10px 90px !important;
-  }
-
-  .et_contact_bottom_container {
-    float: none;
-    clear: both;
-  }
-}
-
-!*** Responsive Styles Tablet Only ***!
-@media all and (min-width: 768px) and (max-width: 980px) {
-  body #page-container .et_pb_section #ts_contact_form {
-    .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
-      width: 50% !important;
-      float: left;
-      clear: initial;
-    }
-  }
-}
-
-@media all and (max-width: 767px) {
-  body #page-container .et_pb_section #ts_contact_form .et_pb_button {
-    width: 80%;
-    padding: 10px 90px;
-  }
-
-  body #page-container .et_pb_section #ts_contact_form {
-    .et_pb_contact .et_pb_contact_field_half:not(:last-of-type) {
-      width: 100% !important;
-      float: left;
-      clear: initial;
-    }
-  }
-
-  .join-our-team-section {
-    .mjh-logo {
-      .join-us-logo-container {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-      }
-    }
-  }
-
-}
-*/
-
-/* END OLD Contact Page*/
 
