@@ -33,6 +33,15 @@ class Connection {
 	}
 
 	/**
+	 * Returns true if existing portal is the same into a connect attempt
+	 */
+	public static function is_same_portal() {
+		$connect_params = QueryParameters::get_parameters( self::CONNECT_KEYS, 'hubspot-nonce', self::CONNECT_NONCE_ARG );
+		$portal_id      = $connect_params['portal_id'];
+		return AccountOptions::get_portal_id() === $portal_id;
+	}
+
+	/**
 	 * Returns true if the current request is for the plugin to connect to a portal
 	 */
 	public static function is_connection_requested() {

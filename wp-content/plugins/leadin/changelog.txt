@@ -1,3 +1,18 @@
+= 8.13.56 (2022-06-10) =
+* Use new script to render forms
+
+= 8.13.52 (2022-06-09) =
+* Add defer to forms script
+
+= 8.13.45 (2022-06-08) =
+* Remove char from proxy url
+
+= 8.13.39 (2022-06-07) =
+* Add tracking of events in review banner
+
+= 8.13.0 (2022-06-01) =
+* Add validation to connect method
+
 = 8.12.33 (2022-05-27) =
 * Replaced some whitelisted URLs with regex
 
@@ -319,22 +334,4 @@
 
 = 7.27.48 (2020-03-31) =
 * Disable review notice
-
-= 7.27.47 (2020-03-29) =
-* Define a new way to update changelog
-* Updated translations
-* remove unused variables
-* fixed linting
-
-= 7.26.18 (2020-03-16) =
-* Fix login screen when not authenticated
-
-= 7.25.2 (2020-03-11) =
-* Rename configuration files
-
-= 7.24.8 (2020-03-10) =
-* Create iframe on javascript rather than PHP.
-
-= 7.22.6 (2020-03-02) =
-* Update iframe static version
 

@@ -102,6 +102,10 @@ class LeadinRestApi {
 			if ( ! in_array( $proxy_url, self::WHITELISTED_URLS, true ) && empty( $regex ) ) {
 				return new \WP_REST_Response( $proxy_url . ' not found.', 404 );
 			}
+			if ( substr( $proxy_url, -1 ) === '?' ) {
+				$proxy_url = substr( $proxy_url, 0, -1 );
+			}
+
 			try {
 				$proxy_request = HubSpotApiClient::authenticated_request( $proxy_url, $request->get_method(), $request->get_body() );
 			} catch ( \Exception $e ) {

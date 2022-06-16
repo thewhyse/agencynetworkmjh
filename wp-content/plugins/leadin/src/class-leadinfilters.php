@@ -84,7 +84,7 @@ class LeadinFilters {
 	 */
 	public static function get_leadin_forms_script_url() {
 		$hublet_domain = self::apply_hublet( 'js' );
-		return apply_filters( 'leadin_forms_script_url', "https://$hublet_domain.hsforms.net/forms/v2.js" );
+		return apply_filters( 'leadin_forms_script_url', "https://$hublet_domain.hsforms.net/forms/embed/v2.js" );
 	}
 
 	/**

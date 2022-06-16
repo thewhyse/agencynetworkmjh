@@ -21,6 +21,7 @@ class AssetsManager {
 	const FORMS_SCRIPT  = 'leadin-forms-v2';
 	const LEADIN_CONFIG = 'leadinConfig';
 	const LEADIN_I18N   = 'leadinI18n';
+	const REVIEW_BANNER = 'leadin-review-banner';
 
 	/**
 	 * Register and localize all assets.
@@ -96,5 +97,14 @@ class AssetsManager {
 		wp_register_script( self::GUTENBERG, LEADIN_JS_BASE_PATH . '/gutenberg.js', array( 'wp-blocks', 'wp-element' ), LEADIN_PLUGIN_VERSION, true );
 		wp_localize_script( self::GUTENBERG, self::LEADIN_CONFIG, AdminConstants::get_background_leadin_config() );
 		wp_localize_script( self::GUTENBERG, self::LEADIN_I18N, AdminConstants::get_leadin_i18n() );
+	}
+
+	/**
+	 * Register and enqueue a new script for tracking review banner events.
+	 */
+	public static function enqueue_review_banner_tracking_script() {
+		wp_register_script( self::REVIEW_BANNER, LEADIN_JS_BASE_PATH . '/reviewBanner.js', array( 'jquery' ), LEADIN_PLUGIN_VERSION, true );
+		wp_localize_script( self::REVIEW_BANNER, self::LEADIN_CONFIG, AdminConstants::get_background_leadin_config() );
+		wp_enqueue_script( self::REVIEW_BANNER );
 	}
 }

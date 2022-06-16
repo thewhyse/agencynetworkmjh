@@ -144,7 +144,7 @@ class Links {
 	 */
 	private static function get_connection_src() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$portal_id = isset( $_GET['leadin_connect'] ) ? filter_var( wp_unslash( $_GET['leadin_connect'] ), FILTER_VALIDATE_INT ) : 0;
+		$portal_id = Connection::is_connected() ? AccountOptions::get_portal_id() : ( isset( $_GET['leadin_connect'] ) ? filter_var( wp_unslash( $_GET['leadin_connect'] ), FILTER_VALIDATE_INT ) : 0 );
 		return LeadinFilters::get_leadin_base_url() . "/wordpress-plugin-ui/onboarding/connect?portalId=$portal_id&" . self::get_query_params();
 	}
 
