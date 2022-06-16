@@ -1,14 +1,8 @@
 /* INSTRUCTIONS ARE HERE: https://css-tricks.com/gulp-for-wordpress-creating-the-tasks/#top-of-site */
-import gulp from 'gulp';
+import {dest, parallel, series, src, watch} from 'gulp';
 
 import webpack from 'webpack-stream';
-import { src, dest, watch, series, parallel } from 'gulp';
 import yargs from 'yargs';
-const PRODUCTION = yargs.argv.prod;
-
-/*import sass from 'gulp-sass';*/ /* <<-- this did not work, had to do [npm install node-sass]*/
-const sass = require('gulp-sass')(require('sass'));
-
 import cleanCss from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import postcss from 'gulp-postcss';
@@ -17,6 +11,11 @@ import autoprefixer from 'autoprefixer';
 import del from 'del';
 import named from 'vinyl-named';
 import imagemin from 'gulp-imagemin';
+
+const PRODUCTION = yargs.argv.prod;
+
+/*import sass from 'gulp-sass';*/ /* <<-- this did not work, had to do [npm install node-sass]*/
+const sass = require('gulp-sass')(require('sass'));
 
 export const styles = () => {
   return src('src/scss/bundle.scss')
