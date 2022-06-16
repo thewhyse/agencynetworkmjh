@@ -19,14 +19,13 @@ class PageHooks {
 	 */
 	public function __construct() {
 		add_action( 'wp_head', array( $this, 'add_page_analytics' ) );
-		add_action( 'wp_head', array( $this, 'add_form_management_script' ) );
 		if ( Connection::is_connected() ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_frontend_scripts' ) );
 		}
 		add_filter( 'script_loader_tag', array( $this, 'add_id_to_tracking_code' ), 10, 2 );
+		add_filter( 'script_loader_tag', array( $this, 'add_defer_to_forms_script' ), 10, 2 );
 		add_shortcode( 'hubspot', array( $this, 'leadin_add_hubspot_shortcode' ) );
 	}
-
 
 
 	/**
@@ -121,6 +120,19 @@ class PageHooks {
 	}
 
 	/**
+	 * Add defer to leadin forms plugin
+	 *
+	 * @param String $tag tag name.
+	 * @param String $handle handle.
+	 */
+	public function add_defer_to_forms_script( $tag, $handle ) {
+		if ( AssetsManager::FORMS_SCRIPT === $handle ) {
+			$tag = str_replace( 'src', 'defer src', $tag );
+		}
+		return $tag;
+	}
+
+	/**
 	 * Parse leadin shortcodes
 	 *
 	 * @param array $attributes Shortcode attributes.
@@ -163,13 +175,15 @@ class PageHooks {
 				AssetsManager::enqueue_forms_script();
 				return '
 					<script>
-						hbspt.enqueueForm({
-							portalId: ' . $portal_id . ',
-							formId: "' . $id . '",
-							target: "#hbspt-form-' . $form_div_uuid . '",
-							region: "' . $hublet . '",
-							' . LeadinFilters::get_leadin_forms_payload() . '
-						});
+						window.hsFormsOnReady = window.hsFormsOnReady || [];
+						window.hsFormsOnReady.push(()=>{
+							hbspt.forms.create({
+								portalId: ' . $portal_id . ',
+								formId: "' . $id . '",
+								target: "#hbspt-form-' . $form_div_uuid . '",
+								region: "' . $hublet . '",
+								' . LeadinFilters::get_leadin_forms_payload() . '
+						})});
 					</script>
 					<div class="hbspt-form" id="hbspt-form-' . $form_div_uuid . '"></div>';
 			case 'cta':
@@ -194,44 +208,4 @@ class PageHooks {
 		}
 	}
 
-	/**
-	 * Adds script to manage HubSpot forms on the page
-	 */
-	public function add_form_management_script() {
-		?>
-			<script>
-				(function() {
-					var hbspt = window.hbspt = window.hbspt || {};
-					hbspt.forms = hbspt.forms || {};
-					hbspt._wpFormsQueue = [];
-					hbspt.enqueueForm = function(formDef) {
-						if (hbspt.forms && hbspt.forms.create) {
-							hbspt.forms.create(formDef);
-						} else {
-							hbspt._wpFormsQueue.push(formDef);
-						}
-					};
-					if (!window.hbspt.forms.create) {
-						Object.defineProperty(window.hbspt.forms, 'create', {
-							configurable: true,
-							get: function() {
-								return hbspt._wpCreateForm;
-							},
-							set: function(value) {
-								hbspt._wpCreateForm = value;
-								while (hbspt._wpFormsQueue.length) {
-									var formDef = hbspt._wpFormsQueue.shift();
-									if (!document.currentScript) {
-										var formScriptId = '<?php echo esc_html( AssetsManager::FORMS_SCRIPT ); ?>-js';
-										hubspot.utils.currentScript = document.getElementById(formScriptId);
-									}
-									hbspt._wpCreateForm.call(hbspt.forms, formDef);
-								}
-							},
-						});
-					}
-				})();
-			</script>
-		<?php
-	}
 }

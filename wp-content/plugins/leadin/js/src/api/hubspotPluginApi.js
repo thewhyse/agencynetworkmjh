@@ -29,3 +29,15 @@ export function monitorFormCreatedFromTemplate(type) {
 export function monitorFormCreationFailed(error) {
   return callInterframeMethod('monitorFormCreationFailed', error);
 }
+
+export function monitorReviewBannerRendered() {
+  return callInterframeMethod('monitorReviewBannerRendered');
+}
+
+export function monitorReviewBannerLinkClicked() {
+  return callInterframeMethod('monitorReviewBannerLinkClicked');
+}
+
+export function monitorReviewBannerDismissed() {
+  return callInterframeMethod('monitorReviewBannerDismissed');
+}

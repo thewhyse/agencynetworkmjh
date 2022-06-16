@@ -6,7 +6,7 @@ Tags: CRM, Email Marketing, Live Chat, Marketing, Analytics, form, popups, newsl
 Requires at least: 4.0
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 8.12.41
+Stable tag: 8.13.58
 
 Capture, organize and engage web visitors with free live chat, forms, CRM (contact management), email marketing, and analytics. Easy to use, no coding.
 
@@ -380,12 +380,12 @@ Please visit the <a href="https://community.hubspot.com/?utm_source=wordpress-pl
 == Changelog ==
 
 <a href="http://plugins.svn.wordpress.org/leadin/trunk/changelog.txt" target="_blank">Full changelog here</a>
-- Current version: 8.12.41
-- Version release date: 2022-05-31
+- Current version: 8.13.58
+- Version release date: 2022-06-10
 
-= 8.12.33 (2022-05-27) =
-* Replaced some whitelisted URLs with regex
+= 8.13.56 (2022-06-10) =
+* Use new script to render forms
 
-= 8.12.0 (2022-05-24) =
-* Added Gutenberg block preview image
+= 8.13.52 (2022-06-09) =
+* Add defer to forms script
 

@@ -50,7 +50,8 @@ class NoticeManager {
 			if ( self::should_show_disconnected_notice() ) {
 				$this->leadin_render_disconnected_banner();
 			} elseif ( self::should_show_review_notice() ) {
-				ReviewBanner::leadin_render_review_banner();
+				$review_banner = new ReviewBanner();
+				$review_banner->leadin_render_review_banner();
 			}
 		}
 	}

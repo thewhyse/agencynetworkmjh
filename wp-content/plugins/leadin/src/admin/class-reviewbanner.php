@@ -4,6 +4,7 @@ namespace Leadin\admin;
 
 use Leadin\wp\User;
 use Leadin\admin\AdminConstants;
+use Leadin\AssetsManager;
 
 /**
  * Class responsible for rendering the review banner
@@ -11,9 +12,16 @@ use Leadin\admin\AdminConstants;
 class ReviewBanner {
 
 	/**
+	 * Constructor enqueues scripts for tracking events and creates background leadin iframe
+	 */
+	public function __construct() {
+		AssetsManager::enqueue_review_banner_tracking_script();
+	}
+
+	/**
 	 * Render the review banner.
 	 */
-	public static function leadin_render_review_banner() {
+	public function leadin_render_review_banner() {
 		$nonce               = wp_create_nonce( 'leadin-review' );
 		$dismiss_notice_text = __( 'Dismiss this notice.', 'leadin' );
 		$hello_text          = sprintf(
@@ -26,12 +34,13 @@ class ReviewBanner {
 		?>
 			<div id="leadin-review-banner" class="leadin-banner leadin-review-banner notice notice-warning">
 
-				<a href="?leadin_review=false&_wpnonce=<?php echo esc_html( $nonce ); ?>" id="dismiss-review-banner-button">
-					<button class="leadin-review-banner__dismiss notice-dismiss">
-						<span class="screen-reader-text">
-							<?php	echo esc_html( $dismiss_notice_text ); ?>
-						</span>
-					</button>
+				<a href="?leadin_review=false&_wpnonce=<?php echo esc_html( $nonce ); ?>"
+					id="dismiss-review-banner-button">
+						<button class="leadin-review-banner__dismiss notice-dismiss">
+							<span class="screen-reader-text">
+								<?php	echo esc_html( $dismiss_notice_text ); ?>
+							</span>
+						</button>
 				</a>
 
 				<div class="leadin-review-banner__content">
@@ -46,7 +55,6 @@ class ReviewBanner {
 								class="leadin-banner__link"
 								id="leave-review-button" target="_blank"
 								href="?leadin_review=true&_wpnonce=<?php echo esc_html( $nonce ); ?>"
-								onclick="hideBanner()"
 								aria-label="<?php echo esc_html( __( 'Leave us a review | link opens in a new tab', 'leadin' ) ); ?>"
 							>
 								<?php	echo esc_html( $leave_review_text ); ?>
@@ -66,15 +74,7 @@ class ReviewBanner {
 				</div>
 			</div>
 
-			<script>
-				function hideBanner() {
-					const reviewBanner = document.getElementById("leadin-review-banner");
 
-					if (reviewBanner) {
-						reviewBanner.classList.add('leadin-review-banner--hide')
-					}
-				}
-			</script>
 		<?php
 	}
 }

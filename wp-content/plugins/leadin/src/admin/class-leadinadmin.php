@@ -108,16 +108,21 @@ class LeadinAdmin {
 	 * Connect/disconnect the plugin
 	 */
 	public function authorize() {
-		if ( Connection::is_connection_requested() ) {
-			Connection::oauth_connect();
-			$redirect_params = array( 'leadin_just_connected' => 1 );
-			if ( Connection::is_new_portal() ) {
-				$redirect_params['is_new_portal'] = 1;
+		if ( User::is_admin() ) {
+			if ( Connection::is_connection_requested() ) {
+				$redirect_params = array();
+				if ( ! Connection::is_connected() || Connection::is_same_portal() ) {
+					Connection::oauth_connect();
+					$redirect_params['leadin_just_connected'] = 1;
+					if ( Connection::is_new_portal() ) {
+						$redirect_params['is_new_portal'] = 1;
+					}
+				}
+				Routing::redirect( MenuConstants::USER_GUIDE, $redirect_params );
+			} elseif ( Connection::is_disconnection_requested() ) {
+				Connection::disconnect();
+				Routing::redirect( MenuConstants::ROOT );
 			}
-			Routing::redirect( MenuConstants::USER_GUIDE, $redirect_params );
-		} elseif ( Connection::is_disconnection_requested() ) {
-			Connection::disconnect();
-			Routing::redirect( MenuConstants::ROOT );
 		}
 	}
 

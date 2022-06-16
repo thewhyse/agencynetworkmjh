@@ -168,7 +168,7 @@ function uaf_save_options(){
 		
 	$all_fields_name = array(
 							'uaf_server_url_type',
-							'uaf_uploader_type',
+							//'uaf_uploader_type',
 							'uaf_use_absolute_font_path',
 							'uaf_disbale_editor_font_list',
 							'uaf_enable_multi_lang_support',
