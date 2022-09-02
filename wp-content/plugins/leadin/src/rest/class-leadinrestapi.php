@@ -19,6 +19,8 @@ class LeadinRestApi {
 		array( 'regex' => '/^\/forms\/v2\/forms\??(?:&?[^=&]*=[^=&]*)*/i' ),
 		'/cosemail/v1/emails/listing?',
 		'/wordpress/v1/proxy/live-chat-status?',
+		'/wordpress/v1/meetings/links?',
+		'/wordpress/v1/meetings/user?',
 		'/usercontext/v1/external/actions?',
 		'/usercontext-app/v1/external/onboarding/tasks/wordpress_plugin_inexperienced?',
 		'/usercontext-app/v1/external/onboarding/progress/wordpress_plugin_inexperienced?',

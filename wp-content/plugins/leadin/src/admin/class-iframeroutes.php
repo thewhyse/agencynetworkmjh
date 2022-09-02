@@ -13,11 +13,15 @@ class IframeRoutes {
 
 	/**
 	 * Get the iframe route based on plugin state
+	 *
+	 * @param boolean $skip_just_connected if true skips returning the just connected path.
+	 *
+	 * Returns the oauth path for the iframe.
 	 */
-	public static function get_oauth_path() {
+	public static function get_oauth_path( $skip_just_connected = false ) {
 		if ( Routing::is_oauth_expired() ) {
 			return self::get_expired_path();
-		} elseif ( Routing::has_just_connected_with_oauth() ) {
+		} elseif ( ! $skip_just_connected && Routing::has_just_connected_with_oauth() ) {
 			return self::get_just_connected_path();
 		}
 

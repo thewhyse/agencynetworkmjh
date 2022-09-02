@@ -43,7 +43,7 @@ class Notices {
 		$this->import              = new Import();
 		$this->deprecatedWordPress = new DeprecatedWordPress();
 
-		add_action( 'admin_notices', [ $this, 'notice' ] );
+		add_action( 'admin_notices', [ $this, 'notices' ] );
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Notices {
 	 * @return array An array of notifications.
 	 */
 	private function fetch() {
-		$response = wp_remote_get( $this->getUrl() . '?' . time() );
+		$response = aioseo()->helpers->wpRemoteGet( $this->getUrl() );
 
 		if ( is_wp_error( $response ) ) {
 			return [];
@@ -322,7 +322,7 @@ class Notices {
 	 *
 	 * @return void
 	 */
-	public function notice() {
+	public function notices() {
 		$this->review->maybeShowNotice();
 		$this->migration->maybeShowNotice();
 		$this->import->maybeShowNotice();

@@ -1,3 +1,43 @@
+= 9.0.20 (2022-08-30) =
+* Remove tests folder and composer.phar file
+
+= 9.0.0 (2022-08-29) =
+* Added HusbSpot Elementor widgets
+
+= 8.16.25 (2022-08-19) =
+* Fixes the headers missing issue by tying the script with a hook
+
+= 8.16.6 (2022-08-17) =
+* Revert changes for open upgrade link in new tab
+
+= 8.16.5 (2022-08-17) =
+* Removed newline before/after php tag
+
+= 8.16.2 (2022-08-17) =
+* Fixes the headers already sent error
+
+= 8.16.0 (2022-08-17) =
+* Made upgrade link open up in a new tab instead of the iframe
+
+= 8.15.139 (2022-08-04) =
+* Fix for content type customization
+
+= 8.15.65 (2022-07-22) =
+* Fix encode URL for affiliate link
+
+= 8.15.36 (2022-07-19) =
+* Add validation for content type in meta data
+
+= 8.15.0 (2022-07-15) =
+* Add hubspot sidebar to set content type
+
+= 8.14.24 (2022-07-15) =
+* Add fallback for affiliate link
+* Increase WP tested up to version
+
+= 8.14.0 (2022-07-13) =
+* Add Meetings gutenberg block
+
 = 8.13.56 (2022-06-10) =
 * Use new script to render forms
 
@@ -284,54 +324,4 @@
 
 = 7.35.4 (2020-07-02) =
 * Pass a div ID to the form create function where the form will be appended
-
-= 7.35.2 (2020-07-01) =
-* Update text on the plugin listing page
-* Make the forms creation code independent of the order which the files are parsed
-
-= 7.35.1 (2020-06-28) =
-* Allow users to try the plugin before signup
-* Enable an API which will allow pre-signup demo eperience
-
-= 7.34.0 (2020-06-09) =
-* Pass device id to the iframe to show tracking consent banner
-
-= 7.32.6 (2020-05-25) =
-* Remove unused function
-
-= 7.32.3 (2020-05-17) =
-* Show default reporting dashboard instead of Marketing Dashboard
-* Fix broken link on Dashboard page
-* Added user account name to login screen
-
-= 7.31.1 (2020-05-10) =
-* Allow alternate url for different page's sub-route
-* Create filter for affiliate links
-
-= 7.30.5 (2020-05-04) =
-* Sanitize portal domain on connect to remove the URL protocol
-
-= 7.30.4 (2020-04-26) =
-* Update translations
-
-= 7.30.2 (2020-04-21) =
-* Fixed broken settings link on the dashboard page
-* Remove query parameter from iframe
-* Re-enable review tool
-
-= 7.29.4 (2020-04-14) =
-* Rename Dashboard and Getting started menus
-* Fix broken link in settings menu
-* Add background iframe in all pages using Gutenberg
-* Updated wordpress latest version tested
-
-= 7.28.1 (2020-04-06) =
-* Fix error message when connecting after sign up
-
-= 7.28.0 (2020-04-05) =
-* Added user account information to the settings page
-* Added Covid-19 information banner
-
-= 7.27.48 (2020-03-31) =
-* Disable review notice
 

@@ -149,9 +149,10 @@ class Links {
 	}
 
 	/**
-	 * Returns the right iframe src.
+	 * This function computes the right iframe src based on query params and current page.
 	 *
 	 * The `page` query param is used as a key to get the url from the get_routes_mapping
+	 * This query param will get ignored if $page_id function param is present
 	 * The `leadin_route[]` query params are added to the url
 	 *
 	 * e.g.:
@@ -163,8 +164,12 @@ class Links {
 	 * e.g.:
 	 * ?page=leadin_settings&leadin=route[]=forms&leadin_route[]=bar will redirect to /settings/$portal_id/forms/bar
 	 * ?page=leadin_settings&leadin=route[]=foo&leadin_route[]=bar will redirect to /wordpress_plugin_ui/$portal_id/settings/foo/bar
+	 *
+	 * @param String $page_id is used as a key to get the url from the get_routes_mapping by overriding the query param.
+	 *
+	 * Returns the right iframe src.
 	 */
-	public static function get_iframe_src() {
+	public static function get_iframe_src( $page_id = '' ) {
 		$leadin_onboarding     = 'leadin_onboarding';
 		$leadin_new_portal     = 'leadin_new_portal';
 		$browser_search_string = '';
@@ -200,10 +205,13 @@ class Links {
 			set_transient( $leadin_onboarding, 'true' );
 			$route = '/wordpress-plugin-ui/onboarding';
 		} else {
-			$page_id = self::get_page_id();
-			$routes  = self::get_routes_mapping();
+			if ( '' === $page_id ) {
+				$page_id = self::get_page_id();
+			}
 
-			$route = IframeRoutes::get_oauth_path();
+			$routes = self::get_routes_mapping();
+
+			$route = IframeRoutes::get_oauth_path( MenuConstants::PRICING === $page_id );
 			if ( empty( $route ) && isset( $routes[ $page_id ] ) ) {
 				$route = $routes[ $page_id ];
 

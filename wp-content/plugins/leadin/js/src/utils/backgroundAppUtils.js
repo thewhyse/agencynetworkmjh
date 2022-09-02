@@ -1,12 +1,15 @@
 import Raven from '../lib/Raven';
 import { createBackgroundIframe } from '../iframe/iframe';
 import { initApp } from './appUtils';
-import { monitorFormPreviewRender } from '../api/hubspotPluginApi';
 
 export function initBackgroundApp(initFn) {
   function main() {
     createBackgroundIframe();
-    initFn();
+    if (Array.isArray(initFn)) {
+      initFn.forEach(callback => callback());
+    } else {
+      initFn();
+    }
   }
   initApp(main);
 }
@@ -26,7 +29,6 @@ export function initMonitorGutenberBlockPreview() {
       }
       if (event.data.eventName === 'onFormReady') {
         clearTimeout(formsPreviewTimeouts[formId]);
-        monitorFormPreviewRender();
       }
     }
   });

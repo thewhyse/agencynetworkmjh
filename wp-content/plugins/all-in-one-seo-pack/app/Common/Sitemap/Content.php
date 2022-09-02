@@ -225,7 +225,7 @@ class Content {
 		$entries          = [];
 		$isStaticHomepage = 'page' === get_option( 'show_on_front' );
 		$homePageId       = (int) get_option( 'page_on_front' );
-		$excludeImages    = aioseo()->options->sitemap->general->advancedSettings->enable && aioseo()->options->sitemap->general->advancedSettings->excludeImages;
+		$excludeImages    = aioseo()->sitemap->helpers->excludeImages();
 		foreach ( $posts as $post ) {
 			$entry = [
 				'loc'        => get_permalink( $post->ID ),
@@ -246,7 +246,7 @@ class Content {
 				$entry['priority']   = aioseo()->sitemap->priority->priority( 'homePage' );
 			}
 
-			$entries[] = apply_filters( 'aioseo_sitemap_post', $entry, $post->ID, $postType );
+			$entries[] = apply_filters( 'aioseo_sitemap_post', $entry, $post->ID, $postType, 'post' );
 		}
 
 		// We can't remove the post type here because other plugins rely on it.
@@ -339,7 +339,7 @@ class Content {
 				'images'     => aioseo()->sitemap->image->term( $term )
 			];
 
-			$entries[] = apply_filters( 'aioseo_sitemap_term', $entry, $term->term_id, $term->taxonomy );
+			$entries[] = apply_filters( 'aioseo_sitemap_term', $entry, $term->term_id, $term->taxonomy, 'term' );
 		}
 
 		return apply_filters( 'aioseo_sitemap_terms', $entries );
@@ -381,9 +381,10 @@ class Content {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @return array The sitemap entries.
+	 * @param  bool  $shouldChunk Whether the entries should be chuncked. Is set to false when the static sitemap is generated.
+	 * @return array              The sitemap entries.
 	 */
-	public function addl() {
+	public function addl( $shouldChunk = true ) {
 		$additionalPages = [];
 		if ( aioseo()->options->sitemap->general->additionalPages->enable ) {
 			$additionalPages = apply_filters( 'aioseo_sitemap_additional_pages', aioseo()->options->sitemap->general->additionalPages->pages );
@@ -418,7 +419,7 @@ class Content {
 			return [];
 		}
 
-		if ( aioseo()->options->sitemap->general->indexes ) {
+		if ( aioseo()->options->sitemap->general->indexes && $shouldChunk ) {
 			$additionalPages = aioseo()->sitemap->helpers->chunkEntries( $additionalPages );
 			$additionalPages = $additionalPages[ aioseo()->sitemap->pageNumber ];
 		}
@@ -591,7 +592,7 @@ class Content {
 				'pubDate'     => aioseo()->helpers->dateTimeToRfc822( $post->post_modified_gmt )
 			];
 
-			$entries[] = apply_filters( 'aioseo_sitemap_post_rss', $entry, $post->ID, $post->post_type );
+			$entries[] = apply_filters( 'aioseo_sitemap_post_rss', $entry, $post->ID, $post->post_type, 'post' );
 		}
 
 		usort( $entries, function( $a, $b ) {

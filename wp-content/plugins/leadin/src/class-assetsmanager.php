@@ -10,18 +10,21 @@ use Leadin\options\AccountOptions;
  * Class responsible of managing all the plugin assets.
  */
 class AssetsManager {
-	const ADMIN_CSS     = 'leadin-css';
-	const BRIDGE_CSS    = 'leadin-bridge-css';
-	const ADMIN_JS      = 'leadin-js';
-	const MENU_JS       = 'menu-js';
-	const FEEDBACK_CSS  = 'leadin-feedback-css';
-	const FEEDBACK_JS   = 'leadin-feedback';
-	const TRACKING_CODE = 'leadin-script-loader-js';
-	const GUTENBERG     = 'leadin-gutenberg';
-	const FORMS_SCRIPT  = 'leadin-forms-v2';
-	const LEADIN_CONFIG = 'leadinConfig';
-	const LEADIN_I18N   = 'leadinI18n';
-	const REVIEW_BANNER = 'leadin-review-banner';
+	const ADMIN_CSS          = 'leadin-css';
+	const BRIDGE_CSS         = 'leadin-bridge-css';
+	const ADMIN_JS           = 'leadin-js';
+	const MENU_JS            = 'menu-js';
+	const FEEDBACK_CSS       = 'leadin-feedback-css';
+	const FEEDBACK_JS        = 'leadin-feedback';
+	const TRACKING_CODE      = 'leadin-script-loader-js';
+	const GUTENBERG          = 'leadin-gutenberg';
+	const MEETINGS_GUTENBERG = 'leadin-meetings-gutenberg';
+	const FORMS_SCRIPT       = 'leadin-forms-v2';
+	const MEETINGS_SCRIPT    = 'leadin-meeting';
+	const LEADIN_CONFIG      = 'leadinConfig';
+	const LEADIN_I18N        = 'leadinI18n';
+	const REVIEW_BANNER      = 'leadin-review-banner';
+	const ELEMENTOR          = 'leadin-elementor';
 
 	/**
 	 * Register and localize all assets.
@@ -91,12 +94,36 @@ class AssetsManager {
 	}
 
 	/**
+	 * Register and enqueue forms script
+	 */
+	public static function enqueue_meetings_script() {
+		wp_enqueue_script(
+			self::MEETINGS_SCRIPT,
+			'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js',
+			array(),
+			LEADIN_PLUGIN_VERSION,
+			true
+		);
+	}
+
+	/**
 	 * Register and localize the Gutenberg scripts.
 	 */
 	public static function localize_gutenberg() {
+		wp_register_style( self::ELEMENTOR, LEADIN_JS_BASE_PATH . '/gutenberg.css', array(), LEADIN_PLUGIN_VERSION );
+		wp_enqueue_style( self::ELEMENTOR );
 		wp_register_script( self::GUTENBERG, LEADIN_JS_BASE_PATH . '/gutenberg.js', array( 'wp-blocks', 'wp-element' ), LEADIN_PLUGIN_VERSION, true );
 		wp_localize_script( self::GUTENBERG, self::LEADIN_CONFIG, AdminConstants::get_background_leadin_config() );
 		wp_localize_script( self::GUTENBERG, self::LEADIN_I18N, AdminConstants::get_leadin_i18n() );
+	}
+
+	/**
+	 * Register and localize the Meetings Gutenberg scripts.
+	 */
+	public static function localize_meetings_gutenberg() {
+		wp_register_script( self::MEETINGS_GUTENBERG, LEADIN_JS_BASE_PATH . '/meetings.js', array( 'wp-blocks', 'wp-element' ), LEADIN_PLUGIN_VERSION, true );
+		wp_localize_script( self::MEETINGS_GUTENBERG, self::LEADIN_CONFIG, AdminConstants::get_background_leadin_config() );
+		wp_localize_script( self::MEETINGS_GUTENBERG, self::LEADIN_I18N, AdminConstants::get_leadin_i18n() );
 	}
 
 	/**
@@ -107,4 +134,17 @@ class AssetsManager {
 		wp_localize_script( self::REVIEW_BANNER, self::LEADIN_CONFIG, AdminConstants::get_background_leadin_config() );
 		wp_enqueue_script( self::REVIEW_BANNER );
 	}
+
+	/**
+	 * Register and enqueue a new script/style for elementor.
+	 */
+	public static function enqueue_elementor_script() {
+		wp_register_style( self::ELEMENTOR, LEADIN_JS_BASE_PATH . '/elementor.css', array(), LEADIN_PLUGIN_VERSION );
+		wp_enqueue_style( self::ELEMENTOR );
+		wp_register_script( self::ELEMENTOR, LEADIN_JS_BASE_PATH . '/elementor.js', array(), LEADIN_PLUGIN_VERSION, true );
+		wp_localize_script( self::ELEMENTOR, self::LEADIN_CONFIG, AdminConstants::get_background_leadin_config() );
+		wp_localize_script( self::ELEMENTOR, self::LEADIN_I18N, AdminConstants::get_leadin_i18n() );
+		wp_enqueue_script( self::ELEMENTOR );
+	}
+
 }

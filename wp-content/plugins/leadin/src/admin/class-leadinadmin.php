@@ -12,6 +12,7 @@ use Leadin\admin\Gutenberg;
 use Leadin\admin\NoticeManager;
 use Leadin\admin\PluginActionsManager;
 use Leadin\admin\DeactivationForm;
+use Leadin\admin\Links;
 use Leadin\auth\OAuth;
 use Leadin\admin\api\RegistrationApi;
 use Leadin\admin\api\DisconnectApi;
@@ -25,6 +26,8 @@ use Leadin\admin\utils\Background;
 use Leadin\utils\QueryParameters;
 use Leadin\utils\Versions;
 use Leadin\includes\utils as utils;
+use Leadin\admin\widgets\ElementorFormSelect;
+use Leadin\admin\widgets\ElementorMeetingSelect;
 
 /**
  * Class responsible for initializing the admin side of the plugin.
@@ -43,6 +46,7 @@ class LeadinAdmin {
 		add_action( 'admin_init', array( $this, 'check_review_requested' ) );
 		add_action( 'admin_menu', array( $this, 'build_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_after_admin_bar_render', array( $this, 'change_upgrade_link_target' ) );
 		register_activation_hook( LEADIN_BASE_PATH, array( $this, 'do_activate_action' ) );
 
 		/**
@@ -63,6 +67,57 @@ class LeadinAdmin {
 		new NoticeManager();
 		new AdminFilters();
 		new Gutenberg();
+		add_action( 'elementor/controls/register', array( $this, 'register_hsselectors_control' ) );
+		add_action( 'elementor/documents/register_controls', array( $this, 'register_document_controls' ) );
+	}
+
+	/**
+	 * Register additional document controls.
+	 *
+	 * @param \Elementor\Core\DocumentTypes\PageBase $document The PageBase document instance.
+	 */
+	public function register_document_controls( $document ) {
+		if ( ! $document instanceof \Elementor\Core\DocumentTypes\PageBase || ! $document::get_property( 'has_elements' ) ) {
+			return;
+		}
+
+		$document->start_controls_section(
+			'hubspot',
+			array(
+				'label' => esc_html__( 'Hubspot', 'leadin' ),
+				'tab'   => \Elementor\Controls_Manager::TAB_SETTINGS,
+			)
+		);
+
+		$document->add_control(
+			'content_type',
+			array(
+				'label'       => esc_html__( 'Select the content type HubSpot Analytics uses to track this page.', 'leadin' ),
+				'label_block' => true,
+				'type'        => \Elementor\Controls_Manager::SELECT,
+				'options'     => array(
+					''                  => esc_html__( 'Detect Automatically', 'leadin' ),
+					'blog-post'         => esc_html__( 'Blog Post', 'leadin' ),
+					'knowledge-article' => esc_html__( 'Knowledge Article', 'leadin' ),
+					'landing-page'      => esc_html__( 'Landing Page', 'leadin' ),
+					'listing-page'      => esc_html__( 'Listing Page', 'leadin' ),
+					'standard-page'     => esc_html__( 'Standard Page', 'leadin' ),
+				),
+				'default'     => '',
+			)
+		);
+
+		$document->end_controls_section();
+	}
+
+	/**
+	 * Register controls for elementor widget
+	 *
+	 * @param object $controls_manager elementor controls manager.
+	 */
+	public function register_hsselectors_control( $controls_manager ) {
+			$controls_manager->register( new ElementorFormSelect() );
+			$controls_manager->register( new ElementorMeetingSelect() );
 	}
 
 	/**
@@ -159,6 +214,27 @@ class LeadinAdmin {
 		if ( get_current_screen()->id === 'plugins' ) {
 			AssetsManager::enqueue_feedback_assets();
 		}
+	}
+
+	/**
+	 * Changes the sidebar upgrade link target from iframe rendering to new tab
+	 */
+	public function change_upgrade_link_target() {
+		?>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				const upgrade_link_element = document.querySelector("a[href='admin.php?page=<?php echo esc_html( MenuConstants::PRICING ); ?>']")
+				if(upgrade_link_element){
+					upgrade_link_element.setAttribute('href', '<?php echo esc_html( Links::get_iframe_src( MenuConstants::PRICING ) ); ?>');
+					upgrade_link_element.setAttribute('target', '_blank');
+					upgrade_link_element.setAttribute('class', 'leadin_pricing_link');
+					upgrade_link_element.onclick = (e) => {
+						e.target.blur();
+					}
+				}
+			});
+		</script>
+		<?php
 	}
 
 	/**

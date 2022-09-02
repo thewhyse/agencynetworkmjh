@@ -1,10 +1,11 @@
 import React from 'react';
 import { registerBlockType } from '@wordpress/blocks';
 import SprocketIcon from '../Common/SprocketIcon';
-import FormBlockEdit from './FormBlockEdit';
 import FormBlockSave from './FormBlockSave';
 import { connectionStatus, i18n } from '../../constants/leadinConfig';
-import FormErrorHandler from './FormBlockEdit/FormErrorHandler';
+import FormGutenbergPreview from './FormGutenbergPreview';
+import ErrorHandler from '../../shared/Common/ErrorHandler';
+import FormEdit from '../../shared/Form/FormEdit';
 
 const ConnectionStatus = {
   Connected: 'Connected',
@@ -12,12 +13,15 @@ const ConnectionStatus = {
 };
 
 export default function registerFormBlock() {
-  const editComponent = props =>
-    connectionStatus === ConnectionStatus.Connected ? (
-      <FormBlockEdit {...props} />
-    ) : (
-      <FormErrorHandler status={401} />
-    );
+  const editComponent = props => {
+    if (props.attributes.preview) {
+      return <FormGutenbergPreview />;
+    } else if (connectionStatus === ConnectionStatus.Connected) {
+      return <FormEdit {...props} />;
+    } else {
+      return <ErrorHandler status={401} />;
+    }
+  };
 
   registerBlockType('leadin/hubspot-form-block', {
     title: i18n.formBlockTitle,

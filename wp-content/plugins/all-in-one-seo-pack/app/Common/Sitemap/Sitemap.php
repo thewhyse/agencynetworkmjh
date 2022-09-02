@@ -24,7 +24,7 @@ class Sitemap {
 		$this->root          = new Root();
 		$this->query         = new Query();
 		$this->file          = new File();
-		$this->image         = new Image();
+		$this->image         = new Image\Image();
 		$this->ping          = new Ping();
 		$this->priority      = new Priority();
 		$this->output        = new Output();
@@ -68,6 +68,7 @@ class Sitemap {
 		remove_action( 'init', 'wp_sitemaps_get_server' );
 		add_filter( 'wp_sitemaps_enabled', '__return_false' );
 	}
+
 	/**
 	 * Checks if static sitemap files prevent dynamic sitemap generation.
 	 *
@@ -249,9 +250,8 @@ class Sitemap {
 			status_header( 404 );
 		}
 
-		global $wp;
 		$this->xsl->saveXslData(
-			$wp->request,
+			aioseo()->sitemap->requestParser->slug,
 			$entries,
 			$total
 		);
@@ -263,7 +263,8 @@ class Sitemap {
 				$loadedAddon->output->output( $entries );
 			}
 		}
-		exit();
+
+		exit;
 	}
 
 	/**
@@ -305,7 +306,7 @@ class Sitemap {
 	 * @return void
 	 */
 	public function headers() {
-		$charset = get_option( 'blog_charset' );
+		$charset = aioseo()->helpers->getCharset();
 		header( "Content-Type: text/xml; charset=$charset", true );
 		header( 'X-Robots-Tag: noindex, follow', true );
 	}
@@ -322,7 +323,7 @@ class Sitemap {
 		$wp_query->set_404();
 		status_header( 404 );
 		include( get_404_template() );
-		exit();
+		exit;
 	}
 
 	/**

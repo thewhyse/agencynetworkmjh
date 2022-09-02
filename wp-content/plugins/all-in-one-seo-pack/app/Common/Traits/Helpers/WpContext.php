@@ -111,6 +111,17 @@ trait WpContext {
 	}
 
 	/**
+	 * Checks whether the current page is the dynamic homepage.
+	 *
+	 * @since 4.2.3
+	 *
+	 * @return bool Whether the current page is the dynamic homepage.
+	 */
+	public function isDynamicHomePage() {
+		return is_front_page() && is_home();
+	}
+
+	/**
 	 * Checks whether the current page is the static posts page.
 	 *
 	 * @since 4.0.0
@@ -554,6 +565,54 @@ trait WpContext {
 		}
 
 		return $screen->post_type === $postType;
+	}
+
+	/**
+	 * Returns if current screen is a post list, optionaly of a post type.
+	 *
+	 * @since 4.2.4
+	 *
+	 * @param  string $postType Post type slug.
+	 * @return bool             Is a post list.
+	 */
+	public function isScreenPostList( $postType = '' ) {
+		$screen = $this->getCurrentScreen();
+		if (
+			! $this->isScreenBase( 'edit' ) ||
+			empty( $screen->post_type )
+		) {
+			return false;
+		}
+
+		if ( ! empty( $postType ) && $screen->post_type !== $postType ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Returns if current screen is a post edit screen, optionaly of a post type.
+	 *
+	 * @since 4.2.4
+	 *
+	 * @param  string $postType Post type slug.
+	 * @return bool             Is a post editing screen.
+	 */
+	public function isScreenPostEdit( $postType = '' ) {
+		$screen = $this->getCurrentScreen();
+		if (
+			! $this->isScreenBase( 'post' ) ||
+			empty( $screen->post_type )
+		) {
+			return false;
+		}
+
+		if ( ! empty( $postType ) && $screen->post_type !== $postType ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**

@@ -25,6 +25,7 @@ import {
   makeInterframeProxyRequest,
 } from '../api/wordpressApiClient';
 import { setLeadinUnAuthedNavigation } from '../utils/sideNav';
+import { gutenbergTriggerConnectCalendarRefresh } from '../gutenberg/MeetingsBlock/MeetingGutenbergInterframe';
 
 const methods = {
   leadinClearQueryParam,
@@ -44,6 +45,7 @@ const methods = {
   trackConsent,
   disableInternalTracking,
   fetchDisableInternalTracking,
+  gutenbergTriggerConnectCalendarRefresh,
 };
 
 const UNAUTHORIZED = 'unauthorized';

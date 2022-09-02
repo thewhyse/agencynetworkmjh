@@ -49,7 +49,11 @@ function createIframeElement(iframeSrc) {
 }
 
 export function createIframe() {
-  const iframe = createIframeElement(impactLink || iframeUrl);
+  // FIXME: We need to investigate why the Iframe connection is not succeding with an impactLink
+  const link = impactLink
+    ? `${impactLink}?u=${encodeURIComponent(`${iframeUrl}&trackConsent=0`)}`
+    : iframeUrl;
+  const iframe = createIframeElement(link);
   initInterframe(iframe);
   document.getElementById('leadin-iframe-container').appendChild(iframe);
 }

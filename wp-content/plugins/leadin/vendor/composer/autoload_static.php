@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9b26df1a5f3a02a7fa7aba7507964f41
+class ComposerStaticInit8e0ba3f9850ba1d925f6b7b47fc6bb27
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -38,6 +38,10 @@ class ComposerStaticInit9b26df1a5f3a02a7fa7aba7507964f41
         'Leadin\\admin\\api\\TrackConsentApi' => __DIR__ . '/../..' . '/src/admin/api/class-trackconsentapi.php',
         'Leadin\\admin\\api\\UpdateHubletApi' => __DIR__ . '/../..' . '/src/admin/api/class-updatehubletapi.php',
         'Leadin\\admin\\utils\\DeviceId' => __DIR__ . '/../..' . '/src/admin/utils/class-deviceid.php',
+        'Leadin\\admin\\widgets\\ElementorForm' => __DIR__ . '/../..' . '/src/admin/widgets/class-elementorform.php',
+        'Leadin\\admin\\widgets\\ElementorFormSelect' => __DIR__ . '/../..' . '/src/admin/widgets/class-elementorformselect.php',
+        'Leadin\\admin\\widgets\\ElementorMeeting' => __DIR__ . '/../..' . '/src/admin/widgets/class-elementormeeting.php',
+        'Leadin\\admin\\widgets\\ElementorMeetingSelect' => __DIR__ . '/../..' . '/src/admin/widgets/class-elementormeetingselect.php',
         'Leadin\\auth\\OAuth' => __DIR__ . '/../..' . '/src/auth/class-oauth.php',
         'Leadin\\auth\\OAuthCrypto' => __DIR__ . '/../..' . '/src/auth/class-oauthcrypto.php',
         'Leadin\\options\\AccountOptions' => __DIR__ . '/../..' . '/src/options/class-accountoptions.php',
@@ -47,6 +51,7 @@ class ComposerStaticInit9b26df1a5f3a02a7fa7aba7507964f41
         'Leadin\\rest\\LeadinRestApi' => __DIR__ . '/../..' . '/src/rest/class-leadinrestapi.php',
         'Leadin\\utils\\QueryParameters' => __DIR__ . '/../..' . '/src/utils/class-queryparameters.php',
         'Leadin\\utils\\RequestUtils' => __DIR__ . '/../..' . '/src/utils/class-requestutils.php',
+        'Leadin\\utils\\ShortcodeRenderUtils' => __DIR__ . '/../..' . '/src/utils/class-shortcoderenderutils.php',
         'Leadin\\utils\\Versions' => __DIR__ . '/../..' . '/src/utils/class-versions.php',
         'Leadin\\wp\\FileSystem' => __DIR__ . '/../..' . '/src/wp/class-filesystem.php',
         'Leadin\\wp\\Options' => __DIR__ . '/../..' . '/src/wp/class-options.php',
@@ -58,7 +63,7 @@ class ComposerStaticInit9b26df1a5f3a02a7fa7aba7507964f41
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit9b26df1a5f3a02a7fa7aba7507964f41::$classMap;
+            $loader->classMap = ComposerStaticInit8e0ba3f9850ba1d925f6b7b47fc6bb27::$classMap;
 
         }, null, ClassLoader::class);
     }

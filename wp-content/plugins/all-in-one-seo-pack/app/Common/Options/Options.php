@@ -162,13 +162,13 @@ TEMPLATE
 			],
 		],
 		'social'           => [
-			'profiles'           => [
-				'sameUsername' => [
+			'profiles' => [
+				'sameUsername'   => [
 					'enable'   => [ 'type' => 'boolean', 'default' => false ],
 					'username' => [ 'type' => 'string' ],
 					'included' => [ 'type' => 'array', 'default' => [ 'facebookPageUrl', 'twitterUrl', 'pinterestUrl', 'instagramUrl', 'youtubeUrl', 'linkedinUrl' ] ]
 				],
-				'urls'         => [
+				'urls'           => [
 					'facebookPageUrl' => [ 'type' => 'string' ],
 					'twitterUrl'      => [ 'type' => 'string' ],
 					'instagramUrl'    => [ 'type' => 'string' ],
@@ -181,10 +181,10 @@ TEMPLATE
 					'wikipediaUrl'    => [ 'type' => 'string' ],
 					'myspaceUrl'      => [ 'type' => 'string' ],
 					'googlePlacesUrl' => [ 'type' => 'string' ]
-				]
+				],
+				'additionalUrls' => [ 'type' => 'string' ]
 			],
-			'siteSocialProfiles' => [ 'type' => 'array' ],
-			'facebook'           => [
+			'facebook' => [
 				'general'  => [
 					'enable'                  => [ 'type' => 'boolean', 'default' => true ],
 					'defaultImageSourcePosts' => [ 'type' => 'string', 'default' => 'default' ],
@@ -214,11 +214,11 @@ TEMPLATE
 					'usePostTagsInTags'   => [ 'type' => 'boolean', 'default' => true ]
 				]
 			],
-			'twitter'            => [
+			'twitter'  => [
 				'general'  => [
 					'enable'                  => [ 'type' => 'boolean', 'default' => true ],
 					'useOgData'               => [ 'type' => 'boolean', 'default' => true ],
-					'defaultCardType'         => [ 'type' => 'string', 'default' => 'summary' ],
+					'defaultCardType'         => [ 'type' => 'string', 'default' => 'summary_large_image' ],
 					'defaultImageSourcePosts' => [ 'type' => 'string', 'default' => 'default' ],
 					'customFieldImagePosts'   => [ 'type' => 'string' ],
 					'defaultImagePosts'       => [ 'type' => 'string', 'default' => '' ],
@@ -636,6 +636,10 @@ TEMPLATE
 			}
 		}
 
+		if ( isset( $options['social']['profiles']['additionalUrls'] ) ) {
+			$dbOptions['social']['profiles']['additionalUrls'] = preg_replace( '/\h/', "\n", $options['social']['profiles']['additionalUrls'] );
+		}
+
 		// Tools.
 		if ( ! empty( $options['tools'] ) ) {
 			if ( isset( $options['tools']['robots']['rules'] ) ) {
@@ -727,27 +731,29 @@ TEMPLATE
 	 * @return array          An array of options.
 	 */
 	private function maybeRemoveUnfilteredHtmlFields( $options ) {
-		if ( ! current_user_can( 'unfiltered_html' ) ) {
-			if (
-				! empty( $options['webmasterTools'] ) &&
-				isset( $options['webmasterTools']['miscellaneousVerification'] )
-			) {
-				unset( $options['webmasterTools']['miscellaneousVerification'] );
-			}
+		if ( current_user_can( 'unfiltered_html' ) ) {
+			return $options;
+		}
 
-			if (
-				! empty( $options['rssContent'] ) &&
-				isset( $options['rssContent']['before'] )
-			) {
-				unset( $options['rssContent']['before'] );
-			}
+		if (
+			! empty( $options['webmasterTools'] ) &&
+			isset( $options['webmasterTools']['miscellaneousVerification'] )
+		) {
+			unset( $options['webmasterTools']['miscellaneousVerification'] );
+		}
 
-			if (
-				! empty( $options['rssContent'] ) &&
-				isset( $options['rssContent']['after'] )
-			) {
-				unset( $options['rssContent']['after'] );
-			}
+		if (
+			! empty( $options['rssContent'] ) &&
+			isset( $options['rssContent']['before'] )
+		) {
+			unset( $options['rssContent']['before'] );
+		}
+
+		if (
+			! empty( $options['rssContent'] ) &&
+			isset( $options['rssContent']['after'] )
+		) {
+			unset( $options['rssContent']['after'] );
 		}
 
 		return $options;

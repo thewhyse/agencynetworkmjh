@@ -88,6 +88,13 @@ class LeadinFilters {
 	}
 
 	/**
+	 * Apply leadin_meetings_script_url filter.
+	 */
+	public static function get_leadin_meetings_script_url() {
+		return apply_filters( 'leadin_meetings_script_url', 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js' );
+	}
+
+	/**
 	 * Apply leadin_script_loader_domain filter.
 	 */
 	public static function get_leadin_script_loader_domain() {

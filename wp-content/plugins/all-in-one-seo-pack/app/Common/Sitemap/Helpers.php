@@ -378,7 +378,7 @@ class Helpers {
 	 */
 	private function excludedObjects( $option ) {
 		$type = aioseo()->sitemap->type;
-		// The RSS Sitemap needs to exclude whatever's excluded in the general sitemap.
+		// The RSS Sitemap needs to exclude whatever is excluded in the general sitemap.
 		if ( 'rss' === $type ) {
 			$type = 'general';
 		}
@@ -472,5 +472,18 @@ class Helpers {
 		}
 
 		return $url;
+	}
+
+	/**
+	 * Returns if images should be excluded from the sitemap.
+	 *
+	 * @since 4.2.2
+	 *
+	 * @return bool
+	 */
+	public function excludeImages() {
+		$shouldExclude = aioseo()->options->sitemap->general->advancedSettings->enable && aioseo()->options->sitemap->general->advancedSettings->excludeImages;
+
+		return apply_filters( 'aioseo_sitemap_exclude_images', $shouldExclude );
 	}
 }

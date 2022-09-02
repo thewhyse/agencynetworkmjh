@@ -66,9 +66,9 @@ class Blocks {
 		$defaults = [
 			'render_callback' => '',
 			'editor_script'   => aioseo()->core->assets->jsHandle( 'src/vue/standalone/blocks/main.js' ),
-			'editor_style'    => '',
+			'editor_style'    => aioseo()->core->assets->cssHandle( 'blocks-editor.css' ),
 			'style'           => '',
-			'attributes'      => '',
+			'attributes'      => null,
 			'supports'        => '',
 		];
 
@@ -88,7 +88,6 @@ class Blocks {
 		aioseo()->core->assets->loadCss( 'src/vue/standalone/blocks/main.js', [], false );
 
 		$dependencies = [
-			'wp-block-editor',
 			'wp-blocks',
 			'wp-components',
 			'wp-element',
@@ -98,7 +97,14 @@ class Blocks {
 			'wp-polyfill',
 			aioseo()->core->assets->jsHandle( 'src/vue/standalone/post-settings/main.js' )
 		];
+
+		global $wp_version;
+		if ( version_compare( $wp_version, '5.2', '>=' ) ) {
+			$dependencies[] = 'wp-block-editor';
+		}
+
 		aioseo()->core->assets->registerJs( 'src/vue/standalone/blocks/main.js', $dependencies );
+		aioseo()->core->assets->registerCss( 'blocks-editor.css', [], 'src/vue/assets/scss/blocks-editor.scss' );
 	}
 
 	/**
