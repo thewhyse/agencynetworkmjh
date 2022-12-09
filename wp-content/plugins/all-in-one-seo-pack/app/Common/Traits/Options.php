@@ -104,18 +104,6 @@ trait Options {
 	protected $screenRedirection = '';
 
 	/**
-	 * Initialize network options.
-	 *
-	 * @since 4.0.0
-	 *
-	 * @return void
-	 */
-	public function initNetwork() {
-		$this->optionsName = $this->optionsName . '_network';
-		$this->init();
-	}
-
-	/**
 	 * Retrieve an option or null if missing.
 	 *
 	 * @since 4.0.0
@@ -627,7 +615,7 @@ trait Options {
 	 * @since 4.0.0
 	 *
 	 * @param  string $name The option name.
-	 * @return void
+	 * @return mixed        The default value.
 	 */
 	public function getDefault( $name, $resetGroups = true ) {
 		$defaults = $this->defaultsMerged[ $this->groupKey ];
@@ -722,7 +710,7 @@ trait Options {
 		$this->update( $optionsName );
 
 		// First, we need to filter our options.
-		$options = $this->filterOptions( $defaults, null, $optionsName );
+		$options = $this->filterOptions( $defaults );
 
 		// Refactor options.
 		$refactored = $this->convertOptionsToValues( $options );
@@ -926,7 +914,6 @@ trait Options {
 				continue;
 			}
 
-			// @TODO: See if we need this? could just eliminate.
 			if ( ! is_array( $value ) ) {
 				continue;
 			}

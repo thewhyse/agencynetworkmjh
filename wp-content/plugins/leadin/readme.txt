@@ -4,9 +4,9 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: CRM, Email Marketing, Live Chat, Marketing, Analytics, form, popups, newsletter, contact management, chat, contact form, marketing automation
 Requires at least: 4.0
-Tested up to: 6.0
+Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 9.0.35
+Stable tag: 9.2.12
 
 Capture, organize and engage web visitors with free live chat, forms, CRM (contact management), email marketing, and analytics. Easy to use, no coding.
 
@@ -380,12 +380,12 @@ Please visit the <a href="https://community.hubspot.com/?utm_source=wordpress-pl
 == Changelog ==
 
 <a href="http://plugins.svn.wordpress.org/leadin/trunk/changelog.txt" target="_blank">Full changelog here</a>
-- Current version: 9.0.35
-- Version release date: 2022-08-31
+- Current version: 9.2.12
+- Version release date: 2022-12-02
 
-= 9.0.20 (2022-08-30) =
-* Remove tests folder and composer.phar file
+= 9.2.0 (2022-12-01) =
+* Add support for Business Units
 
-= 9.0.0 (2022-08-29) =
-* Added HusbSpot Elementor widgets
+= 9.1.0 (2022-11-30) =
+* Make list link external
 

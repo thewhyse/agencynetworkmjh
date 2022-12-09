@@ -41,12 +41,9 @@ class RobotsTxt {
 		$original      = explode( "\n", $original );
 		$originalRules = $this->extractRules( $original );
 		$networkRules  = [];
+
 		if ( is_multisite() ) {
-			switch_to_blog( aioseo()->helpers->getNetworkId() );
-			$options = aioseo()->options->noConflict();
-			$options->initNetwork();
-			$networkRules = $options->tools->robots->enable ? $options->tools->robots->rules : [];
-			restore_current_blog();
+			$networkRules = aioseo()->networkOptions->tools->robots->enable ? aioseo()->networkOptions->tools->robots->rules : [];
 		}
 
 		if ( ! aioseo()->options->tools->robots->enable ) {
@@ -402,14 +399,15 @@ class RobotsTxt {
 
 		$allRules = $this->extractRules( $lines );
 
+		$options = aioseo()->options;
 		if ( $network ) {
-			aioseo()->options->initNetwork();
+			$options = aioseo()->networkOptions;
 		}
 
-		$currentRules = $this->parseRules( aioseo()->options->tools->robots->rules );
+		$currentRules = $this->parseRules( $options->tools->robots->rules );
 		$allRules     = $this->mergeRules( $currentRules, $allRules, false, true );
 
-		aioseo()->options->tools->robots->rules = aioseo()->robotsTxt->prepareRobotsTxt( $allRules );
+		$options->tools->robots->rules = aioseo()->robotsTxt->prepareRobotsTxt( $allRules );
 
 		return true;
 	}
@@ -542,6 +540,7 @@ class RobotsTxt {
 	 * @return array    The unique array.
 	 */
 	private function robotsArrayUnique( &$s ) {
+		$i = false;
 		foreach ( $s as $i => &$e ) {
 			if ( is_array( $e ) && ! empty( $e ) ) {
 				$e = $this->robotsArrayUnique( $e );
@@ -549,9 +548,9 @@ class RobotsTxt {
 		}
 		if ( is_numeric( $i ) ) {
 			return array_unique( $s, SORT_REGULAR );
-		} else {
-			return $s;
 		}
+
+		return $s;
 	}
 
 	/**

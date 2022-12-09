@@ -61,6 +61,20 @@ class ElementorMeeting extends Widget_Base {
 	}
 
 	/**
+	 * Widget script.
+	 */
+	public function get_script_depends() {
+		wp_register_script(
+			'leadin-meeting',
+			'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js',
+			array(),
+			LEADIN_PLUGIN_VERSION,
+			true
+		);
+		return array( 'leadin-meeting' );
+	}
+
+	/**
 	 * Widget controls.
 	 */
 	protected function register_controls() {
@@ -108,11 +122,6 @@ class ElementorMeeting extends Widget_Base {
 		if ( ! empty( $content ) ) {
 				$url = $content['url'];
 				echo do_shortcode( '[hubspot url="' . $url . '" type="meeting"]' );
-				// phpcs:disable
-			?>
-				<script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
-			<?php
-			// phpcs:enable
 		}
 	}
 }

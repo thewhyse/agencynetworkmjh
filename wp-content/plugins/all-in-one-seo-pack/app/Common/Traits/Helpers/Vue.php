@@ -97,7 +97,8 @@ trait Vue {
 					'sitemaps'         => admin_url( 'admin.php?page=aioseo-sitemaps' ),
 					'socialNetworks'   => admin_url( 'admin.php?page=aioseo-social-networks' ),
 					'tools'            => admin_url( 'admin.php?page=aioseo-tools' ),
-					'wizard'           => admin_url( 'index.php?page=aioseo-setup-wizard' )
+					'wizard'           => admin_url( 'index.php?page=aioseo-setup-wizard' ),
+					'networkSettings'  => is_network_admin() ? network_admin_url( 'admin.php?page=aioseo-settings' ) : ''
 				],
 				'admin'             => [
 					'widgets'          => admin_url( 'widgets.php' ),
@@ -125,8 +126,8 @@ trait Vue {
 				],
 				'status'              => [],
 				'htaccess'            => '',
-				'multisite'           => is_multisite(),
-				'network'             => is_network_admin(),
+				'isMultisite'         => is_multisite(),
+				'isNetworkAdmin'      => is_network_admin(),
 				'mainSite'            => is_main_site(),
 				'subdomain'           => $this->isSubdomain(),
 				'isWooCommerceActive' => $this->isWooCommerceActive(),
@@ -168,12 +169,9 @@ trait Vue {
 			'integration'       => $integration
 		];
 
-		if ( is_multisite() && ! is_network_admin() ) {
-			switch_to_blog( $this->getNetworkId() );
-			$options = aioseo()->options->noConflict();
-			$options->initNetwork();
-			$data['networkOptions'] = $options->all();
-			restore_current_blog();
+		if ( is_multisite() ) {
+			$data['internalNetworkOptions'] = aioseo()->internalNetworkOptions->all();
+			$data['networkOptions']         = aioseo()->networkOptions->all();
 		}
 
 		if ( 'post' === $page ) {
@@ -188,9 +186,9 @@ trait Vue {
 				'priority'                       => ! empty( $post->priority ) ? $post->priority : 'default',
 				'frequency'                      => ! empty( $post->frequency ) ? $post->frequency : 'default',
 				'permalink'                      => get_permalink( $postId ),
-				'permalinkPath'                  => aioseo()->helpers->leadingSlashIt( aioseo()->helpers->getPermalinkPath( get_permalink( $postId ) ) ),
 				'title'                          => ! empty( $post->title ) ? $post->title : aioseo()->meta->title->getPostTypeTitle( $postTypeObj->name ),
 				'description'                    => ! empty( $post->description ) ? $post->description : aioseo()->meta->description->getPostTypeDescription( $postTypeObj->name ),
+				'descriptionIncludeCustomFields' => apply_filters( 'aioseo_description_include_custom_fields', true, $post ),
 				'keywords'                       => ! empty( $post->keywords ) ? $post->keywords : wp_json_encode( [] ),
 				'keyphrases'                     => Models\Post::getKeyphrasesDefaults( $post->keyphrases ),
 				'page_analysis'                  => ! empty( $post->page_analysis )
@@ -239,10 +237,9 @@ trait Vue {
 				'twitter_image_type'             => $post->twitter_image_type,
 				'twitter_title'                  => $post->twitter_title,
 				'twitter_description'            => $post->twitter_description,
-				'schema_type'                    => ( ! empty( $post->schema_type ) ) ? $post->schema_type : 'default',
-				'schema_type_options'            => ( ! empty( $post->schema_type_options ) )
-					? json_decode( Models\Post::getDefaultSchemaOptions( $post->schema_type_options ) )
-					: json_decode( Models\Post::getDefaultSchemaOptions() ),
+				'schema'                         => ( ! empty( $post->schema ) )
+					? Models\Post::getDefaultSchemaOptions( $post->schema )
+					: Models\Post::getDefaultSchemaOptions(),
 				'metaDefaults'                   => [
 					'title'       => aioseo()->meta->title->getPostTypeTitle( $postTypeObj->name ),
 					'description' => aioseo()->meta->description->getPostTypeDescription( $postTypeObj->name )
@@ -256,8 +253,6 @@ trait Vue {
 				],
 				'options'                        => Models\Post::getOptionsDefaults( $post->options )
 			];
-
-			$data['user']['siteAuthors'] = $this->getSiteAuthors();
 
 			if ( empty( $integration ) ) {
 				$data['integration'] = aioseo()->helpers->getPostPageBuilderName( $postId );
@@ -280,7 +275,6 @@ trait Vue {
 
 		if ( 'dashboard' === $page ) {
 			$data['setupWizard']['isCompleted'] = aioseo()->standalone->setupWizard->isCompleted();
-			$data['rssFeed']                    = aioseo()->dashboard->getAioseoRssFeed();
 			$data['seoOverview']                = aioseo()->postSettings->getPostTypesOverview();
 			$data['importers']                  = aioseo()->importExport->plugins();
 		}
@@ -337,8 +331,24 @@ trait Vue {
 			$data['data']['logSizes'] = [
 				'badBotBlockerLog' => $this->convertFileSize( aioseo()->badBotBlocker->getLogSize() )
 			];
-			$data['data']['status']   = Tools\SystemStatus::getSystemStatusInfo();
-			$data['data']['htaccess'] = aioseo()->htaccess->getContents();
+			$data['data']['status']    = Tools\SystemStatus::getSystemStatusInfo();
+			$data['data']['htaccess']  = aioseo()->htaccess->getContents();
+			$data['data']['v3Options'] = ! empty( get_option( 'aioseop_options' ) );
+		}
+
+		if (
+			(
+				'tools' === $page ||
+				'settings' === $page
+			) &&
+			is_multisite() &&
+			is_network_admin()
+		) {
+			$data['data']['network'] = [
+				'sites'       => aioseo()->helpers->getSites( aioseo()->settings->tablePagination['networkDomains'] ),
+				'activeSites' => [],
+				'backups'     => []
+			];
 		}
 
 		if ( 'settings' === $page ) {

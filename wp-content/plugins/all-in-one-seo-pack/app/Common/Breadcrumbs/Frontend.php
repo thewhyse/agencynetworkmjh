@@ -81,7 +81,7 @@ class Frontend {
 
 		if ( is_search() ) {
 			$type      = 'search';
-			$reference = get_search_query();
+			$reference = sanitize_text_field( get_search_query() );
 		}
 
 		if ( is_404() ) {
@@ -150,6 +150,11 @@ class Frontend {
 	 */
 	public function display( $echo = true ) {
 		if ( ! aioseo()->options->breadcrumbs->enable || ! apply_filters( 'aioseo_breadcrumbs_output', true ) ) {
+			return;
+		}
+
+		// We can only run after this action because we need all post types loaded.
+		if ( ! did_action( 'init' ) ) {
 			return;
 		}
 
