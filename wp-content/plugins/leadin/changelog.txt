@@ -1,3 +1,12 @@
+= 10.0.7 (2023-01-10) =
+* Remove getHublet endpoint
+
+= 10.0.0 (2023-01-06) =
+* Plugin restructure to use WordPress env and scripts
+
+= 9.2.26 (2022-12-08) =
+* Update feedback survey link
+
 = 9.2.0 (2022-12-01) =
 * Add support for Business Units
 
@@ -299,13 +308,4 @@
 
 = 7.48.19 (2020-12-02) =
 * Fix typo that caused forms not to show on IE11
-
-= 7.48.0 (2020-11-26) =
-* Automated plugin versioning and changelog generation
-
-= 7.47.5 (2020-11-18) =
-* Do not fail connection for an invalid domain
-
-= 7.47.4 (2020-11-17) =
-* Do not redefine the create property for hbspt.forms if it has been set already
 
