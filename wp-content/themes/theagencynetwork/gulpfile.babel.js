@@ -73,7 +73,8 @@ export const scripts = () => {
     .pipe(dest('dist/js'));
 }
 
-export const dev = series(clean, parallel(styles, images, copy), watchForChanges)
-export const build = series(clean, parallel(styles, images, copy))
+export const dev = series(clean, parallel(styles, images, copy, scripts), watchForChanges)
+
+export const build = series(clean, parallel(styles, images, copy, scripts))
 export default dev;
 
