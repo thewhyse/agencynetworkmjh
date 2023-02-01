@@ -1,0 +1,44 @@
+@media only screen and (max-width: 980px) {
+  .insights-header {
+    position: relative;
+    display: block;
+    margin: 0 auto !important;
+    bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 981px) {
+  .insights-header {
+    position: absolute;
+    display: block;
+    top: 30%;
+    left: 20%;
+    bottom: 0;
+  }
+}
+
+
+/*** Responsive Styles Standard Desktop Only ***/
+@media all and (min-width: 1100px) {
+
+}
+
+/*** Responsive Styles Tablet And Below ***/
+@media all and (max-width: 980px) {
+
+}
+
+/*** Responsive Styles Tablet Only ***/
+@media all and (min-width: 768px) and (max-width: 980px) {
+
+}
+
+/*** Responsive Styles Smartphone Only ***/
+@media all and (max-width: 767px) {
+
+}
+
+/*** Responsive Styles Smartphone Portrait ***/
+@media all and (max-width: 479px) {
+
+}
