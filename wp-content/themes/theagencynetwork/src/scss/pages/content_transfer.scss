@@ -16,17 +16,20 @@
   }
 }
 
-.insights-research-view {
-  .et_pb_image_container {
-    .entry-featured-image-url {
-      display: block;
-      position: relative;
-      margin-bottom: 30px;
-    }
+#insights-research {
+  .insights-research-view {
+    background: transparent;
+    .et_pb_image_container {
+      .entry-featured-image-url {
+        display: block;
+        position: relative;
+        margin-bottom: 30px;
+      }
 
-    img {
-      border: 1px solid #ddd !important;
-      height: 200px;
+      img {
+        border: 1px solid #ddd !important;
+        height: 200px !important;
+      }
     }
   }
 }
