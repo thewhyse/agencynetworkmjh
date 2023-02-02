@@ -1,5 +1,13 @@
 /*  INSIGHTS PAGE   */
 
+// Resources section
+.category-case-studies {
+  .post-meta,
+  .post-content {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 980px) {
   .insights-header {
     position: relative;
