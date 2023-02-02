@@ -1,10 +1,18 @@
 /*  INSIGHTS PAGE   */
 
-// Resources section
+// Resources section and pages
 .category-case-studies {
   .post-meta,
   .post-content {
     display: none;
+  }
+}
+
+.single-post {
+  .category-research {
+    .et_post_meta_wrapper {
+     display: none;
+    }
   }
 }
 
