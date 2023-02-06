@@ -1,12 +1,5 @@
 /*  INSIGHTS PAGE   */
 
-// Case Studies Section
-
-#insights_case_studies {
-  .category-case-studies {
-
-  }
-}
 
 // Resources section and pages
 .category-case-studies {
@@ -19,7 +12,20 @@
 .single-post {
   .category-research {
     .et_post_meta_wrapper {
-     display: none;
+      display: none;
+    }
+  }
+
+  // related content sidebar
+  .category-case-studies {
+    .et_pb_column.et-last-child {
+      .et_pb_ajax_pagination_container {
+        .category-our-work {
+          padding-bottom: 0;
+          margin-bottom: 0;
+          border-bottom: 1px solid #eee;
+        }
+      }
     }
   }
 }
