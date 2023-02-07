@@ -81,7 +81,42 @@
   margin: 10px auto 30px;
 }
 
+/* CIPN PAGE */
+#cipn-results-section .results-row .heads-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#cipn-results-section .results-row .heads-holder h2:first-child {
+  font-size: 69px !important;
+  font-weight: 600 !important;
+  color: #8896CB;
+  line-height: 50px !important;
+  padding: 0;
+}
+#cipn-results-section .results-row .heads-holder_2 h2 {
+  font-size: 69px !important;
+  font-weight: 600 !important;
+  color: #8896CB;
+  line-height: 50px !important;
+  padding: 0;
+  text-align: center;
+}
+#cipn-results-section .results-row .heads-holder h2:last-child {
+  font-size: 33px !important;
+  font-weight: 600 !important;
+  color: #8896CB;
+  text-align: center;
+  padding: 0;
+}
 
+#cipn-results-section .results-row .result-descr p {
+  font-size: 21px !important;
+  font-weight: 600 !important;
+  line-height: 25px !important;
+}
+
+/* END CIPN PAGE */
 
 /*   END   PAGES FROM PROXIMYL     */
 
