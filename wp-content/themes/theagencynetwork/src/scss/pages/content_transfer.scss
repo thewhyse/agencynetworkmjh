@@ -130,8 +130,7 @@
 /*  END  PAGES FROM THEWHYSE     */
 
   // related content sidebar
-  .category-case-studies,
-  #related-presentation-videos-block {
+  .category-case-studies {
     .et_pb_column.et-last-child {
       .et_pb_ajax_pagination_container {
         article {
@@ -143,6 +142,17 @@
     }
   }
 }
+
+#related-presentation-videos-block {
+    .et_pb_ajax_pagination_container {
+      article {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 1px solid #eee;
+      }
+    }
+  }
+
 // END related content sidebar
 
 /*** Responsive Styles Standard Desktop Only ***/
