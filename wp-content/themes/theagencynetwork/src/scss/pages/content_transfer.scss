@@ -1,6 +1,10 @@
+@import "../base/colors";
+@import "../base/font";
+
+
+/* ******* INSIGHTS PAGE 2023 START ******* */
+
 /*  INSIGHTS PAGE   */
-
-
 // Resources section and pages
 .category-case-studies {
   .post-meta,
@@ -8,7 +12,6 @@
     display: none;
   }
 }
-
 .single-post {
   .category-research {
     .et_post_meta_wrapper {
@@ -16,7 +19,6 @@
     }
   }
 }
-
 #insights_case_studies {
   .category-case-studies {
     border: 1px solid #eee;
@@ -25,62 +27,37 @@
     padding: 0 0 30px;
   }
 }
+#insights-research {
+.insights-research-view {
+    background: transparent;
 
-  #insights-research {
-    .insights-research-view {
-      background: transparent;
+    .category-research {
+    border: 1px solid #ddd !important;
 
-      .category-research {
-        border: 1px solid #ddd !important;
-
-        .et_pb_image_container {
-          .entry-featured-image-url {
-            display: block;
-            position: relative;
-            margin-bottom: 30px;
-          }
-
-          img {
-            border-bottom: 1px solid #ddd !important;
-            height: 200px !important;
-          }
+    .et_pb_image_container {
+        .entry-featured-image-url {
+        display: block;
+        position: relative;
+        margin-bottom: 30px;
         }
-      }
+
+        img {
+        border-bottom: 1px solid #ddd !important;
+        height: 200px !important;
+        }
     }
-  }
-
-@media only screen and (max-width: 980px) {
-  .insights-header {
-    position: relative;
-    display: block;
-    margin: 0 auto !important;
-    bottom: 0;
-  }
+    }
 }
-
-@media only screen and (min-width: 981px) {
-  .insights-header {
-    position: absolute;
-    display: block;
-    top: 30%;
-    left: 20%;
-    bottom: 0;
-  }
 }
 /* END INSIGHTS PAGE   */
-
 /*      PAGES FROM PROXIMYL     */
-
 //MBC
-
-  .devider-span {
-    display: block;
-    width: 120px;
-    height: 3px;
-    margin: 10px auto 30px;
-  }
-
-
+.devider-span {
+display: block;
+width: 120px;
+height: 3px;
+margin: 10px auto 30px;
+}
 /* CIPN PAGE */
 #cipn-results-section .results-row .heads-holder {
   display: flex;
@@ -109,19 +86,14 @@
   text-align: center;
   padding: 0;
 }
-
 #cipn-results-section .results-row .result-descr p {
   font-size: 21px !important;
   font-weight: 600 !important;
   line-height: 25px !important;
 }
-
 /* END CIPN PAGE */
-
 /*   END   PAGES FROM PROXIMYL     */
-
 /*    PAGES FROM THEWHYSE     */
-
 // Social Listening page
 #infographic_social_mid_section:after {
   content: '';
@@ -133,29 +105,19 @@
   background: #4D586A;
   z-index: 1;
 }
-/*** Responsive Styles Tablet Only ***/
-@media all and (min-width: 768px) and (max-width: 980px) {
-
-  #infographic_social_mid_section:after {
-    height: 650px;
-  }
-}
-
 /*  END  PAGES FROM THEWHYSE     */
-
-  // related content sidebar
-  .category-case-studies {
-    .et_pb_column.et-last-child {
-      .et_pb_ajax_pagination_container {
-        article {
-          padding-bottom: 0;
-          margin-bottom: 0;
-          border-bottom: 1px solid #eee;
-        }
-      }
+// related content sidebar
+.category-case-studies {
+.et_pb_column.et-last-child {
+    .et_pb_ajax_pagination_container {
+    article {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 1px solid #eee;
     }
-  }
-
+    }
+}
+}
 #related-presentation-videos-block {
     .et_pb_ajax_pagination_container {
       article {
@@ -168,30 +130,37 @@
       }
     }
   }
-
 // END related content sidebar
-
-/*** Responsive Styles Standard Desktop Only ***/
+@media only screen and (min-width: 981px) {
+  .insights-header {
+    position: absolute;
+    display: block;
+    top: 30%;
+    left: 20%;
+    bottom: 0;
+  }
+}
 @media all and (min-width: 1100px) {
 
 }
-
-/*** Responsive Styles Tablet And Below ***/
-@media all and (max-width: 980px) {
-
+@media only screen and (max-width: 980px) {
+  .insights-header {
+    position: relative;
+    display: block;
+    margin: 0 auto !important;
+    bottom: 0;
+  }
 }
-
-/*** Responsive Styles Tablet Only ***/
 @media all and (min-width: 768px) and (max-width: 980px) {
-
+  #infographic_social_mid_section:after {
+    height: 650px;
+  }
 }
-
-/*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
 
 }
-
-/*** Responsive Styles Smartphone Portrait ***/
 @media all and (max-width: 479px) {
 
 }
+
+/* ******* INSIGHTS PAGE 2023 END ******* */

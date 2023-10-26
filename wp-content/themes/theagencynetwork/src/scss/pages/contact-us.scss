@@ -1,0 +1,75 @@
+@import "../base/colors";
+@import "../base/font";
+
+/* ******* CONTACT US PAGE 2023 START ******* */
+
+#contact-us-title-section {
+  .page-title-row {
+    #title_container {
+      position: relative !important;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      top: inherit !important;
+      left: inherit !important;
+      .header-txt {
+        h1 {
+          color: $tan_green-blue;
+
+        }
+      }
+    }
+  }
+}
+
+
+#contact-us-subtitle-section {
+  background: rgb(33, 63, 81);
+  background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
+  background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+
+  h1 {
+    @include demi-bold($opens, 2.5);
+    color: $tan_yellow;
+  }
+  p {
+    color: #fff;
+  }
+  .davids-links-row {
+    .davids-link {
+      color: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      span {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1024px) {
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width: 576px) {
+}
+@media all and (max-width: 480px) {
+}
+@media all and (max-width: 320px) {
+}
+
+/* ******* CONTACT US PAGE 2023 END ******* */

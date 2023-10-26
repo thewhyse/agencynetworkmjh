@@ -1,0 +1,186 @@
+@import "../base/colors";
+@import "../base/font";
+
+/* ******* OUR COMPANIES PAGE 2023 START ******* */
+
+#our-companies-section {
+  .company-holder-row {
+    position: relative;
+    border: 4px solid $ts_lavender;
+    margin: 0 auto 120px;
+
+    &.oc-proximyl {
+      padding: 120px 40px 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 374px;
+        height: 97px;
+        background: url(../images/oc_proximyl_logo.jpg) no-repeat center center;
+        top: -50px;
+        left: calc(50% - 182px);
+      }
+    }
+
+    &.oc-thewhyse {
+      padding: 120px 40px 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 264px;
+        height: 174px;
+        background: url(../images/oc_thewhyse_logo.jpg) no-repeat center center;
+        top: -87px;
+        left: calc(50% - 132px);
+
+      }
+    }
+
+    &.oc-hra {
+      padding: 120px 40px 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 332px;
+        height: 140px;
+        background: url(../images/oc_hra_logo.jpg) no-repeat center center;
+        top: -70px;
+        left: calc(50% - 166px);
+
+      }
+    }
+
+    &.oc-medstro {
+      padding: 120px 40px 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 332px;
+        height: 140px;
+        background: url(../images/oc_medstro_logo.jpg) no-repeat center center;
+        top: -67px;
+        left: calc(50% - 166px);
+
+      }
+    }
+
+    &.oc-mkt {
+      padding: 120px 40px 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 332px;
+        height: 110px;
+        background: url(../images/oc_mkt_logo.jpg) no-repeat center center;
+        top: -55px;
+        left: calc(50% - 166px);
+
+      }
+    }
+
+  }
+}
+
+@media all and (max-width: 1024px) {
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width: 767px) {
+  #oc-sub_hero-section {
+    .sub-title-block h2::before {
+      width: 48px;
+      height: 48px;
+      left: -12px;
+      top: -20px;
+    }
+  }
+  #our-companies-section {
+    .company-holder-row {
+      margin: 0 auto 100px;
+
+      &.oc-proximyl {
+        padding: 70px 20px 40px;
+
+        &::before {
+          width: 220px;
+          height: 64px;
+          background-size: cover !important;
+          top: -32px;
+          left: calc(50% - 110px);
+          background: url(../images/proximyl_mobi.jpg) no-repeat center center;
+        }
+      }
+
+      &.oc-thewhyse {
+        padding: 70px 20px 40px;
+
+        &::before {
+          width: 150px;
+          height: 116px;
+          background-size: cover !important;
+          top: -58px;
+          left: calc(50% - 75px);
+          background: url(../images/thewhyse_mobi.jpg) no-repeat center center;
+        }
+      }
+
+      &.oc-hra {
+        padding: 70px 20px 40px;
+
+        &::before {
+          width: 198px;
+          height: 94px;
+          background-size: cover !important;
+          top: -47px;
+          left: calc(50% - 99px);
+          background: url(../images/hra_mobi.jpg) no-repeat center center;
+        }
+      }
+
+      &.oc-medstro {
+        padding: 70px 20px 40px;
+
+        &::before {
+          width: 198px;
+          height: 90px;
+          background-size: cover !important;
+          top: -45px;
+          left: calc(50% - 99px);
+
+        }
+      }
+
+      &.oc-mkt {
+        padding: 70px 20px 40px;
+
+        &::before {
+          width: 198px;
+          height: 74px;
+          background-size: cover !important;
+          top: -37px;
+          left: calc(50% - 99px);
+          background: url(../images/mktaxs_mobi.jpg) no-repeat center center;
+        }
+      }
+
+    }
+  }
+}
+@media all and (max-width: 576px) {
+}
+@media all and (max-width: 480px) {
+}
+@media all and (max-width: 320px) {
+}
+
+/* ******* OUR COMPANIES PAGE 2023 END ******* */

@@ -1,5 +1,7 @@
 @import "../base/colors";
 
+/* ******* FOOTER 2023 START ******* */
+
 #TruthSerumFooter {
   background: #505868;
   padding: 20px 0;
@@ -57,25 +59,16 @@
   }
 }
 
-/*** Responsive Styles Standard Desktop Only ***/
 @media all and (min-width: 1100px) {
-
 }
-
-/*** Responsive Styles Tablet And Below ***/
 @media all and (max-width: 980px) {
-
 }
-
-/*** Responsive Styles Tablet Only ***/
 @media all and (min-width: 768px) and (max-width: 980px) {
   /*global footer*/
   #TruthSerumFooter .et_pb_column {
     width: 49%;
   }
 }
-
-/*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
   #TruthSerumFooter {
     .hra-social {
@@ -97,9 +90,6 @@
     }
   }
 }
-
-/*** Responsive Styles Smartphone Portrait ***/
 @media all and (max-width: 479px) {
-
 }
-
+/* ******* FOOTER 2023 START ******* */

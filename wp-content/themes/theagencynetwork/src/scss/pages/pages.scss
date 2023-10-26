@@ -1,14 +1,13 @@
 @import "../base/colors";
+@import "../base/font";
 
-/*  HOME PAGE   */
-
+/* ******* PAGES 2023 START ******* */
 /*out-links section*/
 #hp-out_links-section {
   background: rgb(33, 63, 81);
   background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
   background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
-
   .hp-txt-btn {
     width: 90%;
     margin: 0 auto;
@@ -49,14 +48,43 @@
     }
 
   }
-
   .mobi-title-description-row {
     display: none;
   }
 }
+/*    'OUR WORK' VIDEOS     */
+#post-8915 {
+  .vidyard-player-container {
+    .vidyard-div-pt6UjhBj6uHV4GRLgLBnCP {
+      padding-bottom: 56.33% !important;
+    }
+  }
+}
 
-/*** Responsive Styles Tablet And Below ***/
+@media all and (min-width: 1100px) {
+
+}
 @media all and (max-width: 980px) {
+  .category-2minutes-videos {
+    #minutes2-top {
+      height: 100px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    #min2-top-section {
+      padding: 0;
+      #min2-top-row {
+        padding: 0;
+      }
+      .et_pb_code {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        svg {
+          width: 100%;
+        }
+      }
+    }
+  }
   #hp-out_links-section {
     .et_pb_column {
       margin: 40px 0 0 !important;
@@ -81,73 +109,13 @@
     }
   }
 }
-
-/* END HOME PAGE   */
-
-
-/*  2 MINUTES OF TRUTH VIDEOS POST  */
-/*** Responsive Styles Smartphone Only ***/
-@media all and (max-width: 980px) {
-  .category-2minutes-videos {
-    #minutes2-top {
-      height: 100px;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    #min2-top-section {
-      padding: 0;
-      #min2-top-row {
-        padding: 0;
-      }
-      .et_pb_code {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        svg {
-          width: 100%;
-        }
-      }
-    }
-  }
-
-}
-/*  END 2 MINUTES OF TRUTH VIDEOS POST  */
-
-/*    'OUR WORK' VIDEOS     */
-#post-8915 {
-  .vidyard-player-container {
-    .vidyard-div-pt6UjhBj6uHV4GRLgLBnCP {
-      padding-bottom: 56.33% !important;
-    }
-  }
-}
-
-/*  END  'OUR WORK' VIDEOS     */
-
-
-/*** Responsive Styles Standard Desktop Only ***/
-@media all and (min-width: 1100px) {
-
-}
-
-/*** Responsive Styles Tablet And Below ***/
-@media all and (max-width: 980px) {
-
-}
-
-/*** Responsive Styles Tablet Only ***/
 @media all and (min-width: 768px) and (max-width: 980px) {
 
 }
-
-/*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
 
 }
-
-/*** Responsive Styles Smartphone Portrait ***/
 @media all and (max-width: 479px) {
 
 }
-
-
-
+/* ******* PAGES 2023 END ******* */

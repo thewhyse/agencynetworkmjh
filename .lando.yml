@@ -1,6 +1,0 @@
-name: theagencynetwork
-recipe: pantheon
-config:
-  framework: wordpress
-  site: theagencynetwork
-  id: 0039dd09-953f-4eef-bfc7-90bc848fc48a

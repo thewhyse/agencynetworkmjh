@@ -1,0 +1,75 @@
+@import "../base/colors";
+@import "../base/font";
+
+/* ******* ABOUT US PAGE 2023 START ******* */
+
+#co-creation {
+  .et_pb_text_inner {
+    h2 {
+      font-weight: 700 !important;
+    }
+  }
+  .et_pb_column:last-child {
+    .et_pb_module:first-of-type {
+      h5 {
+        font-weight: 400 !important;
+      }
+    }
+  }
+}
+#beyond-basics {
+  .bb-first-row,
+  .bb-third-row {
+    .txt-block {
+      height: 230px;
+      h5 {
+        color: $ts_lavender;
+        padding: 0 0 20px;
+      }
+    }
+  }
+  .sub-title-block h2 {
+    color: $tan_green-blue;
+  }
+}
+.beyond-basics {
+  h5 {
+    color: $ts_lavender;
+    padding: 0 0 20px;
+  }
+  .quote-block {
+    p {
+      color: $tan_green-blue;
+    }
+  }
+}
+.agency-description-row {
+  padding: 120px 20px 20px !important;
+  border: 20px solid #D9DBE4;
+}
+
+@media all and (max-width: 1024px) {
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width: 767px) {
+  #beyond-basics {
+    .bb-first-row,
+    .bb-third-row {
+      .txt-block {
+        height: auto;
+        h5 {
+          padding: 0 0 20px;
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 576px) {
+}
+@media all and (max-width: 480px) {
+}
+@media all and (max-width: 320px) {
+}
+
+/* ******* ABOUT US PAGE 2023 END ******* */

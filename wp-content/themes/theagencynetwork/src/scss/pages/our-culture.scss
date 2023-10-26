@@ -1,0 +1,127 @@
+@import "../base/colors";
+@import "../base/font";
+
+/* ******* OUR CULTURE PAGE 2023 START ******* */
+
+#our-culture-ways {
+  .our-culture-way-block {
+    position: relative;
+    padding: 90px 20px 30px;
+    background: rgb(33, 63, 81);
+    background: -o-linear-gradient(top, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(33, 63, 81, 1)), to(rgba(7, 13, 16, 1)));
+    background: linear-gradient(180deg, rgba(33, 63, 81, 1) 0%, rgba(7, 13, 16, 1) 100%);
+
+    h4 {
+      color: $tan_yellow !important;
+      @include bold($opens, 1.5);
+    }
+    p {
+      color: #fff;
+      @include regular($opens, 1);
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 86px;
+      height: 86px;
+      top: -43px;
+      left: calc(50% - 43px);
+      background-size: cover !important;
+    }
+  }
+}
+#our-culture-ways {
+  .culture-way-row-1 {
+    margin: 60px auto 0;
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-rocket.png") no-repeat center center;
+        }
+      }
+    }
+    .et_pb_column:nth-child(2) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-lightning-bolt.png") no-repeat center center;
+        }
+      }
+    }
+  }
+
+  .culture-way-row-2 {
+    margin: 60px auto 0;
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-start.png") no-repeat center center;
+        }
+      }
+    }
+    .et_pb_column:nth-child(2) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-mentors.png") no-repeat center center;
+        }
+      }
+    }
+
+  }
+
+  .culture-way-row-3 {
+    margin: 60px auto 0;
+    .et_pb_column:nth-child(1) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-megaphone.png") no-repeat center center;
+        }
+      }
+    }
+    .et_pb_column:nth-child(2) {
+      .our-culture-way-block {
+        &:before {
+          background: url("../images/icon-icecream.png") no-repeat center center;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1024px) {
+}
+@media all and (max-width: 980px) {
+  #our-culture-ways {
+    .culture-way-row-1,
+    .culture-way-row-2,
+    .culture-way-row-3 {
+      .et_pb_column:nth-child(2) {
+        margin: 80px auto 0;
+      }
+    }
+  }
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width: 767px) {
+  #our-culture-ways {
+    .our-culture-way-block {
+      &:before {
+        width: 82px;
+        height: 82px;
+        top: -41px;
+        left: calc(50% - 41px);
+        background-size: cover !important;
+      }
+    }
+  }
+}
+@media all and (max-width: 576px) {
+}
+@media all and (max-width: 480px) {
+}
+@media all and (max-width: 320px) {
+}
+
+/* ******* OUR CULTURE PAGE 2023 END ******* */
